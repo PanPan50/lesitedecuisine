@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE extension SYSTEM "ext-1.0.dtd">
+
+<extension engine="1.0">
+	<id>mod_bbcode_strike</id>
+	<title>Strike bbcode</title>
+	<version>1.0</version>
+	<description>Strike text when [s]text[/s] is matched.</description>
+	<author>David Keller</author>
+	<minversion>1.3</minversion>
+	<maxtestedon>1.3.4</maxtestedon>
+
+	<install><![CDATA[
+
+	]]></install>
+
+	<uninstall><![CDATA[
+
+	]]></uninstall>
+
+	<hooks>
+		<hook id="ps_start"><![CDATA[
+		
+function handle_s_tag($text)
+{
+	$result =
+<<<S_BLOCK
+	<s>$text</s>
+S_BLOCK;
+
+	return forum_trim($result);
+}
+
+		]]></hook>
+
+		<hook id="ps_preparse_tags_start"><![CDATA[
+
+$tags[] = $tags_opened[] = $tags_closed[] = $tags_inline[] = $tags_fix[] = 's';
+$tags_limit_bbcode['*'][] = 's';
+$tags_limit_bbcode['url'][] = 's';
+$tags_limit_bbcode['email'][] = 's';
+
+		]]></hook>
+
+		<hook id="ps_do_bbcode_replace"><![CDATA[
+
+$pattern[] = '#\[s\]([^\[]+)\[/s\]#e';
+$replace[] = 'handle_s_tag(\'$1\')';
+	
+		]]></hook>
+	</hooks>
+</extension>

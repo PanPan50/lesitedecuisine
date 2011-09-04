@@ -1,0 +1,78 @@
+
+.panel {
+	margin-bottom: 1em;
+}
+
+.panel .panel-content {
+	padding: 1em;
+	width: auto;
+
+}
+
+.panel br {
+	display: inline;
+}
+
+.panel .hn {
+	padding-right: 0 !important;
+}
+
+.panel .panel-content.news {
+	padding-bottom: 0px;
+}
+
+.panel .forum .main-subhead {
+	margin: -1px;
+}
+
+.panel .forum #forum {
+	margin-left: -1px;
+	margin-right: -1px;
+}
+
+#center .panel .panel-content {
+	padding-top: 0.5em;
+}
+
+#center {
+	display: table;
+}
+
+#leftside {
+	float: left;
+}
+
+#rightside {
+	float: right;
+}
+
+
+div.panel-input {
+	margin-bottom: 8px !important;
+}
+
+div.panel-input input {
+	width: 95%; 
+}
+
+.main-content.panel strong {
+	font-weight: bold;
+}
+
+#rightside .panel {
+	margin-right: 0px !important
+}
+
+.panel ul {
+	list-style: none !important;
+	padding: 0px;
+}
+
+/* For Active topics panel */
+.panel .main-options {
+	margin-bottom: 0;
+}
+
+.panel .news .news-info-right {
+	float: right;
+}

@@ -1,0 +1,85 @@
+/* DEFAULT CSS */
+a{ color:#f70b0b; }
+a:hover{ color:#FFF; }
+#header{border-top:8px solid #f70b0b;}
+#top_menu ul li a:hover{color:#f70b0b;}
+#footer{border-bottom:8px solid #f70b0b;}
+#footer .gotop{background:#f70b0b url(gotop.png) no-repeat 50% 50%;}
+.readmore{ background:#f70b0b; color:#FFF; font-weight:bold;}
+.blog_entry h4{
+	border-color:#f70b0b;
+}
+.underlined_title{
+	border:1px solid; border-width:0 0 1px 0;
+	border-color:#f70b0b;
+	padding:0 0 8px 0; margin:0 0 8px 0;
+	text-transform:uppercase;
+}
+a.selected  { /*--Makes sure that the active tab does not listen to the hover properties--*/
+	background: #f70b0b !important;
+	color:#FFF !important;
+	border-bottom: 1px solid #181818;
+}
+
+ul.tabs li a:hover {
+	background: #f70b0b;
+	color:#FFF !important;
+	border-bottom: 1px solid #181818;
+}
+
+    
+.accordion .over {
+    background: #f70b0b;
+	color:#FFF;
+    }
+	.accordion .on {
+    background: #f70b0b;
+	color:#FFF;
+    }
+
+	#comments{
+		background:#181818; border-top:5px solid #f70b0b;
+	}
+	
+	.authcomment {
+		border:1px solid #f70b0b;
+	}
+	
+.paging a.active {
+	background: #f70b0b;
+	color:#FFF;
+}
+
+.filter_list li a:hover{ background:#f70b0b; color:#FFF !important;}
+.filter_list li a.current{ background:#f70b0b; color:#FFF !important;}
+a.zoom{
+	background:#f70b0b url(zoom.png) no-repeat 50% 50%;
+}
+a.zooming{
+	background:#f70b0b url(zoom.png) no-repeat 50% 50%;
+}
+
+	div.pagination a {
+		background:#222;
+		color:#FFF;
+	}
+	div.pagination a:hover,active {
+		background:#f70b0b;
+		color:#FFF;
+	}
+	#paginator_folio div.pagination a {
+		background:#222;
+		color:#FFF;
+	}
+	#paginator_folio div.pagination a:hover,active {
+		background:#222;
+		color:#f70b0b;
+	}
+	div.pagination span.desactive {
+		background:#222;
+		color: #444;
+	}
+	div.pagination span.courante {
+		background:#f70b0b;
+		color:#FFF;
+	}

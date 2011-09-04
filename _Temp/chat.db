@@ -1,0 +1,5671 @@
+<?php
+$msg = array (
+  0 => 
+  array (
+    'pseudo' => 'DiDay',
+    'texte' => 'test',
+    'date' => 1309798166,
+    'id' => '360',
+  ),
+  1 => 
+  array (
+    'pseudo' => 'DiDay',
+    'texte' => 'tu peux pas',
+    'date' => 1309798209,
+    'id' => '360',
+  ),
+  2 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'erf http://uppix.net/0/c/c/83f2d729a1527514dc94148b9bef6.html',
+    'date' => 1309798865,
+    'id' => '249',
+  ),
+  3 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => 'onemoretest',
+    'date' => 1309799512,
+    'id' => '10',
+  ),
+  4 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'http://lci.tf1.fr/people/barack-obama-sur-le-couac-de-son-toast-a-la-reine-de-la-musique-comme-6507307.html',
+    'date' => 1309799604,
+    'id' => '513',
+  ),
+  5 => 
+  array (
+    'pseudo' => 'odan',
+    'texte' => 'http://www.phoboslab.org/ztype/',
+    'date' => 1309799643,
+    'id' => '65',
+  ),
+  6 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => '@19:14 sympa',
+    'date' => 1309799982,
+    'id' => '10',
+  ),
+  7 => 
+  array (
+    'pseudo' => 'chtitelarve',
+    'texte' => '@19:14 les secr&eacute;taires/dactylos sont favoris&eacute;s !',
+    'date' => 1309820126,
+    'id' => '860',
+  ),
+  8 => 
+  array (
+    'pseudo' => 'noodleboy',
+    'texte' => 'http://www.journaldugeek.com/2011/06/29/les-heros-du-jeu-video-et-dailleurs-en-perles-hama/?utm_source=feedburner&amp;utm_medium=twitter&amp;utm_campaign=Feed%3A+LeJournalDuGeek+%28le+Journal+du+Geek%29',
+    'date' => 1309860211,
+    'id' => '413',
+  ),
+  9 => 
+  array (
+    'pseudo' => 'aliocha',
+    'texte' => '@19:14 1236, niveau 18',
+    'date' => 1309860307,
+    'id' => '53',
+  ),
+  10 => 
+  array (
+    'pseudo' => 'Trax',
+    'texte' => '@12:05 &ccedil;a sent le clavier mac :p niveau 40. 4256 points, 87.4% accuracy.',
+    'date' => 1309866112,
+    'id' => '97',
+  ),
+  11 => 
+  array (
+    'pseudo' => 'Trax',
+    'texte' => 'Niveau 39 en fait je pense.',
+    'date' => 1309866349,
+    'id' => '97',
+  ),
+  12 => 
+  array (
+    'pseudo' => 'Trax',
+    'texte' => 'http://www.newcave.com/game/?id=3581 61',
+    'date' => 1309867182,
+    'id' => '97',
+  ),
+  13 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => '@13:59 41 (le plus chiant &eacute;tait le 23)',
+    'date' => 1309871301,
+    'id' => '10',
+  ),
+  14 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'Faudrait pouvoir afficher des sondage rain ! les gens aime les sondage ! ex: germe caca vit il dans notre monde ?',
+    'date' => 1309885963,
+    'id' => '513',
+  ),
+  15 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'ils aiment !',
+    'date' => 1309885999,
+    'id' => '513',
+  ),
+  16 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'ha, ca fait plaisir de voir la gauche rassembl&eacute;e http://www.dailymotion.com/video/xjmr7z_une-fete-entre-amis-de-l-oligarchie-sarkoziste_news#from=embed',
+    'date' => 1309886690,
+    'id' => '249',
+  ),
+  17 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'un test de fear3 par un pro http://www.youtube.com/watch?v=he7pOsv4HrE',
+    'date' => 1309887043,
+    'id' => '249',
+  ),
+  18 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => '@19:24 pour chercher du taff c\'est donc la qu il fallait etre !',
+    'date' => 1309888703,
+    'id' => '513',
+  ),
+  19 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => 'ah au fait...',
+    'date' => 1309892229,
+    'id' => '2',
+  ),
+  20 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => 'WEEEEEEKKKKK EENNNNNDDDD \\o/',
+    'date' => 1309892246,
+    'id' => '2',
+  ),
+  21 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => 'Prochaine feature, les points bite pour la triburne.',
+    'date' => 1309892300,
+    'id' => '10',
+  ),
+  22 => 
+  array (
+    'pseudo' => 'NiarkNiark',
+    'texte' => 'FUCK YEAH',
+    'date' => 1309892433,
+    'id' => '646',
+  ),
+  23 => 
+  array (
+    'pseudo' => 'NiarkNiark',
+    'texte' => 'Si tu pouvais aussi rajouter des jambons hallal &agrave; la place des liens de Stanouche/Stuffed..',
+    'date' => 1309892463,
+    'id' => '646',
+  ),
+  24 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => 'tu me donnes une id&eacute;e...',
+    'date' => 1309892506,
+    'id' => '10',
+  ),
+  25 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => 'alors voyons sur un post de stany...',
+    'date' => 1309892884,
+    'id' => '10',
+  ),
+  26 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => 'lien : http://www.google.fr',
+    'date' => 1309892900,
+    'id' => '438',
+  ),
+  27 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => ':)',
+    'date' => 1309893159,
+    'id' => '10',
+  ),
+  28 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => 'La censure sioniste frappe la tribune !',
+    'date' => 1309893587,
+    'id' => '2',
+  ),
+  29 => 
+  array (
+    'pseudo' => 'NiarkNiark',
+    'texte' => 'gni',
+    'date' => 1309893742,
+    'id' => '646',
+  ),
+  30 => 
+  array (
+    'pseudo' => 'NiarkNiark',
+    'texte' => 'Les erreurs internal anal c\'est une feature ?',
+    'date' => 1309893760,
+    'id' => '646',
+  ),
+  31 => 
+  array (
+    'pseudo' => 'chtitelarve',
+    'texte' => 'je dirais une confeature',
+    'date' => 1309894088,
+    'id' => '860',
+  ),
+  32 => 
+  array (
+    'pseudo' => 'Kane',
+    'texte' => '@21:22 c\'est comme la pluie en Bretagne, &ccedil;a ne tombe que sur les cons.',
+    'date' => 1309894104,
+    'id' => '804',
+  ),
+  33 => 
+  array (
+    'pseudo' => 'NiarkNiark',
+    'texte' => '@21:28 : C\'est bien foutu alors !',
+    'date' => 1309894184,
+    'id' => '646',
+  ),
+  34 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => 'Des liens baguettent pour stany et stuffed !',
+    'date' => 1309896121,
+    'id' => '10',
+  ),
+  35 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => 'Demain, les liens caca pour tut',
+    'date' => 1309896462,
+    'id' => '10',
+  ),
+  36 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Est-ce que Banon ne baiserait pas avec son avocat ? Chaque fois que je vois des photos d\'eux, le mec se la joue protectecteur "personne y touche c\'est ma nana".',
+    'date' => 1309933132,
+    'id' => '1136',
+  ),
+  37 => 
+  array (
+    'pseudo' => 'velvetu',
+    'texte' => 'Si c\'est le cas, &agrave; la place de l\'avocat, je me m&eacute;fierais d\'une &eacute;ventuelle plainte pour tentative de viol dans les 10 ans',
+    'date' => 1309933518,
+    'id' => '396',
+  ),
+  38 => 
+  array (
+    'pseudo' => 'velvetu',
+    'texte' => 'peut &ecirc;tre dans les 5 ans, si elle n\'en parle pas &agrave; sa m&egrave;re',
+    'date' => 1309933775,
+    'id' => '396',
+  ),
+  39 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'http://www.nadinemorano.fr/',
+    'date' => 1309934100,
+    'id' => '1136',
+  ),
+  40 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'http://www.youtube.com/watch?v=b4jsbjBOPTI',
+    'date' => 1309941018,
+    'id' => '513',
+  ),
+  41 => 
+  array (
+    'pseudo' => 'Cossu',
+    'texte' => 'Ca existe un nLite pour windows7 ?',
+    'date' => 1309947109,
+    'id' => '637',
+  ),
+  42 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'J\'ai besoin d\'un petit logiciel "style" Ikea Home Planner en gratuit que me conseilleriez vous ? ',
+    'date' => 1309950304,
+    'id' => '513',
+  ),
+  43 => 
+  array (
+    'pseudo' => 'ShadoW-',
+    'texte' => 'Les Sims',
+    'date' => 1309952234,
+    'id' => '166',
+  ),
+  44 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => '@12:11http://forum-vista-seven.1fr1.net/t2342-info-vlite-pour-vista-nlite-pour-xp-maintenant-rt-se7en-lite-pour-windows-7',
+    'date' => 1309954746,
+    'id' => '249',
+  ),
+  45 => 
+  array (
+    'pseudo' => 'velvetu',
+    'texte' => 'une belle d&eacute;cision de justice, &agrave; lire in extenso : http://www.lexisnexis.fr/actualites/001.PDF',
+    'date' => 1309962360,
+    'id' => '396',
+  ),
+  46 => 
+  array (
+    'pseudo' => 'Thermostat',
+    'texte' => 'C\'est li&eacute; &agrave; J&eacute;r&ocirc;me BOYER?',
+    'date' => 1309974243,
+    'id' => '870',
+  ),
+  47 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@16:26 D&eacute;lire. C\'est pas un fake ? Ils se sont lach&eacute;s le juge et le greffier. Et l\'autre truffe qui r&eacute;clamait 4 Soja Salaires pour un screenshot d\'un boulard amateur...',
+    'date' => 1309976921,
+    'id' => '1136',
+  ),
+  48 => 
+  array (
+    'pseudo' => 'Thermostat',
+    'texte' => 'C\'est li&eacute; &agrave; J&eacute;r&ocirc;me BOYER?',
+    'date' => 1309977589,
+    'id' => '870',
+  ),
+  49 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => 'http://www.lesitedecuisine.fr/index.php',
+    'date' => 1309979801,
+    'id' => '438',
+  ),
+  50 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => 'http://www.fdesouche.com/',
+    'date' => 1309979855,
+    'id' => '438',
+  ),
+  51 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => '@21:08 j\'ai pas vu l\'effet que c\'est cens&eacute; faire ',
+    'date' => 1309979967,
+    'id' => '438',
+  ),
+  52 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => '@21:19 C\'est dans la tribune extended exclusivement.',
+    'date' => 1309980603,
+    'id' => '10',
+  ),
+  53 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'Ah je vous y prend j\'avais donc vu juste ! je suis depit&eacute; !',
+    'date' => 1309980661,
+    'id' => '513',
+  ),
+  54 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => '@21:30 huhu c\'est bien foutu, ah quand il s\'agit de coder du lol &ccedil;a va souvent tr&egrave;s vite hein !',
+    'date' => 1309982655,
+    'id' => '438',
+  ),
+  55 => 
+  array (
+    'pseudo' => 'mox',
+    'texte' => 'http://www.lemonde.fr/societe/article/2011/07/06/prise-d-otages-dans-un-train-en-gare-de-bordeaux_1545710_3224.html#xtor=RSS-3208  femme de prefet, je comprends pourquoi il y avait 6 fourgons de crs en plus de tout les flics et des 5 camions de pompiers',
+    'date' => 1309985861,
+    'id' => '34',
+  ),
+  56 => 
+  array (
+    'pseudo' => 'mox',
+    'texte' => 'http://www.incredibox.fr/bigbox_en.swf',
+    'date' => 1309989855,
+    'id' => '34',
+  ),
+  57 => 
+  array (
+    'pseudo' => 'ShadoW-',
+    'texte' => 'http://www.youtube.com/watch?v=-juQoPLyb7A',
+    'date' => 1309996824,
+    'id' => '166',
+  ),
+  58 => 
+  array (
+    'pseudo' => 'aliocha',
+    'texte' => '@16:26 Haha &laquo; intitul&eacute; par antiphrase Secret Story &raquo; :D',
+    'date' => 1310020918,
+    'id' => '53',
+  ),
+  59 => 
+  array (
+    'pseudo' => 'aliocha',
+    'texte' => 'Oh la vache, comment c\'est bon, on dirait du Philippe Murray :p',
+    'date' => 1310021056,
+    'id' => '53',
+  ),
+  60 => 
+  array (
+    'pseudo' => 'velvetu',
+    'texte' => 'Je pense qu\'ils h&eacute;siteront dor&eacute;navant &agrave; faire une action en justice qui leur rapporte un euro et un tsunami de foutage de gueule',
+    'date' => 1310024383,
+    'id' => '396',
+  ),
+  61 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Mais y a pas une des parties qui peut faire appel parce que le jugement ne serait pas dans les formes ?',
+    'date' => 1310025025,
+    'id' => '1136',
+  ),
+  62 => 
+  array (
+    'pseudo' => 'velvetu',
+    'texte' => 'si ils peuvent, mais le jugement est dans les formes',
+    'date' => 1310026935,
+    'id' => '396',
+  ),
+  63 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Genre le juge qui dit "Ainsi est-ce la main tremblante mais sans remords", c\'est reconnaitre qu\'on est influenc&eacute; &eacute;motionnellement. M&ecirc;me si c\'est pour de rire, y a pas un avocat qui peut aller en cass pour ca ? (un prof de droit nous disait qu\'un proc&egrave;s pouvait &ecirc;tre cass&eacute; pour un mauvais mod&egrave;le de robe port&eacute; par un juge ou un greffier, je sais pas si c\'est vrai)',
+    'date' => 1310027192,
+    'id' => '1136',
+  ),
+  64 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'No, no, no there\'s no limit',
+    'date' => 1310028611,
+    'id' => '1136',
+  ),
+  65 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => '@22:57 bolos de parisiens, mis &agrave; l\'amende &agrave; 25 par un black d&eacute;m&eacute;nt avec des sabres achet&eacute;s a un punkachien',
+    'date' => 1310032286,
+    'id' => '249',
+  ),
+  66 => 
+  array (
+    'pseudo' => 'Binouze',
+    'texte' => '@11:51 je me sens pas concern&eacute;, g&eacute;n&eacute;ralement dans mon RER c\'&eacute;tait plut&ocirc;t moi et 25 kainfres.',
+    'date' => 1310033934,
+    'id' => '78',
+  ),
+  67 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@12:18 kainfres = africains ?',
+    'date' => 1310034418,
+    'id' => '1136',
+  ),
+  68 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Engagez vous Stany et stuffed http://www.rue89.com/2011/07/07/voisins-vigilants-gueant-veut-des-volontaires-et-vite-212544 On verra si vous aimez vraiment la France',
+    'date' => 1310034854,
+    'id' => '1136',
+  ),
+  69 => 
+  array (
+    'pseudo' => 'Binouze',
+    'texte' => '@12:26 oui !',
+    'date' => 1310035523,
+    'id' => '78',
+  ),
+  70 => 
+  array (
+    'pseudo' => 'ZeShat',
+    'texte' => 'g&eacute;ant le titre de l\'article http://www.liberation.fr/medias/01012346878-metro-la-salariee-d-orange-etait-un-peu-com',
+    'date' => 1310038513,
+    'id' => '251',
+  ),
+  71 => 
+  array (
+    'pseudo' => 'ZORCK',
+    'texte' => 'lol ils sont en train de tourner section de recherche &agrave; mon boulot mdr jean edouard est un informaticien mais lol',
+    'date' => 1310044524,
+    'id' => '238',
+  ),
+  72 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'http://www.youtube.com/user/KABURDACUS#p/f/32/FZm9nAKdgK0',
+    'date' => 1310054433,
+    'id' => '513',
+  ),
+  73 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => '@12:34 ca fait dix ans que &ccedil;a existe &agrave; marseille',
+    'date' => 1310056317,
+    'id' => '249',
+  ),
+  74 => 
+  array (
+    'pseudo' => 'odan',
+    'texte' => '@18:00 et ?',
+    'date' => 1310057382,
+    'id' => '65',
+  ),
+  75 => 
+  array (
+    'pseudo' => 'CopSuck',
+    'texte' => '@18:49 Une pub pour royal cr&eacute;tin ?',
+    'date' => 1310069480,
+    'id' => '121',
+  ),
+  76 => 
+  array (
+    'pseudo' => 'mox',
+    'texte' => 'oh yeah l asile accessible au taf',
+    'date' => 1310113695,
+    'id' => '34',
+  ),
+  77 => 
+  array (
+    'pseudo' => 'mox',
+    'texte' => 'la une du metro d aujourd hui : "la voiture verte n\'est pas encore pas mure"  la lose.',
+    'date' => 1310113757,
+    'id' => '34',
+  ),
+  78 => 
+  array (
+    'pseudo' => 'Binouze',
+    'texte' => '@10:29t\'as un taf ? toi ?',
+    'date' => 1310114202,
+    'id' => '78',
+  ),
+  79 => 
+  array (
+    'pseudo' => 'Binouze',
+    'texte' => 'putain mox ! ',
+    'date' => 1310114227,
+    'id' => '78',
+  ),
+  80 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'PUTAIN MOX !',
+    'date' => 1310114541,
+    'id' => '1136',
+  ),
+  81 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Faut faire un thread 3615 talife',
+    'date' => 1310114556,
+    'id' => '1136',
+  ),
+  82 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Et voter Sarko en 2012, il avait raison, tout est possible !',
+    'date' => 1310114578,
+    'id' => '1136',
+  ),
+  83 => 
+  array (
+    'pseudo' => 'Cartouche',
+    'texte' => '@10:28 S&eacute;curit&eacute;, je voudrais signaler un piratage de compte.',
+    'date' => 1310116403,
+    'id' => '16',
+  ),
+  84 => 
+  array (
+    'pseudo' => 'mox',
+    'texte' => '@10:36 ouais un cdd de 3 mois au cg a bacterie',
+    'date' => 1310122532,
+    'id' => '34',
+  ),
+  85 => 
+  array (
+    'pseudo' => 'mox',
+    'texte' => 'euh bordeaux',
+    'date' => 1310122995,
+    'id' => '34',
+  ),
+  86 => 
+  array (
+    'pseudo' => 'ZORCK',
+    'texte' => 'cool moi aussi bordeaux',
+    'date' => 1310126521,
+    'id' => '238',
+  ),
+  87 => 
+  array (
+    'pseudo' => 'Trax',
+    'texte' => '@12:55 cdd 3 mois high five, je viens d\'&ecirc;tre engag&eacute;.',
+    'date' => 1310128733,
+    'id' => '97',
+  ),
+  88 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Y a une pub bidon UMP sur Arte',
+    'date' => 1310156421,
+    'id' => '1136',
+  ),
+  89 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'On est les meilleurs sur la s&eacute;curit&eacute; gnagnagna',
+    'date' => 1310156437,
+    'id' => '1136',
+  ),
+  90 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'http://www.nofrag.com/2011/jul/08/38268/',
+    'date' => 1310166377,
+    'id' => '513',
+  ),
+  91 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'Items bought:       1. ARMA II  27.95 &euro;       Total: 0.00 &euro;',
+    'date' => 1310166399,
+    'id' => '513',
+  ),
+  92 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'Sauf que la leur site en mousse est down :)',
+    'date' => 1310166435,
+    'id' => '513',
+  ),
+  93 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => 'ah putain merci tonton Patton !',
+    'date' => 1310169390,
+    'id' => '438',
+  ),
+  94 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Rhaaa leur site qui crash quand je rentre le 3&egrave;me coupon.',
+    'date' => 1310197532,
+    'id' => '1136',
+  ),
+  95 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'ouais &ccedil;a merdouille mais je download Arma, donc &ccedil;a marche !',
+    'date' => 1310202412,
+    'id' => '513',
+  ),
+  96 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Done, ca s\'est d&eacute;bloqu&eacute; d\'un coup. Merci pour ce bon plan.',
+    'date' => 1310206848,
+    'id' => '1136',
+  ),
+  97 => 
+  array (
+    'pseudo' => 'Thermostat',
+    'texte' => 'J\'ai bien le jeu sur le site, mais pas sur Capsule. C\'est de la merde leur machin.',
+    'date' => 1310207535,
+    'id' => '870',
+  ),
+  98 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'c\'est probable que leur site de merde n\'etait pas pret a voir toute les pinces de NF debarquer...encul&eacute; de mr green http://www.lespronos.net/avatars/the%20green%20man.gif',
+    'date' => 1310209880,
+    'id' => '513',
+  ),
+  99 => 
+  array (
+    'pseudo' => 'Thermostat',
+    'texte' => 'Amnesia &agrave; 3&euro;50 sur steam, excellent jeu bien flippant.',
+    'date' => 1310211570,
+    'id' => '870',
+  ),
+  100 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'ceci explique cela : http://uppix.net/3/8/b/793f4a6fe847bc4aba92ee1e1edec.jpg',
+    'date' => 1310211724,
+    'id' => '513',
+  ),
+  101 => 
+  array (
+    'pseudo' => 'ShadoW-',
+    'texte' => '@13:39 Putian je pensais que tu parlais de beuh.',
+    'date' => 1310220980,
+    'id' => '166',
+  ),
+  102 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => 'test',
+    'date' => 1310221294,
+    'id' => '10',
+    'bite' => '1',
+    'voters' => 'rain,',
+  ),
+  103 => 
+  array (
+    'pseudo' => 'Thermostat',
+    'texte' => 'Oui Shadow, ils vendent de la marijuana sur steam maintenant.',
+    'date' => 1310224866,
+    'id' => '870',
+    'bite' => 0,
+  ),
+  104 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => '@11:06 j\'ai rentr&eacute; le code, je clicke sur DL now, &ccedil;a lance capsule mais une fois logg&eacute;, rien, faut attendre longtemps ?',
+    'date' => 1310241429,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  105 => 
+  array (
+    'pseudo' => 'Hal',
+    'texte' => 'perso j\'ai arr&ecirc;t&eacute; de persister, je le t&eacute;l&eacute;chargerais en semaine.',
+    'date' => 1310242355,
+    'id' => '307',
+    'bite' => 0,
+  ),
+  106 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => 'J\'ai m&ecirc;me pas r&eacute;ussi &agrave; acc&eacute;der au site depuis hier.',
+    'date' => 1310243911,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  107 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Vous comptez vraiment t&eacute;l&eacute;charger les jeux ?',
+    'date' => 1310246040,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  108 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => 'ArmA 2 gratos je dis pas non',
+    'date' => 1310246403,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  109 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Je me rappelle que des puristes ont dit g&eacute;nial, et les 95% restants l\'ont trait&eacute; de grosse merde plus proche de la sumulation que d\'un vrai jeu.',
+    'date' => 1310246939,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  110 => 
+  array (
+    'pseudo' => 'ShadoW-',
+    'texte' => '@17:21 C\'est le "Amnesia &agrave; 3,50" qui m\'a interpell&eacute;',
+    'date' => 1310256155,
+    'id' => '166',
+    'bite' => 0,
+  ),
+  111 => 
+  array (
+    'pseudo' => 'ShadoW-',
+    'texte' => 'Avouons que ce serait une putain d\'affaire',
+    'date' => 1310256463,
+    'id' => '166',
+    'bite' => 0,
+  ),
+  112 => 
+  array (
+    'pseudo' => 'ShadoW-',
+    'texte' => 'Une "PURE" affaire m&ecirc;me',
+    'date' => 1310256471,
+    'id' => '166',
+    'bite' => 0,
+  ),
+  113 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => 'hop, enfin j\'arrive &agrave; t&eacute;l&eacute;charger arma II, encore 5 heures 30 d\'attente ',
+    'date' => 1310301042,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  114 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => 'cool c\'est pass&eacute; &agrave; 9 heures d\'attente',
+    'date' => 1310302011,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  115 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => '&ccedil;a monte tjs, 16h30 l&agrave;',
+    'date' => 1310302727,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  116 => 
+  array (
+    'pseudo' => 'ZORCK',
+    'texte' => 'image shack version 3d http://3dporch.com/',
+    'date' => 1310305119,
+    'id' => '238',
+    'bite' => 0,
+  ),
+  117 => 
+  array (
+    'pseudo' => 'Hal',
+    'texte' => 'multi/solo sans probl&egrave;mes, &ccedil;a se passe toujours sur nofrag pour jouer?',
+    'date' => 1310324710,
+    'id' => '307',
+    'bite' => 0,
+  ),
+  118 => 
+  array (
+    'pseudo' => 'Hal',
+    'texte' => 'parcontre il faut passer par la capsule pour lancer, et vu que les serveurs sont down...',
+    'date' => 1310325252,
+    'id' => '307',
+    'bite' => 0,
+  ),
+  119 => 
+  array (
+    'pseudo' => 'Hal',
+    'texte' => 'ah non &ccedil;a va :p',
+    'date' => 1310325315,
+    'id' => '307',
+    'bite' => 0,
+  ),
+  120 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Impossible de jouer &agrave; TF2, chaque fois que je le lance y a une mise &agrave; jour de plusieurs Go. Chier.',
+    'date' => 1310325715,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  121 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'Entre ta voisine que tu va niquer, tes voisins portos qui puent la sardine et maintenant ton tf2 qui se M.&agrave;.J comme une merde on peut dire que ton week end a &eacute;t&eacute; relev&eacute; :p',
+    'date' => 1310327716,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  122 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Pire, j\'ai &eacute;t&eacute; train&eacute; &agrave; un concert de Yannick Noah.',
+    'date' => 1310328623,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  123 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'J\'aime pas ce qu\'il fait, mais il est plutot bon sur sc&egrave;ne.',
+    'date' => 1310328642,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  124 => 
+  array (
+    'pseudo' => 'JulienGW1',
+    'texte' => '@22:10 dur',
+    'date' => 1310333629,
+    'id' => '214',
+    'bite' => 0,
+  ),
+  125 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'http://fr.news.yahoo.com/bienfaits-champignons-hallucinog%C3%A8nes-sant%C3%A9-143621786.html',
+    'date' => 1310367150,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  126 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'J\'ai trouv&eacute; un truc marrant pour passer le proxy ici. Ils bloquent m&ecirc;me les pages google cache, mais pas les google translate.',
+    'date' => 1310369091,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  127 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Translate de Chinois &agrave; Japonais, il traduit rien du tout et hop la page telle quelle.',
+    'date' => 1310369123,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  128 => 
+  array (
+    'pseudo' => 'Machin',
+    'texte' => 'Pour les retardataires, Bad Company 2 + Vietnam + update pack &agrave; 9,99&euro; sur Steam.',
+    'date' => 1310376290,
+    'id' => '979',
+    'bite' => 0,
+  ),
+  129 => 
+  array (
+    'pseudo' => 'Cmoi',
+    'texte' => 'Bonjour, je n\'y comprend plus rien, que se passe t\'il??',
+    'date' => 1310385449,
+    'id' => '527',
+    'bite' => 0,
+  ),
+  130 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@13:57 Philosophiquement parlant ?',
+    'date' => 1310387781,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  131 => 
+  array (
+    'pseudo' => 'Cmoi',
+    'texte' => '@14:36tou &agrave; fait. non mais 1er thread que je lis, Napalm qiui parle de poussette, c\'est troublant, non?',
+    'date' => 1310387860,
+    'id' => '527',
+    'bite' => 0,
+  ),
+  132 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => '@14:37 c\'&eacute;tait &agrave; cause d\'un d&eacute;bat sur les poussettes dans "dernier achats".',
+    'date' => 1310387954,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  133 => 
+  array (
+    'pseudo' => 'Cmoi',
+    'texte' => '@14:36tou &agrave; fait. non mais 1er thread que je lis, Napalm qiui parle de poussette, c\'est troublant, non?',
+    'date' => 1310388250,
+    'id' => '527',
+    'bite' => 0,
+  ),
+  134 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => 'Le bot Cmoi est cass&eacute;.',
+    'date' => 1310388279,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  135 => 
+  array (
+    'pseudo' => 'Cmoi',
+    'texte' => '@14:36tou &agrave; fait. non mais 1er thread que je lis, Napalm qiui parle de poussette, c\'est troublant, non?',
+    'date' => 1310388342,
+    'id' => '527',
+    'bite' => 0,
+  ),
+  136 => 
+  array (
+    'pseudo' => 'Cmoi',
+    'texte' => '@14:36tou &agrave; fait. non mais 1er thread que je lis, Napalm qiui parle de poussette, c\'est troublant, non?',
+    'date' => 1310388497,
+    'id' => '527',
+    'bite' => 0,
+  ),
+  137 => 
+  array (
+    'pseudo' => 'Cmoi',
+    'texte' => 'j\'ai rien fait!',
+    'date' => 1310388542,
+    'id' => '527',
+    'bite' => 0,
+  ),
+  138 => 
+  array (
+    'pseudo' => 'Cmoi',
+    'texte' => 'j\'ai rien fait!',
+    'date' => 1310388808,
+    'id' => '527',
+    'bite' => 0,
+  ),
+  139 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Mercurochrome le pansement des h&eacute;ros  !',
+    'date' => 1310388866,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  140 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => 'Ou Juvamine, au choix.',
+    'date' => 1310389099,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  141 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => 'test',
+    'date' => 1310389784,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  142 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'tu as pens&eacute; &agrave; remplacer test par bonjour encul&eacute; ? :D ',
+    'date' => 1310391094,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  143 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Youpi, la nouvelle appli qui communique avec la notre s\'appelle DMC, premi&egrave;re r&eacute;union, les 2 vieux comprenaient pas l\'allusion et les 3 autres nous mariions comme des cons.',
+    'date' => 1310395468,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  144 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'je veux de la retro commission suite &agrave; ma contributuon ! ',
+    'date' => 1310407724,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  145 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'un reportage sur la famille http://saintpierredescorps.blog.lemonde.fr/2011/07/11/alfred-et-ses-pigeons-gitans/#xtor=RSS-3208',
+    'date' => 1310412649,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  146 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Hahaha putain en 2011 quoi... http://pailsnnxd.info/fast-scan/',
+    'date' => 1310414351,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  147 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'test',
+    'date' => 1310414363,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  148 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Zarb quand on poste sur la tribune, on se retrouve sur la page tribune d&eacute;di&eacute;e avec pas le m&ecirc;me style que le forum lui meme.',
+    'date' => 1310414399,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  149 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@rain : ca marche pas le +1/-1 bite ?',
+    'date' => 1310414461,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  150 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => '@22:01 Pas encore.',
+    'date' => 1310414575,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  151 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => '@21:59 C\'est corrig&eacute;, c\'est pour que le F5 apr&egrave;s un post dans la tribune ne fasse plus chier.',
+    'date' => 1310414673,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  152 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => 'D\'ailleurs si certains veulent bosser un peu sur la tribune pour le +1/-1, j\'en chie un peu avec jQuery pour trouver une solution ad&eacute;quate... J\'y arriverai, mais &ccedil;a va prendre du temps.',
+    'date' => 1310414735,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  153 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => 'Et pour le style, c\'est tellement la merde dans punbb pour les css que j\'ai pr&eacute;f&eacute;r&eacute; en cr&eacute;er un. M\'enfin c\'est facile de modifier &ccedil;a, A vot\' bon coeur.',
+    'date' => 1310414836,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  154 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@22:05 What\'s the problem ? Il te faut une table et la requ&ecirc;te qui va bien ?',
+    'date' => 1310415099,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  155 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => '@22:11 Je veux faire &ccedil;a bien, sans recharger la page, &ccedil;a serait trop facile. Comme le reste, de l\'ajax.',
+    'date' => 1310415276,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  156 => 
+  array (
+    'pseudo' => 'PanPan',
+    'texte' => 'J\'aurais fait encore plus noir moi, histoire qu\'on ne puisse rien lire....',
+    'date' => 1310417060,
+    'id' => '250',
+    'bite' => 0,
+  ),
+  157 => 
+  array (
+    'pseudo' => 'Sardaukar',
+    'texte' => 'vous repartiez les mains pleines ... http://www.10minutesaperdre.fr/2011/06/09/a-la-fistiniere-camera-au-poing-le-reportage-sur-la-fistiniere/',
+    'date' => 1310448465,
+    'id' => '88',
+    'bite' => 0,
+  ),
+  158 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@rain : Le proxy picool est down :\'(',
+    'date' => 1310457593,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  159 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => '@09:59 Lequel ? MP',
+    'date' => 1310475482,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  160 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => '@14:58 si t\'as une r&eacute;ponse &agrave; mon mp aussi au passage',
+    'date' => 1310484672,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  161 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => 'http://www.youtube.com/watch?v=bArXQ2ok8kA',
+    'date' => 1310487207,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  162 => 
+  array (
+    'pseudo' => 'PanPan',
+    'texte' => 'rain tu peux me faire un export de la bdd asile_forum_dev et me la foutre sur un ftp pour que je la r&eacute;cup&egrave;re ?',
+    'date' => 1310489485,
+    'id' => '250',
+    'bite' => 0,
+  ),
+  163 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'prout',
+    'date' => 1310495730,
+    'id' => '97',
+    'bite' => 0,
+  ),
+  164 => 
+  array (
+    'pseudo' => 'Trax',
+    'texte' => 'test',
+    'date' => 1310497191,
+    'id' => '97',
+    'bite' => 0,
+  ),
+  165 => 
+  array (
+    'pseudo' => 'Trax',
+    'texte' => 'oups, j\'ai tout cass&eacute; :\\',
+    'date' => 1310497221,
+    'id' => '97',
+    'bite' => 0,
+  ),
+  166 => 
+  array (
+    'pseudo' => 'Trax',
+    'texte' => 'test2',
+    'date' => 1310497318,
+    'id' => '97',
+    'bite' => 0,
+  ),
+  167 => 
+  array (
+    'pseudo' => 'Trax',
+    'texte' => 'D&eacute;sol&eacute; :(',
+    'date' => 1310497394,
+    'id' => '97',
+    'bite' => 0,
+  ),
+  168 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => 'Ahaha, pas mal.',
+    'date' => 1310497444,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  169 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => 'Tu peux t\'amuser si tu veux, elle va pas rester longtemps.',
+    'date' => 1310497595,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  170 => 
+  array (
+    'pseudo' => 'Trax',
+    'texte' => 'ok :)',
+    'date' => 1310498427,
+    'id' => '97',
+    'bite' => 0,
+  ),
+  171 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'test',
+    'date' => 1310498906,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  172 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'ca casse rien :(',
+    'date' => 1310498917,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  173 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'oulala',
+    'date' => 1310499733,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  174 => 
+  array (
+    'pseudo' => 'PunkTumG',
+    'texte' => 'test',
+    'date' => 1310508087,
+    'id' => '60',
+    'bite' => 0,
+  ),
+  175 => 
+  array (
+    'pseudo' => 'Topy',
+    'texte' => 'http://www.jeuxvideo.fr/tag-insolite/bnp-ubisoft-guerre-coup-post-its-actu-435014.html',
+    'date' => 1310552220,
+    'id' => '265',
+    'bite' => 0,
+  ),
+  176 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => 'Putain Chronopost &ccedil;a fait fait 10x &agrave; des heures diff&eacute;rentes que j\'ai "bonjour, toutes les lignes de votre correspondant..." quelle bande de branques',
+    'date' => 1310568767,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  177 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => 'moi j\'ai r&eacute;&ccedil;u 4 coups de t&eacute;l pour le don du sang, ils ne veulent plus de mon sang, fallait &ecirc;tre con d&egrave;j&agrave; ...  l&agrave; ils veulent direct du fric, mais j\'en ai pas bordel, allo vous &ecirc;tes boulanger, vous avez du fric ? non mais j\'ai du sang, non merci ...',
+    'date' => 1310569443,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  178 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@16:52 Moi c\'est avec le FIVA et ca fait 300 fois sur 3 mois. En plus ca te mange une comm\' contrairement &agrave; la sonnerie tut tut "occup&eacute;".',
+    'date' => 1310570200,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  179 => 
+  array (
+    'pseudo' => 'ZeShat',
+    'texte' => 'halp http://www.lesitedecuisine.fr/viewtopic.php?pid=324328#p324328',
+    'date' => 1310573843,
+    'id' => '251',
+    'bite' => 0,
+  ),
+  180 => 
+  array (
+    'pseudo' => 'Mml-sama',
+    'texte' => 'Y\'a 2 ans mon chat mourrait, y\'a 2 mois mon p&egrave;re, et l&agrave; le chien est en train d\'y passer. Tout le monde meurt c\'est nul &gt;:(',
+    'date' => 1310592836,
+    'id' => '615',
+    'bite' => 0,
+  ),
+  181 => 
+  array (
+    'pseudo' => 'Mml-sama',
+    'texte' => 'mon GRAND-p&egrave;re ffs. J\'aurais pr&eacute;f&eacute;r&eacute; que mon p&egrave;re y passe en premier finalement.',
+    'date' => 1310592865,
+    'id' => '615',
+    'bite' => 0,
+  ),
+  182 => 
+  array (
+    'pseudo' => 'Thermostat',
+    'texte' => 'U&eacute; tfasson l&eacute; paran c tro d batar lol',
+    'date' => 1310594003,
+    'id' => '870',
+    'bite' => 0,
+  ),
+  183 => 
+  array (
+    'pseudo' => 'odan',
+    'texte' => '@23:34 ah bah voil&agrave;, t\'es presque grande maintenant. Encore quelques tuiles et tu d&eacute;biteras ptet des pintes int&eacute;ressantes',
+    'date' => 1310617717,
+    'id' => '65',
+    'bite' => 0,
+  ),
+  184 => 
+  array (
+    'pseudo' => 'ZeShat',
+    'texte' => 'oyeah, treize heures de sommeil et un r&ecirc;ve lucide',
+    'date' => 1310627531,
+    'id' => '251',
+    'bite' => 0,
+  ),
+  185 => 
+  array (
+    'pseudo' => 'ZeShat',
+    'texte' => 'et je ne suis pas en week end (la foule hue mon entreprise)',
+    'date' => 1310627550,
+    'id' => '251',
+    'bite' => 0,
+  ),
+  186 => 
+  array (
+    'pseudo' => 'Trax',
+    'texte' => 'Un nouveau evil dead : http://moviemikes.com/2011/07/bruce-campbell-confirms-new-evil-dead-is-real/',
+    'date' => 1310629398,
+    'id' => '97',
+    'bite' => 0,
+  ),
+  187 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'affiche de Dark Knight Rises http://uppix.net/f/2/2/a94a127f01543b449d1bf0a5f3538.html',
+    'date' => 1310631370,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  188 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'farcry 3 en vid&eacute;o http://www.ripten.com/2011/07/08/new-farcry-vide/',
+    'date' => 1310632181,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  189 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Holala trop drole la feature custom de merde juste pour moi, le forum est illisible, je ris.',
+    'date' => 1310635847,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  190 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Je dois dire merci &agrave; qui pour ne plus pouvoir utiliser le forum ? Trax ?',
+    'date' => 1310635915,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  191 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => '@11:31 Ca fait quoi ? Je comprends pas le code.',
+    'date' => 1310636209,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  192 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Ca remplace tous les liens et tous les noms des gens du site par lol, chauve',
+    'date' => 1310636374,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  193 => 
+  array (
+    'pseudo' => 'NiarkNiark',
+    'texte' => 'h&eacute;h&eacute;h&eacute;',
+    'date' => 1310636508,
+    'id' => '646',
+    'bite' => 0,
+  ),
+  194 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Les liens encore je peux apprendre par coeur &agrave; force, mais la tribune est illisible http://uppix.net/1/0/4/27c4613c87bbc360feb25184d6749.html',
+    'date' => 1310636570,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  195 => 
+  array (
+    'pseudo' => 'Trax',
+    'texte' => 'hihi, bon c\'est que la home.',
+    'date' => 1310636732,
+    'id' => '97',
+    'bite' => 0,
+  ),
+  196 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Oui hihi, je ne sais pas qui rit, vu que je ne vois plus les noms des gens ducon',
+    'date' => 1310636766,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  197 => 
+  array (
+    'pseudo' => 'Thermostat',
+    'texte' => 'Soja gros con. (Sign&eacute; Conrad)',
+    'date' => 1310636879,
+    'id' => '870',
+    'bite' => 0,
+  ),
+  198 => 
+  array (
+    'pseudo' => 'Trax',
+    'texte' => 'J\'imagine que la home a chop&eacute; un cheval de Troy en dur dans la base.',
+    'date' => 1310636914,
+    'id' => '97',
+    'bite' => 0,
+  ),
+  199 => 
+  array (
+    'pseudo' => 'NiarkNiark',
+    'texte' => 'Le screen est dr&ocirc;le quand m&ecirc;me',
+    'date' => 1310637002,
+    'id' => '646',
+    'bite' => 0,
+  ),
+  200 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Ouais, pousser la blague jusqu\'&agrave; rendre un truc inutilisable ca ressemble bien &agrave; Trax ca',
+    'date' => 1310637023,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  201 => 
+  array (
+    'pseudo' => 'NiarkNiark',
+    'texte' => 'Souviens toi que ce n\'est pas dr&ocirc;le uniquement pour toi',
+    'date' => 1310637321,
+    'id' => '646',
+    'bite' => 0,
+  ),
+  202 => 
+  array (
+    'pseudo' => 'ZeShat',
+    'texte' => 'TRAX = GOD',
+    'date' => 1310638613,
+    'id' => '251',
+    'bite' => 0,
+  ),
+  203 => 
+  array (
+    'pseudo' => 'Bewaltz',
+    'texte' => 'Excellent',
+    'date' => 1310640030,
+    'id' => '112',
+    'bite' => 0,
+  ),
+  204 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '',
+    'date' => 1310646016,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  205 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => 'C\'est plus compliqu&eacute; que &ccedil;a :) ',
+    'date' => 1310648571,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  206 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => 'Bon allez, corrig&eacute;.',
+    'date' => 1310653102,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  207 => 
+  array (
+    'pseudo' => 'velvetu',
+    'texte' => 'je suis le seul &agrave; devoir taper "connard" pour valider un message?',
+    'date' => 1310668386,
+    'id' => '396',
+    'bite' => 0,
+  ),
+  208 => 
+  array (
+    'pseudo' => 'velvetu',
+    'texte' => 'dans le forum, pas dans la tribune',
+    'date' => 1310668408,
+    'id' => '396',
+    'bite' => 0,
+  ),
+  209 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => '@20:33 C\'est corrig&eacute;.',
+    'date' => 1310670388,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  210 => 
+  array (
+    'pseudo' => 'donspliff',
+    'texte' => 'Matez la 2, les Tchernolovers. J\'ai envie d\'y aller.',
+    'date' => 1310671556,
+    'id' => '146',
+    'bite' => 0,
+  ),
+  211 => 
+  array (
+    'pseudo' => 'Trax',
+    'texte' => '@21:25 Arg rat&eacute;, c\'&eacute;tait quelle &eacute;mission ? D&egrave;s fois qu\'elle passe en ketchup.',
+    'date' => 1310678698,
+    'id' => '97',
+    'bite' => 0,
+  ),
+  212 => 
+  array (
+    'pseudo' => 'Trax',
+    'texte' => '@23:24 nvm c\'est payant sur france tv',
+    'date' => 1310678953,
+    'id' => '97',
+    'bite' => 0,
+  ),
+  213 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'Ok, donc google+ c\'est EXACTEMENT la meme chose que fb en fait.',
+    'date' => 1310679514,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  214 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'sama+GW1 = http://www.youtube.com/user/oldpatton?gl=FR&amp;hl=fr#p/c/6AACB96588F43F81/37/lehK2zno9S4 C\'est tellement beau ! Longue vie aux amoureux ! :D',
+    'date' => 1310692768,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  215 => 
+  array (
+    'pseudo' => 'Sawn',
+    'texte' => 'On s\'en branle',
+    'date' => 1310693004,
+    'id' => '347',
+    'bite' => 0,
+  ),
+  216 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'Merci d\'envoyer vos dons &agrave; pattonite l\'amour au dela de vos limites pour un mariage heureux ! ',
+    'date' => 1310693043,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  217 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => '.fr',
+    'date' => 1310693075,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  218 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'ccp sur demande pour les bouquets et autres object intimes ou pas ',
+    'date' => 1310693191,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  219 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'http://www.youtube.com/user/oldpatton?gl=FR&amp;hl=fr#p/c/37/lehK2zno9S4',
+    'date' => 1310693448,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  220 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'enorme http://www.youtube.com/watch?v=evA-R9OS-Vo',
+    'date' => 1310702342,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  221 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Si un jour vous commandez sur le net et que la livraison est annonc&eacute;e par Exapaq, annulez ou payez pour que ca soit livr&eacute; par une autre boite.',
+    'date' => 1310712665,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  222 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'La clim bourre &agrave; mort, je me p&egrave;le le cul.',
+    'date' => 1310719123,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  223 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => 'http://www.youtube.com/results?search_query=thechloelamb&amp;aq=f',
+    'date' => 1310720824,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  224 => 
+  array (
+    'pseudo' => 'S-ATA Nick',
+    'texte' => 'http://fr.wikipedia.org/wiki/Omorashi',
+    'date' => 1310721190,
+    'id' => '892',
+    'bite' => 0,
+  ),
+  225 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@11:13 Tape diapers lover dans google.',
+    'date' => 1310723204,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  226 => 
+  array (
+    'pseudo' => 'odan',
+    'texte' => 'http://www.lepoint.fr/medias/ecoutes-telephoniques-la-patronne-de-la-filiale-britannique-du-groupe-murdoch-jette-l-eponge-15-07-2011-1353050_260.php au trou sale pute !',
+    'date' => 1310726194,
+    'id' => '65',
+    'bite' => 0,
+  ),
+  227 => 
+  array (
+    'pseudo' => 'odan',
+    'texte' => 'http://www.liberation.fr/medias/01012349204-rebekah-brooks-proche-de-murdoch-a-demissionne-de-news-international : \'La jeune femme\'... Ils ont de la merde dans les yeux en plus',
+    'date' => 1310726347,
+    'id' => '65',
+    'bite' => 0,
+  ),
+  228 => 
+  array (
+    'pseudo' => 'odan',
+    'texte' => 'http://www.economist.com/node/18958553 cette putasse s\'en est sorti alors que tous ses petits copains sont en taule',
+    'date' => 1310727857,
+    'id' => '65',
+    'bite' => 0,
+  ),
+  229 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => '@08:51ah chronopost = tjs impossible de les contacter, j\'ai encore essay&eacute; 5x aujourd\'hui...',
+    'date' => 1310740187,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  230 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Il a l\'air super gentil et inoffensif le vieux Murdock.',
+    'date' => 1310744828,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  231 => 
+  array (
+    'pseudo' => 'S-ATA Nick',
+    'texte' => 'dites les experts &ccedil;a peut durer longtemps une garde &agrave; vue ? renouvelable?',
+    'date' => 1310762716,
+    'id' => '892',
+    'bite' => 0,
+  ),
+  232 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => '@22:45 Ton pote bob a des probl&egrave;mes ?',
+    'date' => 1310763377,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  233 => 
+  array (
+    'pseudo' => 'S-ATA Nick',
+    'texte' => 'non non',
+    'date' => 1310766053,
+    'id' => '892',
+    'bite' => 0,
+  ),
+  234 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => '@22:45 pour de la "drogue" c\'est plus long, m&ecirc;me pour un joint, plus long que ivresse au volant ou taper sur sa femme, ou bagarre, c\'est connerie l&agrave; quoi',
+    'date' => 1310767097,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  235 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => 'ces connerie l&agrave;',
+    'date' => 1310767120,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  236 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => 'logiquement c\'est 24 heures, le proc peut demander plus si il pense qu\'il ne parle pas assez, &ccedil;a peut &ecirc;tre juste pour lui donner une "le&ccedil;on"',
+    'date' => 1310767315,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  237 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => 'en tout cas pas plus de 48 heures, vu que c\'&eacute;tait ta question',
+    'date' => 1310767440,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  238 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => 'c\'est juste un peu moins que pour du terrorisme, car l&agrave; c\'est prolongeable &agrave; volont&eacute; par le proc, il s\'est arret&eacute; en hollande o&ugrave; il a pouss&eacute; jusqu\'en Yougo ? ',
+    'date' => 1310767594,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  239 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => 'c\'est 6 jours s\'il a achet&eacute; une grenade au noir  :p',
+    'date' => 1310767720,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  240 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Si ca se trouve il fume p&eacute;p&egrave;re ta beuh chez toi',
+    'date' => 1310795873,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  241 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'chez lui pardon',
+    'date' => 1310795881,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  242 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Cette le&ccedil;on vaut bien un fromage &agrave; 40&euro; sans doute.',
+    'date' => 1310796317,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  243 => 
+  array (
+    'pseudo' => 'S-ATA Nick',
+    'texte' => 'ok merci pour ton avis d\'expert, j\'avais toujours pas de r&eacute;ponse de lui hier soir &ccedil;a faisait 24h, il est en hollande',
+    'date' => 1310808731,
+    'id' => '892',
+    'bite' => 0,
+  ),
+  244 => 
+  array (
+    'pseudo' => 'Thermostat',
+    'texte' => 'T\'es un ouf mec, t\'as achet&eacute; un 10g le RAID va d&eacute;barquer chez toi.',
+    'date' => 1310815556,
+    'id' => '870',
+    'bite' => 0,
+  ),
+  245 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => '@11:32 il est reparti en racheter ? :p &ccedil;a c\'est du commercial, il l&acirc;che pas le client !',
+    'date' => 1310816235,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  246 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'Ca c\'est l\'amour du travail bien fait',
+    'date' => 1310824489,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  247 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Tu vas voir qu\'il te fera surement 5%. Sur les 40&euro; qu\'il va te redemander.',
+    'date' => 1310830324,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  248 => 
+  array (
+    'pseudo' => 'PanPan',
+    'texte' => 'Vous pouvez me tester ma tribune ?',
+    'date' => 1310834229,
+    'id' => '250',
+    'bite' => 0,
+  ),
+  249 => 
+  array (
+    'pseudo' => 'PanPan',
+    'texte' => 'http://dev.lesitedecuisine.fr/',
+    'date' => 1310834236,
+    'id' => '250',
+    'bite' => 0,
+  ),
+  250 => 
+  array (
+    'pseudo' => 'ZeShat',
+    'texte' => '@18:37 404 not found quand on veut poster un truc.',
+    'date' => 1310837075,
+    'id' => '251',
+    'bite' => 0,
+  ),
+  251 => 
+  array (
+    'pseudo' => 'PanPan',
+    'texte' => '@19:24 Faut se logger avant !',
+    'date' => 1310837135,
+    'id' => '250',
+    'bite' => 0,
+  ),
+  252 => 
+  array (
+    'pseudo' => 'S-ATA Nick',
+    'texte' => '@13:37 : nan il est pas reparti en racheter, je suppose qu\'il &eacute;tait encore l&agrave; en garde &agrave; vue mais maintenant &ccedil;a fait quand m&ecirc;me 48h jme demande ce qu\'il fout',
+    'date' => 1310846528,
+    'id' => '892',
+    'bite' => 0,
+  ),
+  253 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Arr&ecirc;te, tu le sais ce qu\'il fout.',
+    'date' => 1310847012,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  254 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Au fond de toi.',
+    'date' => 1310847020,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  255 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'teaser de john carter of mars http://www.commeaucinema.com/showbiz/john-carter-of-mars-le-teaser,217447',
+    'date' => 1310850392,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  256 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => 'Le reportage sur tchernobyl d\'envoy&eacute; special sur youtube : http://www.youtube.com/watch?v=mwZ7x8n8ewg',
+    'date' => 1310851360,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  257 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => '@23:22 path&eacute;tiques les "touristes" par contre le fran&ccedil;ais du guide russe qui mange ses patates est plus que que correct',
+    'date' => 1310889664,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  258 => 
+  array (
+    'pseudo' => 'Sawn',
+    'texte' => '@23:22 merci',
+    'date' => 1310892769,
+    'id' => '347',
+    'bite' => 0,
+  ),
+  259 => 
+  array (
+    'pseudo' => 'Muad\'Dib',
+    'texte' => 'http://boobiepie.com',
+    'date' => 1310897654,
+    'id' => '866',
+    'bite' => 0,
+  ),
+  260 => 
+  array (
+    'pseudo' => 'odan',
+    'texte' => 'http://www.lepoint.fr/monde/ecoutes-telephoniques-arrestation-de-rebekah-brooks-17-07-2011-1353471_24.php au trou au trou !!!!',
+    'date' => 1310906921,
+    'id' => '65',
+    'bite' => 0,
+  ),
+  261 => 
+  array (
+    'pseudo' => 'chtitelarve',
+    'texte' => 'ils ont fini par arr&ecirc;ter la jeune femme',
+    'date' => 1310919246,
+    'id' => '860',
+    'bite' => 0,
+  ),
+  262 => 
+  array (
+    'pseudo' => 'Trax',
+    'texte' => '@23:22 ah, merci. Quels t&ecirc;tes &agrave; claques ces fran&ccedil;ais.',
+    'date' => 1310924805,
+    'id' => '97',
+    'bite' => 0,
+  ),
+  263 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'quality bl0g (music) http://secret-music-box.blogspot.com/',
+    'date' => 1310927432,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  264 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'un autre degueu si tu aimes la house t\'entends n3gro ! http://electrohouse.ucoz.com/',
+    'date' => 1310927700,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  265 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'chier qu\'il n\'y ait pas d\'histo sur la tribune, j\'aurais voulu voir les video de la camewhore de rain (the quelque chose lamb) mais je retrouve pas le nom',
+    'date' => 1310932794,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  266 => 
+  array (
+    'pseudo' => 'leo',
+    'texte' => 'ya pas de kikko historique sur ton navigateur fantaisie ? http://www.youtube.com/results?search_query=thechloelamb&amp;aq=f',
+    'date' => 1310943871,
+    'id' => '465',
+    'bite' => 0,
+  ),
+  267 => 
+  array (
+    'pseudo' => 'leo',
+    'texte' => 'sinon pourquoi Stany a un drapeau turc a cot&eacute; de son pseudo ?',
+    'date' => 1310943914,
+    'id' => '465',
+    'bite' => 0,
+  ),
+  268 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@01:04 Merci. Le truc c\'est que j\'ai vu le lien au taff ou youtube est bloqu&eacute;, et rentr&eacute; &agrave; la maison (donc sur un autre PC sans le m&ecirc;me historique) je pouvais pas retrouver.',
+    'date' => 1310971895,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  269 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Ils ont vir&eacute; sa sextape sous la douche apparemment, sniff je la verrai jamais.',
+    'date' => 1310971915,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  270 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@14:48 Comique de l\'ann&eacute;e : "Rebekah Brooks affirme qu\'elle n\'&eacute;tait pas au courant de ces pratiques."',
+    'date' => 1310972535,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  271 => 
+  array (
+    'pseudo' => 'leo',
+    'texte' => '@08:51 ils ont vir&eacute; toutes les images int&eacute;ressantes.',
+    'date' => 1310980773,
+    'id' => '465',
+    'bite' => 0,
+  ),
+  272 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'http://www.lexpress.fr/actualite/societe/hommes-battus-tous-les-pretextes-etaient-bons-pour-me-rabaisser_1012145.html et les comms sont croustillants',
+    'date' => 1310981284,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  273 => 
+  array (
+    'pseudo' => 'Thermostat',
+    'texte' => '12s sur google http://www.xpornz.com/video/cam-chloe-lamb---shower-sex-2892555.html',
+    'date' => 1310985692,
+    'id' => '870',
+    'bite' => 0,
+  ),
+  274 => 
+  array (
+    'pseudo' => 'Topy',
+    'texte' => '12:41 c\'est qui cette nana ?',
+    'date' => 1310993013,
+    'id' => '265',
+    'bite' => 0,
+  ),
+  275 => 
+  array (
+    'pseudo' => 'Binouze',
+    'texte' => '@14:43 une fille qui a un vagin ET internet. ',
+    'date' => 1310993259,
+    'id' => '78',
+    'bite' => 0,
+  ),
+  276 => 
+  array (
+    'pseudo' => 'Binouze',
+    'texte' => 'Et pour montrer qu\'elle est au top, comme si elle avait tout &agrave; prouver &agrave; l\'internet entier, qui verra bien &agrave; la fin qui est au top ; du coup elle se flime avec son copain en train de se faire troncher.',
+    'date' => 1310993360,
+    'id' => '78',
+    'bite' => 0,
+  ),
+  277 => 
+  array (
+    'pseudo' => 'Binouze',
+    'texte' => 'herm.. enfin, bref',
+    'date' => 1310993409,
+    'id' => '78',
+    'bite' => 0,
+  ),
+  278 => 
+  array (
+    'pseudo' => 'Binouze',
+    'texte' => 'http://3.bp.blogspot.com/-XjyYu6KHo6w/Th3p2ezKvwI/AAAAAAAAACg/hZDC-DAhsV4/s320/1184991-j-aime.png',
+    'date' => 1310993462,
+    'id' => '78',
+    'bite' => 0,
+  ),
+  279 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'l\'asile est tout mort :(',
+    'date' => 1311002153,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  280 => 
+  array (
+    'pseudo' => 'Thermostat',
+    'texte' => 'http://www.glazman.org/weblog/dotclear/public/TC/2villepin2.png http://www.glazman.org/weblog/dotclear/public/TC/2villepin1.png',
+    'date' => 1311002830,
+    'id' => '870',
+    'bite' => 0,
+  ),
+  281 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => '@17:27 hahaha. C\'est un site bio 100% recycl&eacute; !',
+    'date' => 1311003069,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  282 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => '@17:27 jolie de foutre une carotte de cette taille.',
+    'date' => 1311004688,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  283 => 
+  array (
+    'pseudo' => 'chtitelarve',
+    'texte' => 'C\'est pas possible un truc pareil, ils sont stupides ou quoi ?',
+    'date' => 1311016730,
+    'id' => '860',
+    'bite' => 0,
+  ),
+  284 => 
+  array (
+    'pseudo' => 'odan',
+    'texte' => 'Cette putasse de Brooks va encore s\'en tirer et tous vont tomber autour',
+    'date' => 1311017330,
+    'id' => '65',
+    'bite' => 0,
+  ),
+  285 => 
+  array (
+    'pseudo' => 'Conrad',
+    'texte' => 'Et un mort, un.',
+    'date' => 1311028037,
+    'id' => '17',
+    'bite' => 0,
+  ),
+  286 => 
+  array (
+    'pseudo' => 'velvetu',
+    'texte' => 'internet : plus loin, plus haut, plus fort http://www.google.com/search?hl=en&amp;rlz=1G1GGLQ_ENUS372&amp;q=241543903&amp;um=1&amp;ie=UTF-8&amp;tbm=isch&amp;source=og&amp;sa=N&amp;tab=wi&amp;biw=1366&amp;bih=649',
+    'date' => 1311059205,
+    'id' => '396',
+    'bite' => 0,
+  ),
+  287 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => '@09:06 hahaha g&eacute;nial',
+    'date' => 1311062667,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  288 => 
+  array (
+    'pseudo' => 'Topy',
+    'texte' => 'copier/coller http://www.2villepin2012.fr/ http://www.conseil-funeraire.fr/',
+    'date' => 1311064025,
+    'id' => '265',
+    'bite' => 0,
+  ),
+  289 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => '@10:27 t\'es pas du genre &agrave; lire les 5 lignes en dessous? :)',
+    'date' => 1311064296,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  290 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => '@09:06 dans le m&ecirc;me genre (mais avec un putain de site en flash http://www.aplatventre.com/  )',
+    'date' => 1311064346,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  291 => 
+  array (
+    'pseudo' => 'Topy',
+    'texte' => 'J\'ai le droit &agrave; faire du old aussi -_-',
+    'date' => 1311065085,
+    'id' => '265',
+    'bite' => 0,
+  ),
+  292 => 
+  array (
+    'pseudo' => 'velvetu',
+    'texte' => 'Cisco : before http://91.68.209.10/bmi/www.fohguild.org/forums/attachments/screenshots/177037d1311010210-funny-strange-random-pics-internet_of_things_infographic_3final.jpg   and now http://www.lefigaro.fr/flash-eco/2011/07/18/97002-20110718FILWWW00484-cisco-supprime-6500-emplois.php',
+    'date' => 1311066177,
+    'id' => '396',
+    'bite' => 0,
+  ),
+  293 => 
+  array (
+    'pseudo' => 'Binouze',
+    'texte' => '@11:02 Scandaleux. Mais bien fait, &ccedil;a leur apprendra a se prendre pour les rois. ',
+    'date' => 1311069070,
+    'id' => '78',
+    'bite' => 0,
+  ),
+  294 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@11:51 Jalousie professionnelle ? Il marche le premier lien de velvetu chez vous ?',
+    'date' => 1311069392,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  295 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => '@11:56 pas le premier',
+    'date' => 1311069572,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  296 => 
+  array (
+    'pseudo' => 'NiarkNiark',
+    'texte' => '@11:56 : nop.',
+    'date' => 1311070244,
+    'id' => '646',
+    'bite' => 0,
+  ),
+  297 => 
+  array (
+    'pseudo' => 'velvetu',
+    'texte' => '@11:56 &amp; others : http://uppix.net/6/5/3/32af3e90ad7c977e8f7d55f72eac3.jpg',
+    'date' => 1311070350,
+    'id' => '396',
+    'bite' => 0,
+  ),
+  298 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Sarko qui se r&eacute;pand en larmes sur les h&eacute;ros morts au combat pour faire oublier qu\'il est responsable de leur mort pour cause de l&eacute;chage de cul de Bush, c\'est &agrave; gerber.',
+    'date' => 1311071713,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  299 => 
+  array (
+    'pseudo' => 'Loner',
+    'texte' => 'J\'appuie.',
+    'date' => 1311071911,
+    'id' => '660',
+    'bite' => 0,
+  ),
+  300 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => 'Mais non enfin, c\'est pour PROTEGER LA FRANCE DE LA MENACE TERRORISTE',
+    'date' => 1311073286,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  301 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => 'Et si tu doutes, c\'est que tu es un terroriste.',
+    'date' => 1311073297,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  302 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Les gauchistes sont des terroristes d\'ailleurs.',
+    'date' => 1311075577,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  303 => 
+  array (
+    'pseudo' => 'Topy',
+    'texte' => '12:35 C\'est Chirac qui a embarqu&eacute; la France en Afgha, pas Sarko. ',
+    'date' => 1311075913,
+    'id' => '265',
+    'bite' => 0,
+  ),
+  304 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@13:45 Exact. A la demande de l\'OTAN. Mais c\'est Sarko qui a plus que doubl&eacute; les effectifs sur place.',
+    'date' => 1311076362,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  305 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => '@13:52 et nous a fait rentrer dans l\'OTAN aussi',
+    'date' => 1311076763,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  306 => 
+  array (
+    'pseudo' => 'leo',
+    'texte' => 'OTAN pour moi.',
+    'date' => 1311077465,
+    'id' => '465',
+    'bite' => 0,
+  ),
+  307 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@14:11 Blague plus que qu\'ONU',
+    'date' => 1311077965,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  308 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => 'http://www.generation-nt.com/lulzsec-the-sun-murdoch-mort-actualite-1232451.html',
+    'date' => 1311078837,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  309 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'membres de l\'otan = dhimmis',
+    'date' => 1311084600,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  310 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'vive le g&eacute;n&eacute;ral de Gaulle !',
+    'date' => 1311084619,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  311 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'des mechants flics et pompiers fachistes boloss&eacute;s par des braves jeunes http://www.20minutes.fr/ledirect/759858/val-de-marne-policiers-pompiers-pris-partie-cite-villiers',
+    'date' => 1311084788,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  312 => 
+  array (
+    'pseudo' => 'Topy',
+    'texte' => 'Ahaha le bordel, il a niqu&eacute; toute la famille ... http://www.leparisien.fr/dsk-la-chute/ce-que-la-mere-de-tristane-banon-aurait-dit-aux-enqueteurs-18-07-2011-1537079.php',
+    'date' => 1311091014,
+    'id' => '265',
+    'bite' => 0,
+  ),
+  313 => 
+  array (
+    'pseudo' => 'VoPo',
+    'texte' => 'Ah mainteant c\'est "individus". Trop stigmatisant "les jeunes"',
+    'date' => 1311092615,
+    'id' => '786',
+    'bite' => 0,
+  ),
+  314 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@17:56 Encore quelques jours et elle dira que DSK est en fait le p&egrave;re de Tristane.',
+    'date' => 1311102180,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  315 => 
+  array (
+    'pseudo' => 'Beonelo',
+    'texte' => '\'Tain, avec toutes ces affaires, Sarkozy est capable de se faire &eacute;lire',
+    'date' => 1311108052,
+    'id' => '31',
+    'bite' => 0,
+  ),
+  316 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'http://www.tsr.ch/info/monde/3279251-coup-de-filet-contre-anonymous-aux-etats-unis.html',
+    'date' => 1311146725,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  317 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => 'lol les chinois  http://birdabroad.wordpress.com/2011/07/20/are-you-listening-steve-jobs/',
+    'date' => 1311158087,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  318 => 
+  array (
+    'pseudo' => 'velvetu',
+    'texte' => 'je vous avais fait passer cela ou pas? http://www.legadroit.com/',
+    'date' => 1311175358,
+    'id' => '396',
+    'bite' => 0,
+  ),
+  319 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => '@17:22 Elle fait escort aussi ?',
+    'date' => 1311176441,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  320 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@17:22 Oui. Elle est bonne physiquement. Je ne sais pas si elle est efficace mais elle a bien mont&eacute; son affaire en tout cas. Vous avez un code de d&eacute;onto qui emp&ecirc;che de baiser avec les clients ou pas ?',
+    'date' => 1311185802,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  321 => 
+  array (
+    'pseudo' => 'leo',
+    'texte' => 'Le fait de se faire enculer par les honoraires &ccedil;a compte ?',
+    'date' => 1311190577,
+    'id' => '465',
+    'bite' => 0,
+  ),
+  322 => 
+  array (
+    'pseudo' => 'Topy',
+    'texte' => 'L\'article avec la recette des saucisses piqu&eacute;es aux p&acirc;tes a disparu c\'est quoi ce BORDEL ???',
+    'date' => 1311190849,
+    'id' => '265',
+    'bite' => 0,
+  ),
+  323 => 
+  array (
+    'pseudo' => 'mox',
+    'texte' => 'c"est quoi l adresse du proxy ?',
+    'date' => 1311194310,
+    'id' => '34',
+    'bite' => 0,
+  ),
+  324 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@22:38 Check your mp',
+    'date' => 1311195339,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  325 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Raininou ch&eacute;ri ador&eacute;, un micro d&eacute;tail, quand on cite quelqu\'un sur la tribune, ca colle l\'heure mais un espace juste apr&egrave;s serait tip top parfait.',
+    'date' => 1311195369,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  326 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => '@22:56 moi j\'ai un espace',
+    'date' => 1311230551,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  327 => 
+  array (
+    'pseudo' => 'velvetu',
+    'texte' => 'pornochic http://www.youtube.com/watch?v=JQ3aQUBoFPs',
+    'date' => 1311233773,
+    'id' => '396',
+    'bite' => 0,
+  ),
+  328 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@08:42T\'utilises quel navigateur, Chrome ?',
+    'date' => 1311234039,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  329 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => '@09:40 ff 7a2',
+    'date' => 1311238101,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  330 => 
+  array (
+    'pseudo' => 'Conrad',
+    'texte' => '@10:48pas d\'espace pour moi FF5',
+    'date' => 1311238917,
+    'id' => '17',
+    'bite' => 0,
+  ),
+  331 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@11:01FF 3.6.18 here',
+    'date' => 1311239917,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  332 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => '@11:18 chrome',
+    'date' => 1311240075,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  333 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => '@11:21 ie9',
+    'date' => 1311240113,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  334 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => '@11:21 safari',
+    'date' => 1311240146,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  335 => 
+  array (
+    'pseudo' => 'velvetu',
+    'texte' => '@11:21 FF5 et j\'en ai rien &agrave; branler de pas avoir d\'espace',
+    'date' => 1311240179,
+    'id' => '396',
+    'bite' => 0,
+  ),
+  336 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => 'Donc voil&agrave;, et sous ff 5 ou j\'&eacute;tais avant &ccedil;a marchait aussi, vu que l\'espace est cod&eacute;. On doit pas faire la m&ecirc;me chose.',
+    'date' => 1311240243,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  337 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => 'Ahhh, la tribune de merde ! J\'&eacute;tais sur la tribune enlarge your penis moi.',
+    'date' => 1311240290,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  338 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => 'Voil&agrave;, fixed.',
+    'date' => 1311240451,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  339 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@11:21 Exact, ca marche sur la tribune noire, mais pas sur l\'int&eacute;gr&eacute;e &agrave; la home.',
+    'date' => 1311240467,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  340 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@11:27 Enfin maintenant si',
+    'date' => 1311240483,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  341 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => '@11:24 merci',
+    'date' => 1311245058,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  342 => 
+  array (
+    'pseudo' => 'S-ATA Nick',
+    'texte' => '@11:27ouin j\'ai toujours pas d\'espace moi',
+    'date' => 1311252855,
+    'id' => '892',
+    'bite' => 0,
+  ),
+  343 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'http://forum.hardware.fr/hfr/Discussions/Viepratique/oopad-affaire-arnaque-sujet_92558_1.htm',
+    'date' => 1311255021,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  344 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'http://blogs.forbes.com/christopherhelman/2011/07/20/abu-dhabi-oil-sheikh-writes-his-name-in-the-sand-two-miles-wide/',
+    'date' => 1311260021,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  345 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'rain mp -_-',
+    'date' => 1311265231,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  346 => 
+  array (
+    'pseudo' => 'leo',
+    'texte' => '@15:30 j\'ai lu que la page 1 mais, ils sont pas un peu con con sur hfr ?',
+    'date' => 1311265779,
+    'id' => '465',
+    'bite' => 0,
+  ),
+  347 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => '@18:20 R&eacute;pondu.',
+    'date' => 1311268454,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  348 => 
+  array (
+    'pseudo' => 'Cartouche',
+    'texte' => 'http://www.lepoint.fr/culture/marilyn-monroe-certains-l-aiment-chaude-21-07-2011-1354832_3.php &agrave; tout hasard, quelqu\'un a un liens vers les films dont il est questrion ?',
+    'date' => 1311271769,
+    'id' => '16',
+    'bite' => 0,
+  ),
+  349 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => '@20:09 ca http://www.redtube.com/11512 ?',
+    'date' => 1311272312,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  350 => 
+  array (
+    'pseudo' => 'PanPan',
+    'texte' => 'Venez tester bande de boatards !! http://dev.lesitedecuisine.fr/',
+    'date' => 1311272417,
+    'id' => '250',
+    'bite' => 0,
+  ),
+  351 => 
+  array (
+    'pseudo' => 'Cartouche',
+    'texte' => '@20:18 merci, j\'avais bobonne dans le salon derri&egrave;re moi je ne pouvais pas me lancer une recherche sur ce genre de site',
+    'date' => 1311274352,
+    'id' => '16',
+    'bite' => 0,
+  ),
+  352 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Meme pas tr&egrave;s ressemblante la fake Marylin.',
+    'date' => 1311274872,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  353 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'vu comment c\'est flou en meme temps, je vois pas l\'interet',
+    'date' => 1311275235,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  354 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'nichons de type full hd ou rien ',
+    'date' => 1311275249,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  355 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'le bon gout ukrainien http://www.planet.fr/dossiers-de-la-redaction-ukraine-des-feministes-manifestent-seins-nus.85481.1466.html?page=0,5',
+    'date' => 1311315606,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  356 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'The encyclopedia of women in prison film http://www.premiumwanadoo.com/wipfilms/',
+    'date' => 1311315909,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  357 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'ultrabonnasse http://www.hq69.com/galleries/body_in_mind_klaudia_windowseat/index.php',
+    'date' => 1311322226,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  358 => 
+  array (
+    'pseudo' => 'JulienGW1',
+    'texte' => '@10:10 ouch!',
+    'date' => 1311326105,
+    'id' => '214',
+    'bite' => 0,
+  ),
+  359 => 
+  array (
+    'pseudo' => 'JulienGW1',
+    'texte' => 'putain j\'en fais quoi de ce fichier Xpress de merde avec ma suite adobe',
+    'date' => 1311326630,
+    'id' => '214',
+    'bite' => 0,
+  ),
+  360 => 
+  array (
+    'pseudo' => 'JulienGW1',
+    'texte' => 'halp :(',
+    'date' => 1311326639,
+    'id' => '214',
+    'bite' => 0,
+  ),
+  361 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => '@11:23 Q2ID FFS !',
+    'date' => 1311327468,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  362 => 
+  array (
+    'pseudo' => 'JulienGW1',
+    'texte' => '@11:37 PGM',
+    'date' => 1311327644,
+    'id' => '214',
+    'bite' => 0,
+  ),
+  363 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => '@11:40http://www.xclusive.com.au/products/details_css.asp?item=22001516',
+    'date' => 1311329641,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  364 => 
+  array (
+    'pseudo' => 'JulienGW1',
+    'texte' => '@12:14 en warez je le trouve qu\'en .dmg chier',
+    'date' => 1311329708,
+    'id' => '214',
+    'bite' => 0,
+  ),
+  365 => 
+  array (
+    'pseudo' => 'JulienGW1',
+    'texte' => 'Ay&eacute;&eacute;&eacute;&eacute; j\'ai mes heures, je suis officiellement intermittent de la lolerie \\o/',
+    'date' => 1311333578,
+    'id' => '214',
+    'bite' => 0,
+  ),
+  366 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@13:19 Wut ?',
+    'date' => 1311333743,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  367 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@rain : tiens l\'espace est reparti sur la tribune int&eacute;gr&eacute;e en cliquant sur un heure. Code volatile ?',
+    'date' => 1311333767,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  368 => 
+  array (
+    'pseudo' => 'Mml-sama',
+    'texte' => '@11:15 h&eacute; ho tu crois que je lis pas la tribune? pute',
+    'date' => 1311335324,
+    'id' => '615',
+    'bite' => 0,
+  ),
+  369 => 
+  array (
+    'pseudo' => 'Mml-sama',
+    'texte' => 'Bon et puis f&eacute;licitations quand m&ecirc;me! _o/\\o/\\o_',
+    'date' => 1311335875,
+    'id' => '615',
+    'bite' => 0,
+  ),
+  370 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => '@12:15http://help.adobe.com/fr_FR/InDesign/5.0/help.html?content=WSa285fff53dea4f8617383751001ea8cb3f-6d47.html',
+    'date' => 1311335947,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  371 => 
+  array (
+    'pseudo' => 'mox',
+    'texte' => 'week end \\o/',
+    'date' => 1311339641,
+    'id' => '34',
+    'bite' => 0,
+  ),
+  372 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'dtc la Gr&ecirc;ce http://www.ouest-france.fr/actu/actuDet_-Le-sauvetage-de-la-Grece-va-couter-15-milliards-d-euros-a-la-France_39382-1882831_actu.Htm',
+    'date' => 1311342331,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  373 => 
+  array (
+    'pseudo' => 'mox',
+    'texte' => 'http://www.europe1.fr/International/Norvege-l-explosion-est-due-a-une-bombe-639631/  cible de merde , c\'est plus ce que c\'etait le terrorisme',
+    'date' => 1311348489,
+    'id' => '34',
+    'bite' => 0,
+  ),
+  374 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'du travail d\'arabes',
+    'date' => 1311352951,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  375 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'ou de nationalistes',
+    'date' => 1311359453,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  376 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => '- L&rsquo;auteur de la fusillade a &eacute;t&eacute; arr&ecirc;t&eacute;, a annonc&eacute; la t&eacute;l&eacute;vision publique norv&eacute;gienne NRK, qui le d&eacute;crit comme &laquo;grand, blond et &agrave; l&rsquo;aspect nordique&raquo;.',
+    'date' => 1311364651,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  377 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@21:57 Un arabe donc',
+    'date' => 1311366393,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  378 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Un kabyle en fait',
+    'date' => 1311366409,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  379 => 
+  array (
+    'pseudo' => 'Conrad',
+    'texte' => 'Ca prouve qu\'ils arrivent &agrave; endoctriner les "fromages".',
+    'date' => 1311371422,
+    'id' => '17',
+    'bite' => 0,
+  ),
+  380 => 
+  array (
+    'pseudo' => 'Sac à mouille',
+    'texte' => 'Bon j\'emm&eacute;nage pas &agrave; Oslo tout de suite alors.',
+    'date' => 1311375246,
+    'id' => '1257',
+    'bite' => 0,
+  ),
+  381 => 
+  array (
+    'pseudo' => 'mox',
+    'texte' => '@00:54 ben si justement',
+    'date' => 1311376150,
+    'id' => '34',
+    'bite' => 0,
+  ),
+  382 => 
+  array (
+    'pseudo' => 'Sac à mouille',
+    'texte' => 'Ah ben vi les loyers vont chuter, c\'est le moment o&ugrave; jamais. =)',
+    'date' => 1311376402,
+    'id' => '1257',
+    'bite' => 0,
+  ),
+  383 => 
+  array (
+    'pseudo' => 'mox',
+    'texte' => '84 personnes sont mortes dans la fusillade , ah ouais quant m&ecirc;me',
+    'date' => 1311413036,
+    'id' => '34',
+    'bite' => 0,
+  ),
+  384 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Je ne retrouve pas le site des records de spree killing, mais il me semble qu\'il rentre direct &agrave; la premi&egrave;re place loin devant les autres lui',
+    'date' => 1311414726,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  385 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'chr&eacute;tiens &gt; muslims',
+    'date' => 1311415706,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  386 => 
+  array (
+    'pseudo' => 'NiarkNiark',
+    'texte' => '@12:08 Toujours, ils sont arriv&eacute;s avant :p',
+    'date' => 1311416846,
+    'id' => '646',
+    'bite' => 0,
+  ),
+  387 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'http://photo.europe1.fr/infos/international/23.07-montage-oslo-suspect-640271/11535029-3-fre-FR/23.07-montage-oslo-suspect_scalewidth_630.jpg http://cf.img.v4.skyrock.net/cfd/val1020/pics/2849193958_1.jpg',
+    'date' => 1311417275,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  388 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => '@11:52 Le site est mort, c\'&eacute;tait spreekillers.org http://chanarchive.org/content/50_b/44719667/1194476588479.jpg',
+    'date' => 1311417912,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  389 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@12:45 Merci, ca m\'aurait trott&eacute; dans la t&ecirc;te. Ouais, first place direct !',
+    'date' => 1311418201,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  390 => 
+  array (
+    'pseudo' => 'Conrad',
+    'texte' => 'L\'&icirc;le &eacute;tait une bonne strat&eacute;gie.',
+    'date' => 1311419075,
+    'id' => '17',
+    'bite' => 0,
+  ),
+  391 => 
+  array (
+    'pseudo' => 'pololefou',
+    'texte' => 'Haha mon nouveau titre !',
+    'date' => 1311422093,
+    'id' => '35',
+    'bite' => 0,
+  ),
+  392 => 
+  array (
+    'pseudo' => 'pololefou',
+    'texte' => 'Haha mon nouveau titre !',
+    'date' => 1311422097,
+    'id' => '35',
+    'bite' => 0,
+  ),
+  393 => 
+  array (
+    'pseudo' => 'pololefou',
+    'texte' => 'oups',
+    'date' => 1311422121,
+    'id' => '35',
+    'bite' => 0,
+  ),
+  394 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => '"il se d&eacute;crit comme "conservateur", "chr&eacute;tien", c&eacute;libataire, int&eacute;ress&eacute; par la chasse et par des jeux tels que World of Warcraft et Modern Warfare 2." ',
+    'date' => 1311457327,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  395 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => '92 de ratio k/d quand meme ... ',
+    'date' => 1311457362,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  396 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'C\'est surement pas en jouant au monopoli ou &agrave; la petanque qu\'il aurrait pu faire &ccedil;a hein...',
+    'date' => 1311457428,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  397 => 
+  array (
+    'pseudo' => 'reblochon',
+    'texte' => 'jalouse ?',
+    'date' => 1311459505,
+    'id' => '4',
+    'bite' => 0,
+  ),
+  398 => 
+  array (
+    'pseudo' => 'reblochon',
+    'texte' => 'jalouse ?',
+    'date' => 1311459506,
+    'id' => '4',
+    'bite' => 0,
+  ),
+  399 => 
+  array (
+    'pseudo' => 'reblochon',
+    'texte' => 'je ne savais pas qu\'on avait h&eacute;rit&eacute; d\'une tribune en carton-p&acirc;te',
+    'date' => 1311459536,
+    'id' => '4',
+    'bite' => 0,
+  ),
+  400 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => '92 kills... &agrave; ce niveau faut pas deconner c\'est du bugexploit, du wallhack de merde ! ',
+    'date' => 1311460271,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  401 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@23:42 Il n\'a pas &eacute;t&eacute; tu&eacute; une seule fois, son k/d ratio est donc ind&eacute;fini',
+    'date' => 1311463038,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  402 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => '01:17 Sachant que paul va respawner entre 4 murs d\'une prison ! sachant qu\'il a ete banned de la reallife, et qu\'il ne tuera probablement jamais plus personne sauf lui meme peu etre  ',
+    'date' => 1311496419,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  403 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => '+T',
+    'date' => 1311496446,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  404 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'Des lors peut on consid&eacute;rer son ratio k/d comme infini, compte tenu du fait qu\'il est hors jeu definitif ? Tu as 4 heure connard !',
+    'date' => 1311496612,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  405 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'dans 15 ans il est dehors...',
+    'date' => 1311499466,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  406 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'ah et ta gueule aussi !',
+    'date' => 1311499480,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  407 => 
+  array (
+    'pseudo' => 'Beonelo',
+    'texte' => 'http://www.lemonde.fr/europe/article/2011/07/24/la-marche-des-salopes-atteint-l-islande_1552274_3214.html',
+    'date' => 1311502531,
+    'id' => '31',
+    'bite' => 0,
+  ),
+  408 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'un tgv au bon gout chnois http://www.lemonde.fr/asie-pacifique/article/2011/07/23/accident-de-train-meurtrier-en-chine_1552252_3216.html',
+    'date' => 1311504304,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  409 => 
+  array (
+    'pseudo' => 'reblochon',
+    'texte' => '@12:15 putain les slogans de merde misandres !',
+    'date' => 1311507278,
+    'id' => '4',
+    'bite' => 0,
+  ),
+  410 => 
+  array (
+    'pseudo' => 'reblochon',
+    'texte' => 'Bigard remet le paquet, au premier rang au centre &agrave; 1metre de lui, c\'est sympa &agrave; voir. Plus pour les conneries qu\'il fait entre les sketchs ou avec le public.',
+    'date' => 1311507361,
+    'id' => '4',
+    'bite' => 0,
+  ),
+  411 => 
+  array (
+    'pseudo' => 'reblochon',
+    'texte' => 'Surtout quand ses victimes se trouvent un peu &agrave; droit de l&agrave; o&ugrave; on &eacute;tait assis. ',
+    'date' => 1311507418,
+    'id' => '4',
+    'bite' => 0,
+  ),
+  412 => 
+  array (
+    'pseudo' => 'reblochon',
+    'texte' => 'Apr&egrave;s les ing&eacute;nieurs russes morts dans un accident, l\'&eacute;pid&eacute;mie continue en Iran, le temps est mossad. http://www.radio-canada.ca/nouvelles/International/2011/07/23/005-iran-nucleaire-scientifique.shtml',
+    'date' => 1311508234,
+    'id' => '4',
+    'bite' => 0,
+  ),
+  413 => 
+  array (
+    'pseudo' => 'reblochon',
+    'texte' => 'Et une tentative d&eacute;sesp&eacute;r&eacute;e pour battre la norv&egrave;ge ! http://www.radio-canada.ca/nouvelles/International/2011/07/24/001-texas-dallas-massacre.shtml',
+    'date' => 1311508338,
+    'id' => '4',
+    'bite' => 0,
+  ),
+  414 => 
+  array (
+    'pseudo' => 'reblochon',
+    'texte' => 'merde, on me dit qu\'HFThiefaine revient sur l\'avant sc&egrave;ne parce que son dernier album est bon ... quelle sombre bouse inaudible !',
+    'date' => 1311513123,
+    'id' => '4',
+    'bite' => 0,
+  ),
+  415 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => '@11:24 T\'as raison mon con...il va crever en prison !',
+    'date' => 1311515002,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  416 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => '@15:43 et non connard c\'est 21 ans maxi en norvege http://www.udi.no/Norwegian-Directorate-of-Immigration/Central-topics/Protection/New-in-Norway/Informations-pour-les-demandeurs-dasile/Lois-et-infractions-a-la-loi-en-Norvege/',
+    'date' => 1311516647,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  417 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '"Camille is now friends with" je ne suis pas tr&egrave;s bon en anglais, mais is friend, pourquoi un s ?',
+    'date' => 1311516731,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  418 => 
+  array (
+    'pseudo' => 'ZeShat',
+    'texte' => 'PARCE QUE BECAUSE CONNARD',
+    'date' => 1311519295,
+    'id' => '251',
+    'bite' => 0,
+  ),
+  419 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'encul&eacute; de tanj ! ce sera donc l\'exception qui confirme la regle noob ! Probable qu\'il va aller dans une maison de fou parce qu\'il le vaut bien connard ! T\'as aussi un lien pour les maisons de fou noob ? ',
+    'date' => 1311523712,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  420 => 
+  array (
+    'pseudo' => 'Bewaltz',
+    'texte' => 'et parce que BECAUSE THE NIGHT',
+    'date' => 1311530187,
+    'id' => '112',
+    'bite' => 0,
+  ),
+  421 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => '@18:08 ha bon, et pourquoi &ccedil;a cr&eacute;tin ?',
+    'date' => 1311530672,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  422 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'le trailer de the mirrors edge 2...',
+    'date' => 1311532452,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  423 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'euh non de spiderman http://www.nme.com/nme-video/the-amazing-spider-man---trailer/1069758878001',
+    'date' => 1311532465,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  424 => 
+  array (
+    'pseudo' => 'Beonelo',
+    'texte' => '@20:34 &Ccedil;a a tout l\'air d\'&ecirc;tre un copycat du premier (enfin celui qui est sorti il y a &agrave; peu pr&egrave;s 8 ans)',
+    'date' => 1311535196,
+    'id' => '31',
+    'bite' => 0,
+  ),
+  425 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => '@21:19 En effet, c\'est un reset des films puisque raimi &agrave; d&eacute;cid&eacute; de ne pas faire le 4.',
+    'date' => 1311537709,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  426 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => '@20:04 ecoute libre &agrave; toi de croire en la justice norvegienne et au pere noel, la verit&eacute; et surtout le bon sens me font dire que personne ne le laissera sortir ! Attendons le proc&egrave;s pour commencer',
+    'date' => 1311538025,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  427 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'http://www.rue89.com/2011/07/21/takieddine-les-revelations-qui-embarrassent-lelysee-215107',
+    'date' => 1311579277,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  428 => 
+  array (
+    'pseudo' => 'mox',
+    'texte' => 'ahah copp&eacute; dans la piscine',
+    'date' => 1311588250,
+    'id' => '34',
+    'bite' => 0,
+  ),
+  429 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Rapport&eacute;e au nombre de ses victimes, une peine de 21 ans correspondrait &agrave; 82 jours par meurtre.',
+    'date' => 1311589810,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  430 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => '@22:07 il va tomber du Velux comme le tueur de Nanterre',
+    'date' => 1311599385,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  431 => 
+  array (
+    'pseudo' => 'mox',
+    'texte' => '@12:30S\'il autorise de nombreuses remises de peine, le droit norv&eacute;gien permet tout de m&ecirc;me de garder en prison un d&eacute;tenu au-del&agrave; des 21 ans, par tranches de 5 ans renouvelables, s\'il est encore consid&eacute;r&eacute; comme dangereux par les experts. ',
+    'date' => 1311605665,
+    'id' => '34',
+    'bite' => 0,
+  ),
+  432 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@16:54 S\'il existe des risques de r&eacute;cidive. Difficile &agrave; dire si le mec s\'est amend&eacute; et jure qu\'il ne recommencera pas. Il aura 21 ans pour ce faire (voire moins je sais pas si c\'est 21 ans incompressibles)',
+    'date' => 1311605866,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  433 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Et autant de temps pour pr&eacute;parer son prochain plan pour battre son record.',
+    'date' => 1311605889,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  434 => 
+  array (
+    'pseudo' => 'reblochon',
+    'texte' => 'La derni&egrave;re fois que j\'ai vu un auteur-politique du genre se faire mettre en taule, c\'est pas 1500 pages qu\'il a &eacute;crit, mais meinkampf. Je lui pr&eacute;vois un merveilleux avenir &agrave; ce petit jeune.',
+    'date' => 1311607657,
+    'id' => '4',
+    'bite' => 0,
+  ),
+  435 => 
+  array (
+    'pseudo' => 'reblochon',
+    'texte' => 'De 93 &agrave; 76 morts ... le ratio baisse.',
+    'date' => 1311608109,
+    'id' => '4',
+    'bite' => 0,
+  ),
+  436 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'Tout pour dire que le tanj raconte de la merde ! le tanj c\'est un peu la sardine qui a bouch&eacute; le port de Marseille tavu !',
+    'date' => 1311610721,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  437 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => '+&ccedil;a',
+    'date' => 1311610736,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  438 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => '@18:18 ha bon, developpe fistule !',
+    'date' => 1311617087,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  439 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'le premier ministre norv&eacute;gien, a estim&eacute; dimanche que la r&eacute;ponse au carnage &eacute;tait "plus de d&eacute;mocratie, plus d\'ouverture, plus d\'humanit&eacute;, mais sans na&iuml;vet&eacute;".',
+    'date' => 1311617402,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  440 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => '&ccedil;a fera donc 15 ans',
+    'date' => 1311617589,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  441 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'la dedans http://acidcow.com/pics/6667-a-prison-in-norway-14-pics.html',
+    'date' => 1311617955,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  442 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@20:19 Ouais, faut vraiment &ecirc;tre con pour chercher l\'efficacit&eacute; et la r&eacute;insertion plutot que la vengeance d&eacute;bile et populiste.',
+    'date' => 1311618429,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  443 => 
+  array (
+    'pseudo' => 'NiarkNiark',
+    'texte' => '@20:19 : Faut que t\'arretes la d&eacute;sinformation Stuffed "t\'s basically for people who broke the speed limit (you go to jail here if you go a certain percantage over the speedlimit), DUI and petty crimes"',
+    'date' => 1311622576,
+    'id' => '646',
+    'bite' => 0,
+  ),
+  444 => 
+  array (
+    'pseudo' => 'Machin',
+    'texte' => 'http://www.youtube.com/watch?v=nfHd0XeqFVw Ode &agrave; DSK',
+    'date' => 1311622636,
+    'id' => '979',
+    'bite' => 0,
+  ),
+  445 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => '@20:27 sauf que notre ami n\'entre dans aucuns des deux schemas ! faut retablir la peine de mort pour les k/d ratio &gt;5/0  ',
+    'date' => 1311624237,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  446 => 
+  array (
+    'pseudo' => 'mox',
+    'texte' => '@21:37 ohoh putain',
+    'date' => 1311624451,
+    'id' => '34',
+    'bite' => 0,
+  ),
+  447 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@22:03 Y a oas de r&eacute;troactivit&eacute; au p&eacute;nal, sauf contre les nazis.',
+    'date' => 1311624568,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  448 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => 'http://www.lefigaro.fr/actualite-france/2011/07/26/01016-20110726ARTFIG00357-un-faux-gainsbourg-poignarde-un-faux-johnny.php hahaha',
+    'date' => 1311680053,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  449 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Donnez : http://fr.news.yahoo.com/terres-cultivables-dethiopie-vendues-produire-agro-carburants-094009813.html',
+    'date' => 1311681246,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  450 => 
+  array (
+    'pseudo' => 'Viky',
+    'texte' => 'http://estcequecestbientotleweekend.fr/',
+    'date' => 1311697830,
+    'id' => '90',
+    'bite' => 0,
+  ),
+  451 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => '@18:30 gngnngngnnnnnnnngnnnnnnn',
+    'date' => 1311699483,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  452 => 
+  array (
+    'pseudo' => 'mox',
+    'texte' => 'http://www.humblebundle.com/?hib3 ca grimpe dur',
+    'date' => 1311712698,
+    'id' => '34',
+    'bite' => 0,
+  ),
+  453 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@22:38 J\'adore l\'id&eacute;e, mais aucun des jeux ne me branche :/',
+    'date' => 1311718680,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  454 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Il a vraiment un probl&egrave;me DSK pour baiser cette horrible chose, que ca soit de force ou consenti.',
+    'date' => 1311750603,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  455 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'tu fais du racimse',
+    'date' => 1311759987,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  456 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@11:46 Ouais, contre les ob&egrave;ses.',
+    'date' => 1311763828,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  457 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Je pense qu\'on devrait les mettre dans des camps, en plus avec toute cette graisse on pourrait produire un max d\'&eacute;lectricit&eacute;.',
+    'date' => 1311763861,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  458 => 
+  array (
+    'pseudo' => 'Thermostat',
+    'texte' => 'C\'est d&eacute;j&agrave; pass&eacute; y\'a pas longtemps, mais je ne m\'en lasse pas. http://www.20min.ch/ro/news/insolite/story/Ils-ont-rate-l-empaillage-de-leur-animal-25885109',
+    'date' => 1311773894,
+    'id' => '870',
+    'bite' => 0,
+  ),
+  459 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => '@15:38 putain y\'en a des g&eacute;niaux. Qui &agrave; l\'id&eacute;e de recyler sa bestiole crev&eacute;e en peigne?',
+    'date' => 1311774062,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  460 => 
+  array (
+    'pseudo' => 'PanPan',
+    'texte' => 'Pour Stany : Tu peux consulter l\'int&eacute;grale de la tribune ici -&gt; http://dev.lesitedecuisine.fr/index.php le seul hic pour l\'instant c\'est que tu n\'as que le mois en cours qui fonctionne, mais &ccedil;a va bient&ocirc;t marcher compl&egrave;tement !',
+    'date' => 1311786000,
+    'id' => '250',
+    'bite' => 0,
+  ),
+  461 => 
+  array (
+    'pseudo' => 'PanPan',
+    'texte' => 'Alors est-ce que &ccedil;a marche ce bordel ?',
+    'date' => 1311793024,
+    'id' => '250',
+    'bite' => 0,
+  ),
+  462 => 
+  array (
+    'pseudo' => 'PanPan',
+    'texte' => '\'\' "" &amp;&amp; @@ ##',
+    'date' => 1311793161,
+    'id' => '250',
+    'bite' => 0,
+  ),
+  463 => 
+  array (
+    'pseudo' => 'PanPan',
+    'texte' => '&ccedil;&ccedil;&ccedil;&ccedil;',
+    'date' => 1311793385,
+    'id' => '250',
+    'bite' => 0,
+  ),
+  464 => 
+  array (
+    'pseudo' => 'PanPan',
+    'texte' => 'Bon maintenant quand vous &eacute;crivez ici, &ccedil;a &eacute;crit dans ma tribune sur http://dev.lesitedecuisine.fr/index.php mais pas l\'inverse !!',
+    'date' => 1311793423,
+    'id' => '250',
+    'bite' => 0,
+  ),
+  465 => 
+  array (
+    'pseudo' => 'mr_zlu',
+    'texte' => '@21:03 la skin est trop bien',
+    'date' => 1311803514,
+    'id' => '39',
+    'bite' => 0,
+  ),
+  466 => 
+  array (
+    'pseudo' => 'mr_zlu',
+    'texte' => 'je veux la m&ecirc;me dans les th&egrave;mes du site',
+    'date' => 1311803526,
+    'id' => '39',
+    'bite' => 0,
+  ),
+  467 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'J\'ai envie d\'abattre le mec qui presente sur',
+    'date' => 1311808171,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  468 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'J\'ai envie d\'abattre le mec qui presente sur',
+    'date' => 1311808171,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  469 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'J\'ai envie d\'abattre le mec qui presente la meteo sur la 6, il fait tellement de jeu de mot merdique, ca devrait etre illegal.',
+    'date' => 1311808206,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  470 => 
+  array (
+    'pseudo' => 'ZeShat',
+    'texte' => 't\'as aussi la possibilit&eacute; d\'',
+    'date' => 1311844529,
+    'id' => '251',
+    'bite' => 0,
+  ),
+  471 => 
+  array (
+    'pseudo' => 'ZeShat',
+    'texte' => 't\'as aussi la possibilit&eacute; d\'',
+    'date' => 1311844535,
+    'id' => '251',
+    'bite' => 0,
+  ),
+  472 => 
+  array (
+    'pseudo' => 'ZeShat',
+    'texte' => 't\'as aussi la possibilit&eacute; d\'&eacute;teindre ton putain de t&eacute;l&eacute;viseur ducon',
+    'date' => 1311844538,
+    'id' => '251',
+    'bite' => 0,
+  ),
+  473 => 
+  array (
+    'pseudo' => 'Conrad',
+    'texte' => 'Les t&eacute;l&eacute;crans ne peuvent pas s\'&eacute;teindre.',
+    'date' => 1311845129,
+    'id' => '17',
+    'bite' => 0,
+  ),
+  474 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Les t&eacute;l&eacute;crans ne peuvent pas',
+    'date' => 1311845578,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  475 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Les t&eacute;l&eacute;crans ne peuvent pas',
+    'date' => 1311845581,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  476 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'tribune ',
+    'date' => 1311848108,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  477 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'tribune en',
+    'date' => 1311848117,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  478 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'tribune en mousse',
+    'date' => 1311848126,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  479 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => 'On s\'est d&eacute;j&agrave; fait ',
+    'date' => 1311857456,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  480 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => 'On s\'est d&eacute;j&agrave; fait ',
+    'date' => 1311857461,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  481 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => 'On s\'est d&eacute;j&agrave; fait ',
+    'date' => 1311857466,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  482 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => 'On s\'est d&eacute;j&agrave; fait hacker la tribune ?',
+    'date' => 1311857485,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  483 => 
+  array (
+    'pseudo' => 'Kane',
+    'texte' => 'non, il y a juste un peu d\'&eacute;cho.',
+    'date' => 1311857670,
+    'id' => '804',
+    'bite' => 0,
+  ),
+  484 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => 'blame PanPan',
+    'date' => 1311857809,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  485 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => '@11:15 Je voulais voir la meteo, mais je voulais voir une meteo de type SANS BLAGUE CARAMBAR.',
+    'date' => 1311859282,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  486 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'http://www.infos-du-net.com/actualite/18771-elysee-piratage-site.html',
+    'date' => 1311860983,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  487 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Stany, la recherche avance : http://www.leparisien.fr/societe/un-relaxant-le-baclofene-bientot-teste-contre-l-alcoolisme-28-07-2011-1547678.php',
+    'date' => 1311865604,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  488 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'C\'est contre les torticolis si bien que si tu fous la boutanche de pinard &agrave; droite ou a gauche de ton champs de vision t \'es bais&eacute; tu peux pas l\'attraper (en partie &agrave; cause du torticolis )',
+    'date' => 1311868014,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  489 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'ta gueule',
+    'date' => 1311868094,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  490 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'stanus tu deconnes ! http://www.lemonde.fr/societe/article/2011/07/28/yannick-noah-porte-plainte-apres-avoir-recu-des-menaces-de-mort_1553885_3224.html#xtor=RSS-3208',
+    'date' => 1311868105,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  491 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'Bonjour encul&eacute; de tanj !',
+    'date' => 1311868112,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  492 => 
+  array (
+    'pseudo' => 'Trax',
+    'texte' => '@17:48 putain avec la fatigue j\'ai lu &ccedil;a http://uppix.net/1/7/5/703949825ff2088405460d2058581.jpg',
+    'date' => 1311870888,
+    'id' => '97',
+    'bite' => 0,
+  ),
+  493 => 
+  array (
+    'pseudo' => 'reblochon',
+    'texte' => '&uml;Ca marche aussi tu me diras.',
+    'date' => 1311873969,
+    'id' => '4',
+    'bite' => 0,
+  ),
+  494 => 
+  array (
+    'pseudo' => 'mox',
+    'texte' => 'je veux des adresses de sites de tshirts competents svp ',
+    'date' => 1311879323,
+    'id' => '34',
+    'bite' => 0,
+  ),
+  495 => 
+  array (
+    'pseudo' => 'Trax',
+    'texte' => '@20:55 http://www.lastexittonowhere.com/',
+    'date' => 1311881040,
+    'id' => '97',
+    'bite' => 0,
+  ),
+  496 => 
+  array (
+    'pseudo' => 'mox',
+    'texte' => '@21:24 tres classe thx',
+    'date' => 1311881542,
+    'id' => '34',
+    'bite' => 0,
+  ),
+  497 => 
+  array (
+    'pseudo' => 'ZeShat',
+    'texte' => 'Ca fait deux semaines que je branle juste rien au boulot, faut que je rattrape tout aujourd\'hui, halp',
+    'date' => 1311923017,
+    'id' => '251',
+    'bite' => 0,
+  ),
+  498 => 
+  array (
+    'pseudo' => 'mox',
+    'texte' => '@20:55 t-shirt top gear achet&eacute; , z en avez pas d autres ? j ai bien retrouv&eacute; tshirthell mais c\'est pas trop ma came',
+    'date' => 1311926745,
+    'id' => '34',
+    'bite' => 0,
+  ),
+  499 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => '@10:05 l&agrave; y\'en a pour tous les gouts: http://www.redbubble.com/shop/t-shirts',
+    'date' => 1311926974,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  500 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => 'j\'ai command&eacute; celui l&agrave; http://www.redbubble.com/products/configure/6246102-t-shirt + cloned to kill et d\'autres',
+    'date' => 1311927020,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  501 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => 'sinon y\'a du bon sur: http://www.rottencotton.com/',
+    'date' => 1311927038,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  502 => 
+  array (
+    'pseudo' => 'ZeShat',
+    'texte' => 'je confirme, red bubble c\'est de la qualit&eacute; et en plus gros visuel (par rapport aux trucs francais) pour pas reuch',
+    'date' => 1311927563,
+    'id' => '251',
+    'bite' => 0,
+  ),
+  503 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'Tout &ccedil;a c\'est bien jolie mais compar&eacute; &agrave; un crocro norvegien... Tant au niveau qualit&eacute;/dur&eacute;e de vie qu\'image crimescene, c\'est hors de qualit&eacute;/prix',
+    'date' => 1311928390,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  504 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'Le mec en faut &agrave; droite dans la bulle marqu&eacute;e FUNNY, vous trouvez pas qu\'on dirait reblo ?',
+    'date' => 1311928954,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  505 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => 'La : http://www.redbubble.com/shop/t-shirts',
+    'date' => 1311928960,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  506 => 
+  array (
+    'pseudo' => 'Sac à mouille',
+    'texte' => 'faudrait qu\'il fasse la m&ecirc;me grimace pour voir, mais dans l\'absolu je dirais non.',
+    'date' => 1311929090,
+    'id' => '1257',
+    'bite' => 0,
+  ),
+  507 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => '@10:42 un peu',
+    'date' => 1311929602,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  508 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => '@10:33 stfu N00B',
+    'date' => 1311929612,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  509 => 
+  array (
+    'pseudo' => 'mox',
+    'texte' => 'merci je jetterai un coup d oeil ce soir',
+    'date' => 1311929742,
+    'id' => '34',
+    'bite' => 0,
+  ),
+  510 => 
+  array (
+    'pseudo' => 'Kane',
+    'texte' => '@10:19 20&euro; le tee shirt, tu trouves &ccedil;a pas cher ?',
+    'date' => 1311930130,
+    'id' => '804',
+    'bite' => 0,
+  ),
+  511 => 
+  array (
+    'pseudo' => 'leo',
+    'texte' => '@10:05 tiens nous au jus pour l\'&eacute;tiquette http://www.r4dius.net/fun/image/top_gear_tshirt.jpg',
+    'date' => 1311930824,
+    'id' => '465',
+    'bite' => 0,
+  ),
+  512 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => 'http://www.pcworld.fr/reactions/facebook-sexe-genres/517753/',
+    'date' => 1311936530,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  513 => 
+  array (
+    'pseudo' => 'mox',
+    'texte' => '@11:13 yep , c\'est plus couillu que "wash this when dirty" sur les polos puma',
+    'date' => 1311936600,
+    'id' => '34',
+    'bite' => 0,
+  ),
+  514 => 
+  array (
+    'pseudo' => 'ZeShat',
+    'texte' => '@11:02 je les commande par 4, ca revient &agrave; 16 eus',
+    'date' => 1311937402,
+    'id' => '251',
+    'bite' => 0,
+  ),
+  515 => 
+  array (
+    'pseudo' => 'pololefou',
+    'texte' => 'http://urbansavior.com/wp-content/uploads/2011/07/lyudi-001.jpg',
+    'date' => 1311938400,
+    'id' => '35',
+    'bite' => 0,
+  ),
+  516 => 
+  array (
+    'pseudo' => 'Kane',
+    'texte' => '@12:48 http://www.youtube.com/watch?v=T_jSFjGBq8I',
+    'date' => 1311938402,
+    'id' => '804',
+    'bite' => 0,
+  ),
+  517 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => 'encul&eacute; de mc do http://www.lefigaro.fr/societes/2011/07/28/04015-20110728ARTFIG00498-la-baguette-fait-son-entree-chez-mcdonald-s.php',
+    'date' => 1311941558,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  518 => 
+  array (
+    'pseudo' => 'Kane',
+    'texte' => '@14:12 t\'as peur qu\'ils fassent de meilleures baguettent que toi?',
+    'date' => 1311942259,
+    'id' => '804',
+    'bite' => 0,
+  ),
+  519 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => '@14:12 t\'inqui&egrave;te c\'est du hallol',
+    'date' => 1311943263,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  520 => 
+  array (
+    'pseudo' => 'Chavez',
+    'texte' => 'C\'est qui Christian Pintamachin?',
+    'date' => 1311961394,
+    'id' => '233',
+    'bite' => 0,
+  ),
+  521 => 
+  array (
+    'pseudo' => 'Monsieur Maurice',
+    'texte' => '000',
+    'date' => 1312028924,
+    'id' => '627',
+    'bite' => 0,
+  ),
+  522 => 
+  array (
+    'pseudo' => 'Monsieur Maurice',
+    'texte' => 'tiens tiens',
+    'date' => 1312028950,
+    'id' => '627',
+    'bite' => 0,
+  ),
+  523 => 
+  array (
+    'pseudo' => 'Monsieur Maurice',
+    'texte' => 'it\'s new',
+    'date' => 1312028979,
+    'id' => '627',
+    'bite' => 0,
+  ),
+  524 => 
+  array (
+    'pseudo' => 'Monsieur Maurice',
+    'texte' => 'fashion',
+    'date' => 1312028986,
+    'id' => '627',
+    'bite' => 0,
+  ),
+  525 => 
+  array (
+    'pseudo' => 'Monsieur Maurice',
+    'texte' => 'c\'est sympa ce truc surtout lorsque l\'on est seul',
+    'date' => 1312029148,
+    'id' => '627',
+    'bite' => 0,
+  ),
+  526 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'http://www.fuelyourmotionography.com/where-did-apple-go-wrong/',
+    'date' => 1312030020,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  527 => 
+  array (
+    'pseudo' => 'Monsieur Maurice',
+    'texte' => 'putaing mais c\'est l\'heure du pastis con',
+    'date' => 1312038183,
+    'id' => '627',
+    'bite' => 0,
+  ),
+  528 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => '@17:03 Completement. http://www.youtube.com/watch?v=7rvNmVuGf84',
+    'date' => 1312039164,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  529 => 
+  array (
+    'pseudo' => 'Monsieur Maurice',
+    'texte' => 'merde les bonnasses dans ce clip',
+    'date' => 1312039324,
+    'id' => '627',
+    'bite' => 0,
+  ),
+  530 => 
+  array (
+    'pseudo' => 'Kane',
+    'texte' => '@17:22 vous voudriez leur fourer votre mergez entre leurs petits pains? ',
+    'date' => 1312039464,
+    'id' => '804',
+    'bite' => 0,
+  ),
+  531 => 
+  array (
+    'pseudo' => 'Monsieur Maurice',
+    'texte' => 'Valhalla, I am Coming!',
+    'date' => 1312039653,
+    'id' => '627',
+    'bite' => 0,
+  ),
+  532 => 
+  array (
+    'pseudo' => 'ZeShat',
+    'texte' => 'http://www.entrevue.fr/l-incroyable-prise-de-poids-de-loana-photos-13594',
+    'date' => 1312041409,
+    'id' => '251',
+    'bite' => 0,
+  ),
+  533 => 
+  array (
+    'pseudo' => 'ZeShat',
+    'texte' => 'ha ha h.. hhh',
+    'date' => 1312041421,
+    'id' => '251',
+    'bite' => 0,
+  ),
+  534 => 
+  array (
+    'pseudo' => 'reblochon',
+    'texte' => 'Des anti-depresseurs qui te fouttent une d&eacute;pression d\'enfer... y a un probl&egrave;me non ?',
+    'date' => 1312042470,
+    'id' => '4',
+    'bite' => 0,
+  ),
+  535 => 
+  array (
+    'pseudo' => 'Monsieur Maurice',
+    'texte' => 'she\'s fucking monster dudes',
+    'date' => 1312043215,
+    'id' => '627',
+    'bite' => 0,
+  ),
+  536 => 
+  array (
+    'pseudo' => 'Monsieur Maurice',
+    'texte' => 'http://www.noblesseetroyautes.com/nr01/wp-content/uploads/2009/08/roi1.bmp',
+    'date' => 1312043330,
+    'id' => '627',
+    'bite' => 0,
+  ),
+  537 => 
+  array (
+    'pseudo' => 'Monsieur Maurice',
+    'texte' => 'le roi du Marocco a grossi lui aussi je trouve, anti d&eacute;presseurs?',
+    'date' => 1312043363,
+    'id' => '627',
+    'bite' => 0,
+  ),
+  538 => 
+  array (
+    'pseudo' => 'Sawn',
+    'texte' => 'C\'est des fausses oreilles ?',
+    'date' => 1312044214,
+    'id' => '347',
+    'bite' => 0,
+  ),
+  539 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => '@18:29 sodomies',
+    'date' => 1312049764,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  540 => 
+  array (
+    'pseudo' => 'mox',
+    'texte' => 'debut de grand prix f1 vraiment pas mal , y avait longtemps',
+    'date' => 1312113979,
+    'id' => '34',
+    'bite' => 0,
+  ),
+  541 => 
+  array (
+    'pseudo' => 'Monsieur Maurice',
+    'texte' => 'y\'a d&eacute;j&agrave; des morts?',
+    'date' => 1312114413,
+    'id' => '627',
+    'bite' => 0,
+  ),
+  542 => 
+  array (
+    'pseudo' => 'mox',
+    'texte' => 'm&ecirc;me pas un accident pecstaculaire , mais du mouill&eacute;e ',
+    'date' => 1312116301,
+    'id' => '34',
+    'bite' => 0,
+  ),
+  543 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => 'oui j\'ai regard&eacute; le d&eacute;but sur route humide, m&ecirc;me ma m&egrave;re a kiff&eacute;, elle a ponctu&eacute; toute les glissade de "houla !!"  :p',
+    'date' => 1312117454,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  544 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => '"houla !!"',
+    'date' => 1312117502,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  545 => 
+  array (
+    'pseudo' => 'Monsieur Maurice',
+    'texte' => 'sur la 3, il y a les courses &agrave; deauville avec el pib doro en pole position',
+    'date' => 1312117698,
+    'id' => '627',
+    'bite' => 0,
+  ),
+  546 => 
+  array (
+    'pseudo' => 'Monsieur Maurice',
+    'texte' => 'houla',
+    'date' => 1312117723,
+    'id' => '627',
+    'bite' => 0,
+  ),
+  547 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'Fail Compilation July 2011 http://biertijd.com/mediaplayer/?itemid=29259',
+    'date' => 1312123604,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  548 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'hommage a amy http://ilikeyourstyle.net/2011/07/29/amy-whinehouse-junk-junky/',
+    'date' => 1312127657,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  549 => 
+  array (
+    'pseudo' => 'Monsieur Maurice',
+    'texte' => 'une belle &eacute;loge c\'est vrai',
+    'date' => 1312128653,
+    'id' => '627',
+    'bite' => 0,
+  ),
+  550 => 
+  array (
+    'pseudo' => 'SojaCouille',
+    'texte' => '@18:10 Un &eacute;loge, monsieur Maurice, un.',
+    'date' => 1312143417,
+    'id' => '1136',
+    'bite' => 0,
+  ),
+  551 => 
+  array (
+    'pseudo' => 'S-ATA Nick',
+    'texte' => 'woa jme sens fort j\'ai trouv&eacute; l\'adresse de quelqu\'un gr&agrave;ce &agrave; ses photos fb',
+    'date' => 1312144930,
+    'id' => '892',
+    'bite' => 0,
+  ),
+  552 => 
+  array (
+    'pseudo' => 'S-ATA Nick',
+    'texte' => 'jsuis un vrai stalker',
+    'date' => 1312144940,
+    'id' => '892',
+    'bite' => 0,
+  ),
+  553 => 
+  array (
+    'pseudo' => 'PanPan',
+    'texte' => 'Hop voil&agrave; les news : http://dev.lesitedecuisine.fr/index.php',
+    'date' => 1312146095,
+    'id' => '250',
+    'bite' => 0,
+  ),
+  554 => 
+  array (
+    'pseudo' => 'mox',
+    'texte' => 'la partie bleu &agrave; droite est',
+    'date' => 1312146394,
+    'id' => '34',
+    'bite' => 0,
+  ),
+  555 => 
+  array (
+    'pseudo' => 'odan',
+    'texte' => '@17:54 repr&eacute;sentative de l\'&eacute;poque. J\'ai failli d&eacute;geuler en sortant du train tout &agrave; l\'heure &agrave; cause d\'une pouffe parlant &agrave; son copain de son r&eacute;gime alimentaire',
+    'date' => 1312151781,
+    'id' => '65',
+    'bite' => 0,
+  ),
+  556 => 
+  array (
+    'pseudo' => 'Thermostat',
+    'texte' => 'Faut que j\'aille bosser. Je hais ma vie.',
+    'date' => 1312176324,
+    'id' => '870',
+    'bite' => 0,
+  ),
+  557 => 
+  array (
+    'pseudo' => 'Binouze',
+    'texte' => '@07:25 HAHAHA, fais nous tes meilleurs coloriages ! ',
+    'date' => 1312185525,
+    'id' => '78',
+    'bite' => 0,
+  ),
+  558 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => '@07:25 Idem, reprise du boulot ici, je reprends demain mais j\'ai plein de trucs &agrave; faire d&egrave;s maintenant, j\'ai trop la flemme l&agrave;.',
+    'date' => 1312189831,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  559 => 
+  array (
+    'pseudo' => 'Thermostat',
+    'texte' => '@09:58 tu parles, le pc quon m\'a fil&eacute;nest merdique, je',
+    'date' => 1312192133,
+    'id' => '870',
+    'bite' => 0,
+  ),
+  560 => 
+  array (
+    'pseudo' => 'Thermostat',
+    'texte' => 'Je passe ma journ&eacute;e &agrave; reinstaller windows puis tous les logiciels...',
+    'date' => 1312192170,
+    'id' => '870',
+    'bite' => 0,
+  ),
+  561 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => '@11:49 Ca pourrait &ecirc;tre pire, tu pourrais avoir &agrave; vraiment travailler.',
+    'date' => 1312192433,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  562 => 
+  array (
+    'pseudo' => 'Monsieur Maurice',
+    'texte' => 'bonjour',
+    'date' => 1312194093,
+    'id' => '627',
+    'bite' => 0,
+  ),
+  563 => 
+  array (
+    'pseudo' => 'Binouze',
+    'texte' => '@11:49 tu peux m\'aider ? Ma belle soeur m\'a envoy&eacute; un "poweur pointe" de humour.com et j\'arrive pas &agrave; l\'ouvrir',
+    'date' => 1312195673,
+    'id' => '78',
+    'bite' => 0,
+  ),
+  564 => 
+  array (
+    'pseudo' => 'Monsieur Maurice',
+    'texte' => 'bonjour',
+    'date' => 1312196175,
+    'id' => '627',
+    'bite' => 0,
+  ),
+  565 => 
+  array (
+    'pseudo' => 'velvetu',
+    'texte' => 'bonjour Maurice, on vous croyait mort avec la chaleur. Vous vous hydratez bien?',
+    'date' => 1312197071,
+    'id' => '396',
+    'bite' => 0,
+  ),
+  566 => 
+  array (
+    'pseudo' => 'Monsieur Maurice',
+    'texte' => 'bonjour',
+    'date' => 1312208800,
+    'id' => '627',
+    'bite' => 0,
+  ),
+  567 => 
+  array (
+    'pseudo' => 'juke',
+    'texte' => 'Dites, y\'a des gens qui jouent &agrave; call of duty modern warfare 2 ? y\'a encore du monde sur les serveurs ?',
+    'date' => 1312211966,
+    'id' => '260',
+    'bite' => 0,
+  ),
+  568 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => '@17:19 Non et j\'imagine que oui.',
+    'date' => 1312213784,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  569 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'chacun son tour http://bigbrowser.blog.lemonde.fr/2011/08/01/etats-unis-des-temples-bouddhiques-accuses-de-proteger-des-moines-pedophiles/#xtor=RSS-3208',
+    'date' => 1312216537,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  570 => 
+  array (
+    'pseudo' => 'Monsieur Maurice',
+    'texte' => 'si ce sont des p&eacute;dophiles zen, alors pani pwoblem',
+    'date' => 1312218238,
+    'id' => '627',
+    'bite' => 0,
+  ),
+  571 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => 'le coran n\'a rien contre non plus hein ',
+    'date' => 1312218489,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  572 => 
+  array (
+    'pseudo' => 'CAPTN_CAVERN',
+    'texte' => 'C\'est normal si j\'ai perdu tous mes MP',
+    'date' => 1312218856,
+    'id' => '875',
+    'bite' => 0,
+  ),
+  573 => 
+  array (
+    'pseudo' => 'CAPTN_CAVERN',
+    'texte' => '+ ?',
+    'date' => 1312218862,
+    'id' => '875',
+    'bite' => 0,
+  ),
+  574 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => 'non c\'est pas normal, j\'ai perdu tout les miens aussi  ...',
+    'date' => 1312219748,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  575 => 
+  array (
+    'pseudo' => 'stuffed spectrum',
+    'texte' => 'le blog d\'onizuka http://couplepervers.erog.fr/',
+    'date' => 1312220005,
+    'id' => '249',
+    'bite' => 0,
+  ),
+  576 => 
+  array (
+    'pseudo' => 'Monsieur Maurice',
+    'texte' => 'les dessous chics, &ccedil;a me rappelle une chanson de Gainsbarre',
+    'date' => 1312222650,
+    'id' => '627',
+    'bite' => 0,
+  ),
+  577 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => 'Les MPs vont revenir.',
+    'date' => 1312223655,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  578 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => '@19:33 putain, c\'est violent.',
+    'date' => 1312231621,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  579 => 
+  array (
+    'pseudo' => 'Kane',
+    'texte' => 'yep c\'est du lourd. Il y a des com\' sympa en plus http://couplepervers.erog.fr/article-horrible-femelle-59613832-comments.html#anchorComment',
+    'date' => 1312234231,
+    'id' => '804',
+    'bite' => 0,
+  ),
+  580 => 
+  array (
+    'pseudo' => 'Conrad',
+    'texte' => 'je vous hais.',
+    'date' => 1312242328,
+    'id' => '17',
+    'bite' => 0,
+  ),
+  581 => 
+  array (
+    'pseudo' => 'Conrad',
+    'texte' => 'tous.',
+    'date' => 1312242332,
+    'id' => '17',
+    'bite' => 0,
+  ),
+  582 => 
+  array (
+    'pseudo' => 'reblochon',
+    'texte' => 'Sous race ! http://www.lematin.ch/loisirs/le-sexe-100-vegetarien',
+    'date' => 1312242610,
+    'id' => '4',
+    'bite' => 0,
+  ),
+  583 => 
+  array (
+    'pseudo' => 'odan',
+    'texte' => '@01:50  ya pas plus paum&eacute; que ce genre de bestiaux. Des proies vraiment trop faciles',
+    'date' => 1312247677,
+    'id' => '65',
+    'bite' => 0,
+  ),
+  584 => 
+  array (
+    'pseudo' => 'mox',
+    'texte' => 'une demie heure que j ai la gerbe depuis que j ai vu un clodo se chiait dessus , debout dans un arr&ecirc;t de tram',
+    'date' => 1312262957,
+    'id' => '34',
+    'bite' => 0,
+  ),
+  585 => 
+  array (
+    'pseudo' => 'thedarkdreamer',
+    'texte' => 'http://deathstarpr.blogspot.com/2011/06/open-letter-to-time-magazine-re-darth.html',
+    'date' => 1312268259,
+    'id' => '63',
+    'bite' => 0,
+  ),
+  586 => 
+  array (
+    'pseudo' => 'Trax',
+    'texte' => '@07:29 pix ?',
+    'date' => 1312280398,
+    'id' => '97',
+    'bite' => 0,
+  ),
+  587 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => 'JE VEUX ET J\'EXIGE UN TEMPS DE MEEERDE &sect;&sect;, il fait trop chaud/lourd pour bosser l&agrave; ffs !!',
+    'date' => 1312282751,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  588 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => '@07:29 j\'ai vu &ccedil;a mais coller &agrave; un arret de bus debout devant la GMF de Juvisy ! En plein journee ,surealiste !  ',
+    'date' => 1312283642,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  589 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'Alors que chier accroupi c\'est tellement mieux ! ',
+    'date' => 1312283678,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  590 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'Sinon le "blog d\'onizuka" c\'est SPECIAL ouep',
+    'date' => 1312283746,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  591 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => '@13:14 +derrier un arbre',
+    'date' => 1312286490,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  592 => 
+  array (
+    'pseudo' => 'Binouze',
+    'texte' => 'y a on ? http://www.pixmania.com/fr/fr/9127042/art/iiyama/prolite-e2473hds-b1-ecran.html',
+    'date' => 1312288309,
+    'id' => '78',
+    'bite' => 0,
+  ),
+  593 => 
+  array (
+    'pseudo' => 'Binouze',
+    'texte' => 'bon',
+    'date' => 1312288320,
+    'id' => '78',
+    'bite' => 0,
+  ),
+  594 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'dommage que ce soit pas un 1920 x 1200',
+    'date' => 1312288619,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  595 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'ceci dit c est pas cher va sur lesputeriques.com et signe !',
+    'date' => 1312288671,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  596 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => '@14:36 &ccedil;a n\'existe plus malheureusement',
+    'date' => 1312288869,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  597 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => '@14:41 j ai un dell ma poule en 24" 1920*1200 et c est pas pres de changer ! bon va falloir mettre le prix certe http://accessories.euro.dell.com/sna/products/Ecrans_plats/productdetail.aspx?c=fr&amp;l=fr&amp;s=dhs&amp;cs=frdhs1&amp;sku=294998&amp;~ck=bncat&amp;~bk=gr:CategoryRec_catpab2,g:MostBought,rk:',
+    'date' => 1312289105,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  598 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => '@14:45 non mais moi aussi j\'ai un asus en 1920x1200, mais ce sont de vieux mod&egrave;les...',
+    'date' => 1312289240,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  599 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => 'Trouve moi un &eacute;cran avec r&eacute;tro &eacute;clairage led en 1920x1200',
+    'date' => 1312289283,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  600 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'On s en branle du led non ?',
+    'date' => 1312289425,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  601 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'Hier j\'ai chier sur x serveur bfbc2 et led ou pas j\'ai pas ete en dessous d\'un  r k/d de 2.5 :) la putain d extase lol',
+    'date' => 1312289514,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  602 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => '@14:50 Ca consomme moins et les contrastes sont meilleurs donc non',
+    'date' => 1312289534,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  603 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'PGM FOREVER TENTEND &sect; L ETRANGER SI TU NOUS REGARDE appelle moi papa :p',
+    'date' => 1312289566,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  604 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'Et du coup personne repond a binouze :)',
+    'date' => 1312289595,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  605 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'binouze il prends le dell a 537 point barre !',
+    'date' => 1312289643,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  606 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'Et il t\'apellera papa ? c\'est ca ?',
+    'date' => 1312289673,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  607 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => '@14:52 et pendant que tu fragues &agrave; BFBC2 ta femme crie papa ailleurs',
+    'date' => 1312289709,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  608 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'binouze tellement il est loin question skill il m\'appelle pas ce noob !',
+    'date' => 1312289725,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  609 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => '@14:55 jeu, set et match.',
+    'date' => 1312289764,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  610 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => '@14:55 la mailleur chose qui puisse arriver &agrave; une mere au foyer c est que tu le soit aussi ! elle leve la patte toute la putain de journee ahahaha',
+    'date' => 1312289839,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  611 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'meilleur',
+    'date' => 1312289852,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  612 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'et le soir tout detendu que tu es tu enchaine les frags ettout le monde et content hein ! ou presque ouais :D',
+    'date' => 1312289911,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  613 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'Est content...',
+    'date' => 1312289973,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  614 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'tout vos connerie de disque ssd &ccedil;a c est du bullishit par contre un vrai 24" pardon mais c est l essentiel la techno on s en branle ! on veut de la surface !',
+    'date' => 1312290062,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  615 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => '@15:01 j\'ai un 27" :p',
+    'date' => 1312290126,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  616 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'en 1920*1200 ?',
+    'date' => 1312290161,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  617 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => '@15:02 ouais',
+    'date' => 1312290197,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  618 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'Avec un ecran comme &ccedil;a tu devrait etre &agrave; minimum 1.3 de r k/d noob....',
+    'date' => 1312290245,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  619 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => '1920*1200, ca reste inferieure a 1920x1080 hein conno',
+    'date' => 1312290255,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  620 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => '@15:04 t as raison mon con.... retirer lui toute les options &agrave; lui',
+    'date' => 1312290289,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  621 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'J\'aurais tent&eacute;.',
+    'date' => 1312290303,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  622 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'IL EST RAVAGER ',
+    'date' => 1312290310,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  623 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'ravag&eacute;*',
+    'date' => 1312290326,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  624 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'Oui oui mais questio mathematiques et sens pratique je devore des connards comme toi par dix tout les jours ',
+    'date' => 1312290382,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  625 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'lol',
+    'date' => 1312290402,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  626 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'Avec ton argument de premier choix qui dit RATIO 1.3 NOOB, j\'imagine que tu gagnes souvent par forfait',
+    'date' => 1312290424,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  627 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'J\'ai vraiment pas envie de bosser, j\'en suis a repondre a paton, sa race :(',
+    'date' => 1312290448,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  628 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => '@15:07 qu\'il campe &agrave; mort en ayant peur de mourir surtout',
+    'date' => 1312290452,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  629 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => '@15:07 mon con t es tellement previsible que je ne uis repondre &agrave; cette attaque de con',
+    'date' => 1312290475,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  630 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => '@15:07 na naplmounet courir comme un connards sous les balles c est pas ce que je preferes :p',
+    'date' => 1312290530,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  631 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'C4D R13 annonc&eacute;, WHOO-putain-de-WOOOOO!',
+    'date' => 1312290552,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  632 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'LES BALLES ON LES DISTRIBUENT DANS NOTRE MONDE LES NOOBS',
+    'date' => 1312290569,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  633 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'Apres la question napalmounet c est est ce que avec mes stats je prends plus ou moins d objectifs que cette tarlouze de Topy par exemple ?',
+    'date' => 1312290659,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  634 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'Tout le monde s\'en tape, royalement.',
+    'date' => 1312290723,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  635 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => '&ccedil;a c est une putain de question :p ! alors lui te repondra que : il est dans une naque priv&eacute;e pendant que moi je me bat avec sofinco pour rembours&eacute; ma ps3...ce en quoi il n\'a pas tout a fait tord !',
+    'date' => 1312290749,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  636 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => '&ccedil;a c est une putain de question :p ! alors lui te repondra que : il est dans une naque priv&eacute;e pendant que moi je me bat avec sofinco pour rembours&eacute; ma ps3...ce en quoi il n\'a pas tout a fait tord !',
+    'date' => 1312290749,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  637 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'kefka t es une merde de l\'internet laisse parler les grand s merci ! :D',
+    'date' => 1312290805,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  638 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => '@15:09 AHAHAHAHA',
+    'date' => 1312290853,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  639 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'Prends des pixs de ta femme dans ta maison sous l\'eau stp.',
+    'date' => 1312290898,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  640 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'L\'avantage avec des connards dans mon genre c\'est que humoristiquement je suis autosuffiant :p',
+    'date' => 1312290907,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  641 => 
+  array (
+    'pseudo' => 'Binouze',
+    'texte' => 'putain, je croyais que les bites dans l\'histo &eacute;taient des fleches...',
+    'date' => 1312290920,
+    'id' => '78',
+    'bite' => 0,
+  ),
+  642 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'ah noob tu tombe bie n !',
+    'date' => 1312290943,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  643 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => '@15:15 non y\'en a pas beaucoup des fl&ecirc;ches ici',
+    'date' => 1312290954,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  644 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'putain de merde tu veux faire honte au 95',
+    'date' => 1312290983,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  645 => 
+  array (
+    'pseudo' => 'Binouze',
+    'texte' => 'du coup je sais pas ce que vous avez r&eacute;pondu',
+    'date' => 1312290993,
+    'id' => '78',
+    'bite' => 0,
+  ),
+  646 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'prends pas cette merde !',
+    'date' => 1312291007,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  647 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => '1920*1200 !',
+    'date' => 1312291025,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  648 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'sinon rien noob !',
+    'date' => 1312291038,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  649 => 
+  array (
+    'pseudo' => 'Binouze',
+    'texte' => 'putain je veux d&eacute;penser mon fric, je vais me prendre 4 i7 et les foutre en dual screen over IP avec des &eacute;crans PARTOUT LA BARAQUE ',
+    'date' => 1312291083,
+    'id' => '78',
+    'bite' => 0,
+  ),
+  650 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'au moins la tu vas touch&eacute; et prendre ton pied ! &ccedil;a te changera de tes pieds de chanvre :p',
+    'date' => 1312291084,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  651 => 
+  array (
+    'pseudo' => 'Binouze',
+    'texte' => '(en VPN)',
+    'date' => 1312291093,
+    'id' => '78',
+    'bite' => 0,
+  ),
+  652 => 
+  array (
+    'pseudo' => 'Binouze',
+    'texte' => 'je sais, j\'ai un cousin dans l\'informatique.',
+    'date' => 1312291109,
+    'id' => '78',
+    'bite' => 0,
+  ),
+  653 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'OMFG',
+    'date' => 1312291128,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  654 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'Toi aussi tu peux prendre ton pied sur bf3 plutot ue les expert avec la main de ta femme dans ton slip ! REBELLE TOI ENCUL&eacute; !',
+    'date' => 1312291181,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  655 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => '"plutot que regarder les experts"',
+    'date' => 1312291221,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  656 => 
+  array (
+    'pseudo' => 'Binouze',
+    'texte' => 'fais chier la bote, je supporte pas d\'avoir une conf de sept 2007',
+    'date' => 1312291231,
+    'id' => '78',
+    'bite' => 0,
+  ),
+  657 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'je suis plutot oldschool avec ma conf &ccedil;a m\'empeche pas de tous les enculer grace a mon ecran dell lol',
+    'date' => 1312291284,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  658 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'dell GROS  ! ',
+    'date' => 1312291307,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  659 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'MONGOLIEN GROS !1',
+    'date' => 1312291334,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  660 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'lol',
+    'date' => 1312291341,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  661 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'TG ',
+    'date' => 1312291345,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  662 => 
+  array (
+    'pseudo' => 'Binouze',
+    'texte' => 'ca va pas tarder, j\'ai 15j de vac, je vais me faire p&eacute;ter un PC de sarkozyst HADOPI compliant',
+    'date' => 1312291398,
+    'id' => '78',
+    'bite' => 0,
+  ),
+  663 => 
+  array (
+    'pseudo' => 'Binouze',
+    'texte' => 'ET J\'I TOUCHE MON Q2 \\o/',
+    'date' => 1312291410,
+    'id' => '78',
+    'bite' => 0,
+  ),
+  664 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'Tu ne le sais sans doute pas pour y etre confronter mon con mais certains triso peuvent te la mettre au cul ....c est un peu comme le mythe les noirs sont des singes en faite mais en pire !',
+    'date' => 1312291427,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  665 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => '@15:23 ceci s \'adresse &agrave; l\'autre connard de kefca ',
+    'date' => 1312291487,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  666 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'J\'ai rien compris. A part que tu compares les trisos aux noirs et les noirs aux singes.',
+    'date' => 1312291585,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  667 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 't\'es un petit nazillon aussi ?',
+    'date' => 1312291600,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  668 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'cela n\'etonnera personne ',
+    'date' => 1312291619,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  669 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'j\'encule les nazillon et les connards ! ',
+    'date' => 1312291644,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  670 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'donc je recommence en pls clair :) ',
+    'date' => 1312291696,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  671 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'Nan, c\'est vraiment pas la peine, ferme juste ta gueule.',
+    'date' => 1312291744,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  672 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'certain(e)s triso on un QI superieur aux gens comme toi par exemple ! t es noir ?',
+    'date' => 1312291758,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  673 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => '&ccedil;a expliquerai pas mal de choses infin&eacute;',
+    'date' => 1312291868,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  674 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'Ouais enfin, rien a foutre du QI, c\'est un peu comme ton ratio de merde, tu te retrouves toujours a gueuler  JOHNNY VEUT VOIR BASEBALL et tout le monde se paye ta gueule',
+    'date' => 1312291869,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  675 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'La question est de savoir qui est le con de qui ! Toujours :) dnc je suis ton con !',
+    'date' => 1312291925,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  676 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'BASEBAAALLLLLL',
+    'date' => 1312291953,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  677 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'Et pour l instant je le vie bien ma couille :)',
+    'date' => 1312291954,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  678 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'Apres tout le monde c \'est personne en realit&eacute; sans vouloir faire de la phylo de bas etages ...',
+    'date' => 1312292020,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  679 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'ce qui est sur c\'est que si ta meuf est un f2000 je serais m\'en servir :)',
+    'date' => 1312292066,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  680 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'Encul&eacute; de nain ! :p',
+    'date' => 1312292102,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  681 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'BAAAAASSSEEEBAAAAALLLL',
+    'date' => 1312292182,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  682 => 
+  array (
+    'pseudo' => 'PATTON',
+    'texte' => 'Bonjour ! Aimes tu taper sur les bambous ?',
+    'date' => 1312292954,
+    'id' => '513',
+    'bite' => 0,
+  ),
+  683 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'Je prefererais que tu te les foutes dans le boule.',
+    'date' => 1312292999,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  684 => 
+  array (
+    'pseudo' => 'velvetu',
+    'texte' => 'joli combat entre vous deux : http://uppix.net/0/e/4/25e846f86d6f6b2d1160d9e5ffdc3.jpg',
+    'date' => 1312295234,
+    'id' => '396',
+    'bite' => 0,
+  ),
+  685 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'Je me demandais qui allait ressortir ca ou le classic combat d\'infirme, bien jou&eacute; velvetu.',
+    'date' => 1312295353,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  686 => 
+  array (
+    'pseudo' => 'Monsieur Maurice',
+    'texte' => 'pas mal : http://www.redtube.com/63165',
+    'date' => 1312295626,
+    'id' => '627',
+    'bite' => 0,
+  ),
+  687 => 
+  array (
+    'pseudo' => 'donspliff',
+    'texte' => 'Joli petit cul !.',
+    'date' => 1312298059,
+    'id' => '146',
+    'bite' => 0,
+  ),
+  688 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'il faut combien de temps pour se faire valider un compte wefrag ?',
+    'date' => 1312311181,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  689 => 
+  array (
+    'pseudo' => 'Mamouth',
+    'texte' => 'je cherche le lien du blog du couple scato, c\'est pour offrir',
+    'date' => 1312311233,
+    'id' => '241',
+    'bite' => 0,
+  ),
+  690 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => '@20:53 http://couplepervers.erog.fr/#',
+    'date' => 1312312102,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  691 => 
+  array (
+    'pseudo' => 'SethDeNod',
+    'texte' => '@20:53 un jour ou deux, le temps qu\'ils lisent les mails quoi',
+    'date' => 1312346006,
+    'id' => '634',
+    'bite' => 0,
+  ),
+  692 => 
+  array (
+    'pseudo' => 'ZORCK',
+    'texte' => 'ont est hack&eacute; ou pas pour vous  http://www.snowboardthestreets.com/forum/',
+    'date' => 1312368893,
+    'id' => '238',
+    'bite' => 0,
+  ),
+  693 => 
+  array (
+    'pseudo' => 'C@ddy50',
+    'texte' => 'ouzbat http://www.europe1.fr/Faits-divers/Bretagne-un-lama-fou-blesse-2-personnes-654189/',
+    'date' => 1312370136,
+    'id' => '125',
+    'bite' => 0,
+  ),
+  694 => 
+  array (
+    'pseudo' => 'Monsieur Maurice',
+    'texte' => 'c\'est un lama norv&eacute;gien',
+    'date' => 1312384215,
+    'id' => '627',
+    'bite' => 0,
+  ),
+  695 => 
+  array (
+    'pseudo' => 'reblochon',
+    'texte' => 'Un lama col&eacute;rique',
+    'date' => 1312386223,
+    'id' => '4',
+    'bite' => 0,
+  ),
+  696 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => '@12:54 Plut&ocirc;t, oui.',
+    'date' => 1312391931,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  697 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => '@12:54 Une jolie iframe en d&eacute;but de code : &lt;iframe src="http://XXXXXi.co.tv/?go=1" width="1" height="1"&gt;&lt;/iframe&gt;',
+    'date' => 1312392039,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  698 => 
+  array (
+    'pseudo' => 'rain',
+    'texte' => '@19:20 (j\'ai modifi&eacute; l\'url)',
+    'date' => 1312392069,
+    'id' => '10',
+    'bite' => 0,
+  ),
+  699 => 
+  array (
+    'pseudo' => 'ZORCK',
+    'texte' => 'bizar ce truc quand meme mais merci rain',
+    'date' => 1312396364,
+    'id' => '238',
+    'bite' => 0,
+  ),
+  700 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => 'sant&eacute; o/ http://www.keogroup.com/uploads/Image/KEOBeerProducts/BeerCans.jpg',
+    'date' => 1312399339,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  701 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => '@21:22  j\'ai vu &ccedil;a chez leclerc, je ne connaissais pas http://www.livraison-boissons.fr/WebRoot/StoreLFR/Shops/62042515/4C02/A7F1/3C37/68DA/471A/C0A8/28BC/2C17/IMG_0593.jpg ',
+    'date' => 1312400251,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  702 => 
+  array (
+    'pseudo' => 'Kefka',
+    'texte' => '@21:37 Elle est degeu cette binouze :/',
+    'date' => 1312403252,
+    'id' => '437',
+    'bite' => 0,
+  ),
+  703 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => 'j\'ai pas encore test&eacute;',
+    'date' => 1312404744,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  704 => 
+  array (
+    'pseudo' => 'Napalm',
+    'texte' => 'Tiens Stany, un test de cartes m&egrave;res pour minis pc: http://www.xbitlabs.com/articles/mainboards/display/mini-itx-lga1155-roundup.html',
+    'date' => 1312444030,
+    'id' => '2',
+    'bite' => 0,
+  ),
+  705 => 
+  array (
+    'pseudo' => 'Sac à mouille',
+    'texte' => '@21:37 Le verre est joli, y a un cochon sculpt&eacute; sur le pied. Je l\'ai offert &agrave; un ami fan de cochons.',
+    'date' => 1312449350,
+    'id' => '1257',
+    'bite' => 0,
+  ),
+  706 => 
+  array (
+    'pseudo' => 'S-ATA Nick',
+    'texte' => '@21:08 putain faillit me faire me d&eacute;gueuler',
+    'date' => 1312451648,
+    'id' => '892',
+    'bite' => 0,
+  ),
+  707 => 
+  array (
+    'pseudo' => 'odan',
+    'texte' => '32000  http://madame.lefigaro.fr/celebrites/linda-evangelista-pension-alimentaire-32-000-euros-040811-169945',
+    'date' => 1312453946,
+    'id' => '65',
+    'bite' => 0,
+  ),
+  708 => 
+  array (
+    'pseudo' => 'Monsieur Maurice',
+    'texte' => '&laquo; Les jours o&ugrave; je ne travaille pas, je g&egrave;re mon image. Il faut que j\'aille &agrave; la salle de gym, j\'ai des rendez-vous de beaut&eacute; &raquo;  moi pareil',
+    'date' => 1312454907,
+    'id' => '627',
+    'bite' => 0,
+  ),
+  709 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => 'pouvez vous me relinker le lien de la tribune de PanPan avec historique ? merci',
+    'date' => 1312455234,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  710 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => 'Et Patton, flood pas notre tribune en carton, elle n\'est pas de taille ',
+    'date' => 1312455425,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  711 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => 'c\'est rain qui l\'a con&ccedil;u',
+    'date' => 1312455733,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  712 => 
+  array (
+    'pseudo' => 'PanPan',
+    'texte' => 'http://dev.lesitedecuisine.fr/index.php',
+    'date' => 1312456184,
+    'id' => '250',
+    'bite' => 0,
+  ),
+  713 => 
+  array (
+    'pseudo' => 'PanPan',
+    'texte' => 'Stany les archives sont un peu bancales... vu que je recup&egrave;re pas l\'int&eacute;gralit&eacute; de la tribune de la home.... une sombre histoire avec rain qui code comme une pute..!',
+    'date' => 1312456245,
+    'id' => '250',
+    'bite' => 0,
+  ),
+  714 => 
+  array (
+    'pseudo' => 'PanPan',
+    'texte' => 'Question &agrave; la con.... le mois de juillet et ao&ucirc;t ont tous les 2 31 jours ?',
+    'date' => 1312456302,
+    'id' => '250',
+    'bite' => 0,
+  ),
+  715 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => 'euh tu connais pas la technique avec ton poing ferm&eacute; ? sinon oui juillet/ao&ucirc;t  31 jours ',
+    'date' => 1312456895,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  716 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => '@13:11http://www.mnemotechnik.net/img/upload/astuce_14_1250430326.png  les bosse c\'est 31 jours les creux 30 ou 28/29  &ccedil;a marche aussi sur qu\'une main, ci t\'es manchot t\'es mal, surtout avec ta laiti&egrave;re normande  :p',
+    'date' => 1312457324,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  717 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => '-ci +si',
+    'date' => 1312457373,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  718 => 
+  array (
+    'pseudo' => 'STANYMALL',
+    'texte' => '@13:10 haha an&eacute;f&eacute; c\'est une tribune form&eacute;e sur enclume  :)  mais &ccedil;a va je suis patient',
+    'date' => 1312457758,
+    'id' => '438',
+    'bite' => 0,
+  ),
+  719 => 
+  array (
+    'pseudo' => 'PanPan',
+    'texte' => '@13:21t\'es formidable, tu te contredis dans la m&ecirc;me phrase... oui je connais c\'est pour &ccedil;a que je capte pas ces 2 mois...',
+    'date' => 1312457861,
+    'id' => '250',
+    'bite' => 0,
+  ),
+  720 => 
+  array (
+    'pseudo' => 'PanPan',
+    'texte' => 'Test',
+    'date' => 1312458317,
+    'id' => '250',
+    'bite' => 0,
+  ),
+)
+?>

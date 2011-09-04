@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<extension engine="1.0">
+	<id>portal_by_daris</id>
+	<title>Portal by Daris</title>
+	<version>2.4.3</version>
+	<description>Adds a portal to forum</description>
+	<author>Daris</author>
+	<minversion>1.3</minversion>
+	<maxtestedon>1.3.2</maxtestedon>
+	<install><![CDATA[
+require_once FORUM_ROOT.'extensions/portal_by_daris/install.php';
+install();
+
+]]></install>
+	<uninstall><![CDATA[
+require_once FORUM_ROOT.'extensions/portal_by_daris/install.php';
+uninstall();
+
+]]></uninstall>
+
+	<hooks>
+
+		<hook id="re_rewrite_rules"><![CDATA[
+require $ext_info['path'].'/include/rewrite_rules.php';
+]]></hook>
+
+		<hook id="in_start"><![CDATA[
+if (isset($_GET['page']) || isset($_GET['pages']))
+	require $ext_info['path'].'/page.php';
+elseif ((empty($_GET) || (isset($_GET['login']) && count($_GET) == 1)) && basename($_SERVER['SCRIPT_NAME']) == 'index.php')
+	require $ext_info['path'].'/index.php';
+]]></hook>
+
+		<hook id="co_modify_url_scheme"><![CDATA[
+// Setup the URL rewriting scheme
+if (file_exists($ext_info['path'].'/include/url/'.$forum_config['o_sef'].'.php'))
+	require $ext_info['path'].'/include/url/'.$forum_config['o_sef'].'.php';
+else
+	require $ext_info['path'].'/include/url/Default.php';
+]]></hook>
+
+		<hook id="hd_main_elements"><![CDATA[
+if (FORUM_PAGE == 'index')
+{
+	// Top breadcrumbs
+	if (isset($main_elements['<!-- forum_crumbs_top -->']) && $main_elements['<!-- forum_crumbs_top -->'] == '')
+		$main_elements['<!-- forum_crumbs_top -->'] = '<div id="brd-crumbs-top" class="crumbs gen-content">'."\n\t".'<p>'.generate_crumbs(false).'</p>'."\n".'</div>';
+
+	// Bottom breadcrumbs
+	if (isset($main_elements['<!-- forum_crumbs_end -->']) && $main_elements['<!-- forum_crumbs_end -->'] == '')
+		$main_elements['<!-- forum_crumbs_end -->'] = '<div id="brd-crumbs-end" class="crumbs gen-content">'."\n\t".'<p>'.generate_crumbs(false).'</p>'."\n".'</div>';
+}
+elseif (FORUM_PAGE == 'news')
+{
+	$main_elements['<!-- forum_crumbs_top -->'] = '<div id="brd-crumbs-top">'."\n\t".'<p>'./*generate_crumbs(false).*/'</p>'."\n".'</div>';
+	$main_elements['<!-- forum_crumbs_end -->'] = '';
+}
+
+		]]></hook>
+
+		<hook id="vt_qpost_output_start"><![CDATA[
+
+if ($forum_config['o_portal_panels_all_pages'] == 1)
+	echo '<div>'."\n\t".'<p></p>'."\n".'</div>';
+
+		]]></hook>
+
+		<hook id="hd_head"><![CDATA[
+// hd_head hook could be executed from a function (like message), so we need to globalize language variable
+global $lang_portal;
+
+if (FORUM_PAGE != 'index') 
+{
+	$first_crumb = is_array($forum_page['crumbs'][0]) ? $forum_page['crumbs'][0][0] : $forum_page['crumbs'][0];
+	$crumb = array($first_crumb, forum_link($forum_url['forums']));
+	
+	array_insert($forum_page['crumbs'], 1, $crumb);
+	
+	if (FORUM_PAGE != 'news')
+		$forum_page['crumbs'][0][0] = $lang_common['Index'];
+}
+else
+{
+	// Setup breadcrumbs
+	$forum_page['crumbs'] = array(
+		array($lang_common['Index'], forum_link($forum_url['index'])),
+		array($forum_config['o_board_title'], forum_link($forum_url['forums'])),
+	);
+}
+
+
+if (!defined('FORUM_PORTAL') && $forum_config['o_portal_panels_all_pages'] == 1 && strpos(FORUM_PAGE, 'profile-') === false && strpos(FORUM_PAGE, 'admin-') === false && FORUM_PAGE != 'message')
+	define('FORUM_PORTAL', $ext_info['path'].'/');
+
+if (defined('FORUM_PORTAL'))
+{
+	$forum_head['style_portal'] = '<link rel="stylesheet" type="text/css" media="screen" href="'. $ext_info['url'].'/style/style.css" />';
+
+	$tpl_main = str_replace('<!-- forum_crumbs_top -->', '', $tpl_main);
+	$tpl_main = str_replace('<!-- forum_crumbs_end -->', '', $tpl_main);
+
+	// add portal_top before forum_main
+	$tpl_main = str_replace('<div id="brd-main">', '<!-- forum_crumbs_top -->'."\n".'<!-- portal_top -->'."\n".'<div id="brd-main">', $tpl_main);
+	
+/*	if (FORUM_PAGE == 'news' || FORUM_PAGE == 'pages')
+		$tpl_main = str_replace('<!-- forum_main_head -->', '', $tpl_main);
+	*/
+	// add portal_bottom before forum_stats
+	$tpl_main = str_replace('<!-- forum_info -->', "\n".'<!-- portal_bottom -->'."\n".'<!-- forum_crumbs_end -->'."\n".'<!-- forum_info -->', $tpl_main);
+	
+	
+	if (file_exists(FORUM_CACHE_DIR.'cache_panels.php'))
+		require FORUM_CACHE_DIR.'cache_panels.php';
+
+	if (!defined('FORUM_PANELS_LOADED'))
+	{
+		require FORUM_PORTAL.'include/cache.php';
+		generate_panels_cache();
+		require FORUM_CACHE_DIR.'cache_panels.php';
+	}
+}
+]]></hook>
+
+		<hook id="ft_end"><![CDATA[
+
+require $ext_info['path'].'/panels.php';
+
+]]></hook>
+
+		<hook id="ca_fn_generate_admin_menu_new_sublink"><![CDATA[
+
+if (FORUM_PAGE_SECTION == 'start' || FORUM_PAGE_SECTION == 'settings')
+{
+	global $lang_portal;
+
+	if (file_exists($ext_info['path'].'/lang/'.$forum_user['language'].'/portal.php'))
+		require_once $ext_info['path'].'/lang/'.$forum_user['language'].'/portal.php';
+	else
+		require_once $ext_info['path'].'/lang/English/portal.php';
+}
+
+if (FORUM_PAGE_SECTION == 'start')
+{
+	$forum_page['admin_submenu']['pages'] = '<li'.((FORUM_PAGE == 'admin-pages') ? ' class="active"' : '').'><a href="'.forum_link($forum_url['admin_pages']).'">'.$lang_portal['Pages'].'</a></li>';
+	$forum_page['admin_submenu']['panels'] = '<li'.((FORUM_PAGE == 'admin-panels') ? ' class="active"' : '').'><a href="'.forum_link($forum_url['admin_panels']).'">'.$lang_portal['Panels'].'</a></li>';
+}
+elseif (FORUM_PAGE_SECTION == 'settings')
+	$forum_page['admin_submenu']['settings-portal'] = '<li'.((FORUM_PAGE == 'admin-settings-portal') ? ' class="active"' : '').'><a href="'.forum_link($forum_url['admin_settings_portal']).'">'.$lang_portal['Portal'].'</a></li>';
+]]></hook>
+
+		<hook id="fn_generate_navlinks_end"><![CDATA[
+global $lang_portal;
+
+// Load portal.php language file
+if (file_exists($ext_info['path'].'/lang/'.$forum_user['language'].'/portal.php'))
+	require_once $ext_info['path'].'/lang/'.$forum_user['language'].'/portal.php';
+else
+	require_once $ext_info['path'].'/lang/English/portal.php';
+
+
+$links['index'] = '<li id="navportal"'.((FORUM_PAGE == 'news' || FORUM_PAGE == 'pages') ? ' class="active"' : '').'><a href="'.forum_link($forum_url['index']).'"><span>'.$lang_common['Index'].'</span></a></li>';
+
+array_insert($links, 1, '<li id="navindex"'.((FORUM_PAGE == 'index') ? ' class="active"' : '').'><a href="'.forum_link($forum_url['forums']).'"><span>'.$lang_common['Forum'].'</span></a></li>', 'forum');
+
+]]></hook>
+
+		<hook id="aop_new_section"><![CDATA[
+if ($section == 'portal')
+	require $ext_info['path'].'/admin/portal.php';
+]]></hook>
+
+		<hook id="aop_new_section_validation"><![CDATA[
+if ($section == 'portal')
+{
+	$form['portal_news_count'] = intval($form['portal_news_count']);
+	$form['portal_left_width'] = intval($form['portal_left_width']);
+	$form['portal_right_width'] = intval($form['portal_right_width']);
+	if (!isset($form['portal_panels_all_pages']) || $form['portal_panels_all_pages'] != '1') $form['portal_panels_all_pages'] = '0';
+}
+]]></hook>
+
+		<hook id="aop_start"><![CDATA[
+if (isset($_POST['form']['portal_news_forums']))
+	$_POST['form']['portal_news_forums'] = implode(',', $_POST['form']['portal_news_forums']);
+]]></hook>
+
+		<!-- RSS -->
+
+		<hook id="ex_qr_get_topics"><![CDATA[
+if (isset($_GET['news_feed']))
+	$query['WHERE'] .= ' AND t.forum_id IN('.$forum_config['o_portal_news_forums'].')';
+
+]]></hook>
+
+		<hook id="ex_modify_cur_topic_item"><![CDATA[
+
+if (isset($_GET['news_feed']))
+{
+	require_once FORUM_ROOT.'include/parser.php';
+
+	$link = forum_link($forum_url['topic'], array($cur_topic['id'], sef_friendly($cur_topic['subject'])));
+
+	$description = parse_message(strlen($cur_topic['message']) > 1000 ? substr($cur_topic['message'], 0, 1000).'...' : $cur_topic['message'], 1);
+
+	$item_id = count($feed['items']) - 1;
+	$feed['items'][$item_id]['description'] = $description;
+	$feed['items'][$item_id]['link'] = $link;
+}
+]]></hook>
+
+		<!-- / RSS -->
+	</hooks>
+</extension>

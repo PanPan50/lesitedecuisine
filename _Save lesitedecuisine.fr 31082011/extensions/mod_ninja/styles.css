@@ -1,0 +1,24 @@
+.brd div.spoiler, .brd div.spoiler div.quotebox, .brd div.spoiler a {
+	background: none repeat scroll 0 0 #AAAAAA;
+	color: #AAAAAA
+}
+
+.brd div.spoiler div.quotebox {
+	border: none;
+}
+
+.brd div.spoiler img {
+	visibility: hidden
+}
+
+.brd div.unspoil, .brd div.unspoil div.quotebox, .brd div.unspoil a {
+	background: none repeat scroll 0 0 transparent
+}
+
+.brd div.unspoil img {
+	visibility: visible
+}
+
+div.spoiler span.spoilertag {
+	color: #FFFFFF
+}

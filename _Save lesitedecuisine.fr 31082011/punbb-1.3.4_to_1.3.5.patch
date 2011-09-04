@@ -1,0 +1,1973 @@
+diff -urN punbb-1.3.4/admin/bans.php punbb-1.3.5/admin/bans.php
+--- punbb-1.3.4/admin/bans.php	2009-04-17 12:51:23.000000000 +0000
++++ punbb-1.3.5/admin/bans.php	2011-03-18 12:01:21.000000000 +0000
+@@ -24,7 +24,6 @@
+ require FORUM_ROOT.'lang/'.$forum_user['language'].'/admin_common.php';
+ require FORUM_ROOT.'lang/'.$forum_user['language'].'/admin_bans.php';
+ 
+-
+ // Add/edit a ban (stage 1)
+ if (isset($_REQUEST['add_ban']) || isset($_GET['edit_ban']))
+ {
+@@ -400,6 +399,34 @@
+ $forum_page['crumbs'][] = array($lang_admin_common['Bans'], forum_link($forum_url['admin_bans']));
+ 
+ 
++// Fetch user count
++$query = array(
++	'SELECT'	=>	'COUNT(id)',
++	'FROM'		=>	'bans'
++);
++
++$result = $forum_db->query_build($query) or error(__FILE__, __LINE__);
++$forum_page['num_bans'] = $forum_db->result($result);
++$forum_page['num_pages'] = ceil($forum_page['num_bans'] / $forum_user['disp_topics']);
++$forum_page['page'] = (!isset($_GET['p']) || !is_numeric($_GET['p']) || $_GET['p'] <= 1 || $_GET['p'] > $forum_page['num_pages']) ? 1 : intval($_GET['p']);
++$forum_page['start_from'] = $forum_user['disp_topics'] * ($forum_page['page'] - 1);
++$forum_page['finish_at'] = min(($forum_page['start_from'] + $forum_user['disp_topics']), ($forum_page['num_bans']));
++
++// Generate paging
++$forum_page['page_post']['paging']='<p class="paging"><span class="pages">'.$lang_common['Pages'].'</span> '.paginate($forum_page['num_pages'], $forum_page['page'], $forum_url['admin_bans'], $lang_common['Paging separator'], null, true).'</p>';
++
++// Navigation links for header and page numbering for title/meta description
++if ($forum_page['page'] < $forum_page['num_pages'])
++{
++	$forum_page['nav']['last'] = '<link rel="last" href="'.forum_sublink($forum_url['admin_bans'], $forum_url['page'], $forum_page['num_pages']).'" title="'.$lang_common['Page'].' '.$forum_page['num_pages'].'" />';
++	$forum_page['nav']['next'] = '<link rel="next" href="'.forum_sublink($forum_url['admin_bans'], $forum_url['page'], ($forum_page['page'] + 1)).'" title="'.$lang_common['Page'].' '.($forum_page['page'] + 1).'" />';
++}
++if ($forum_page['page'] > 1)
++{
++	$forum_page['nav']['prev'] = '<link rel="prev" href="'.forum_sublink($forum_url['admin_bans'], $forum_url['page'], ($forum_page['page'] - 1)).'" title="'.$lang_common['Page'].' '.($forum_page['page'] - 1).'" />';
++	$forum_page['nav']['first'] = '<link rel="first" href="'.forum_link($forum_url['admin_bans']).'" title="'.$lang_common['Page'].' 1" />';
++}
++
+ ($hook = get_hook('aba_pre_header_load')) ? eval($hook) : null;
+ 
+ define('FORUM_PAGE_SECTION', 'users');
+@@ -449,15 +476,31 @@
+ 	<div class="main-content main-frm">
+ <?php
+ 
+-if (!empty($forum_bans))
++if ($forum_page['num_bans'] > 0)
+ {
+ 
+ ?>
+ 		<div class="ct-group">
+ <?php
+ 
++	// Grab the bans
++	$query = array(
++		'SELECT'	=> 'b.*, u.username AS ban_creator_username',
++		'FROM'		=> 'bans AS b',
++		'JOINS'		=> array(
++			array(
++				'LEFT JOIN'		=> 'users AS u',
++				'ON'			=> 'u.id=b.ban_creator'
++			)
++		),
++		'ORDER BY'	=> 'b.id',
++		'LIMIT'		=> $forum_page['start_from'].', '.$forum_page['finish_at']
++	);
++
++	$result = $forum_db->query_build($query) or error(__FILE__, __LINE__);
++
+ 	$forum_page['item_num'] = 0;
+-	foreach ($forum_bans as $ban_key => $cur_ban)
++	while ($cur_ban = $forum_db->fetch_assoc($result))
+ 	{
+ 		$forum_page['ban_info'] = array();
+ 		$forum_page['ban_creator'] = ($cur_ban['ban_creator_username'] != '') ? '<a href="'.forum_link($forum_url['user'], $cur_ban['ban_creator']).'">'.forum_htmlencode($cur_ban['ban_creator_username']).'</a>' : $lang_admin_common['Unknown'];
+diff -urN punbb-1.3.4/admin/db_update.php punbb-1.3.5/admin/db_update.php
+--- punbb-1.3.4/admin/db_update.php	2009-05-20 09:20:51.000000000 +0000
++++ punbb-1.3.5/admin/db_update.php	2011-03-20 12:49:26.000000000 +0000
+@@ -10,7 +10,7 @@
+  */
+ 
+ 
+-define('UPDATE_TO', '1.3.4');
++define('UPDATE_TO', '1.3.5');
+ define('UPDATE_TO_DB_REVISION', 4);
+ 
+ // The number of items to process per pageview (lower this if the update script times out during UTF-8 conversion)
+@@ -39,14 +39,15 @@
+ 	exit('Cannot find config.php, are you sure it exists?');
+ 
+ // Enable debug mode
+-if (!defined('FORUM_DEBUG')) 
++if (!defined('FORUM_DEBUG'))
+ 	define('FORUM_DEBUG', 1);
+ 
+ // Turn on full PHP error reporting
+ error_reporting(E_ALL);
+ 
+ // Turn off magic_quotes_runtime
+-set_magic_quotes_runtime(0);
++if (get_magic_quotes_runtime())
++	@ini_set('magic_quotes_runtime', false);
+ 
+ // Turn off PHP time limit
+ @set_time_limit(0);
+@@ -1169,6 +1170,10 @@
+ 			}
+ 		}
+ 
++		// Add the index for the post time
++		if (!$forum_db->index_exists('posts', 'posted_idx'))
++			$forum_db->add_index('posts', 'posted_idx', array('posted'));
++
+ 		// Move any users with the old unverified status to their new group
+ 		$query = array(
+ 			'UPDATE'	=> 'users',
+@@ -1207,7 +1212,9 @@
+ 		}
+ 
+ 		// Should we do charset conversion or not?
+-		if (strpos($cur_version, '1.2') === 0 && isset($_GET['convert_charset']))
++		if (strpos($cur_version, '1.3') === 0)
++			$query_str = '?stage=finish';
++		elseif (strpos($cur_version, '1.2') === 0 && isset($_GET['convert_charset']))
+ 			$query_str = '?stage=conv_misc&req_old_charset='.$old_charset.'&req_per_page='.PER_PAGE;
+ 		else
+ 			$query_str = '?stage=conv_tables';
+diff -urN punbb-1.3.4/admin/index.php punbb-1.3.5/admin/index.php
+--- punbb-1.3.4/admin/index.php	2009-04-17 12:51:23.000000000 +0000
++++ punbb-1.3.5/admin/index.php	2010-03-01 12:08:07.000000000 +0000
+@@ -140,7 +140,7 @@
+ else if (ini_get('eaccelerator.enable'))
+ 	$php_accelerator = '<a href="http://eaccelerator.net/">eAccelerator</a>';
+ else if (ini_get('xcache.cacher'))
+-	$php_accelerator = '<a href="http://trac.lighttpd.net/xcache/">XCache</a>';
++	$php_accelerator = '<a href="http://xcache.lighttpd.net/">XCache</a>';
+ else
+ 	$php_accelerator = $lang_admin_index['Not applicable'];
+ 
+diff -urN punbb-1.3.4/admin/install.php punbb-1.3.5/admin/install.php
+--- punbb-1.3.4/admin/install.php	2009-05-20 09:20:51.000000000 +0000
++++ punbb-1.3.5/admin/install.php	2011-03-18 17:40:04.000000000 +0000
+@@ -4,13 +4,13 @@
+  *
+  * Used to actually install PunBB.
+  *
+- * @copyright (C) 2008-2009 PunBB, partially based on code (C) 2008-2009 FluxBB.org
++ * @copyright (C) 2008-2011 PunBB, partially based on code (C) 2008-2009 FluxBB.org
+  * @license http://www.gnu.org/licenses/gpl.html GPL version 2 or higher
+  * @package PunBB
+  */
+ 
+ 
+-define('FORUM_VERSION', '1.3.4');
++define('FORUM_VERSION', '1.3.5');
+ define('FORUM_DB_REVISION', 4);
+ define('MIN_PHP_VERSION', '4.3.0');
+ define('MIN_MYSQL_VERSION', '4.1.2');
+@@ -62,9 +62,9 @@
+ if (!file_exists(FORUM_ROOT.'lang/'.$language.'/install.php'))
+ 	exit('The language pack you have chosen doesn\'t seem to exist or is corrupt. Please recheck and try again.');
+ 
+-// Load the language file
++// Load the language files
+ require FORUM_ROOT.'lang/'.$language.'/install.php';
+-
++require FORUM_ROOT.'lang/'.$language.'/admin_settings.php';
+ 
+ if (isset($_POST['generate_config']))
+ {
+@@ -92,7 +92,10 @@
+ 	$dual_mysql = false;
+ 	$db_extensions = array();
+ 	if (function_exists('mysqli_connect'))
++	{
+ 		$db_extensions[] = array('mysqli', 'MySQL Improved');
++	}
++
+ 	if (function_exists('mysql_connect'))
+ 	{
+ 		$db_extensions[] = array('mysql', 'MySQL Standard');
+@@ -216,7 +219,7 @@
+ 			<div class="sf-set set1">
+ 				<div class="sf-box text required">
+ 					<label for="fld2"><span><?php echo $lang_install['Database server'] ?> <em><?php echo $lang_install['Required'] ?></em></span> <small><?php echo $lang_install['Database server help'] ?></small></label><br />
+-					<span class="fld-input"><input id="fld2" type="text" name="req_db_host" value="localhost" size="50" maxlength="100" /></span>
++					<span class="fld-input"><input id="fld2" type="text" name="req_db_host" value="localhost" size="35" maxlength="100" /></span>
+ 				</div>
+ 			</div>
+ 			<div class="sf-set set2">
+@@ -276,7 +279,7 @@
+ 			<div class="sf-set set4">
+ 				<div class="sf-box text required">
+ 					<label for="fld10"><span><?php echo $lang_install['Admin e-mail'] ?> <em><?php echo $lang_install['Required'] ?></em></span> <small><?php echo $lang_install['E-mail address help'] ?></small></label><br />
+-					<span class="fld-input"><input id="fld10" type="text" name="req_email" size="50" maxlength="80" /></span>
++					<span class="fld-input"><input id="fld10" type="text" name="req_email" size="35" maxlength="80" /></span>
+ 				</div>
+ 			</div>
+ 		</fieldset>
+@@ -297,19 +300,19 @@
+ 			<div class="sf-set set1">
+ 				<div class="sf-box text">
+ 					<label for="fld11"><span><?php echo $lang_install['Board title'] ?></span></label><br />
+-					<span class="fld-input"><input id="fld11" type="text" name="board_title" size="50" maxlength="255" /></span>
++					<span class="fld-input"><input id="fld11" type="text" name="board_title" size="35" maxlength="255" /></span>
+ 				</div>
+ 			</div>
+ 			<div class="sf-set set2">
+ 				<div class="sf-box text">
+ 					<label for="fld12"><span><?php echo $lang_install['Board description'] ?></span></label><br />
+-					<span class="fld-input"><input id="fld12" type="text" name="board_descrip" size="50" maxlength="255" /></span>
++					<span class="fld-input"><input id="fld12" type="text" name="board_descrip" size="35" maxlength="255" /></span>
+ 				</div>
+ 			</div>
+ 			<div class="sf-set set3">
+ 				<div class="sf-box text required">
+ 					<label for="fld13"><span><?php echo $lang_install['Base URL'] ?> <em><?php echo $lang_install['Required'] ?></em></span> <small><?php echo $lang_install['Base URL help'] ?></small></label><br />
+-					<span class="fld-input"><input id="fld13" type="text" name="req_base_url" value="<?php echo $base_url_guess ?>" size="60" maxlength="100" /></span>
++					<span class="fld-input"><input id="fld13" type="text" name="req_base_url" value="<?php echo $base_url_guess ?>" size="35" maxlength="100" /></span>
+ 				</div>
+ 			</div>
+ <?php
+@@ -473,7 +476,7 @@
+ 	{
+ 		$mysql_info = $forum_db->get_version();
+ 		if (version_compare($mysql_info['version'], MIN_MYSQL_VERSION, '<'))
+-			error(sprintf($lang_install['Invalid MySQL version'], $mysql_version, MIN_MYSQL_VERSION));
++			error(sprintf($lang_install['Invalid MySQL version'], forum_htmlencode($mysql_info['version']), MIN_MYSQL_VERSION));
+ 	}
+ 
+ 	// Validate prefix
+@@ -1020,7 +1023,8 @@
+ 		'PRIMARY KEY'	=> array('id'),
+ 		'INDEXES'		=> array(
+ 			'topic_id_idx'	=> array('topic_id'),
+-			'multi_idx'		=> array('poster_id', 'topic_id')
++			'multi_idx'		=> array('poster_id', 'topic_id'),
++			'posted_idx'	=> array('posted')
+ 		)
+ 	);
+ 
+@@ -1602,7 +1606,7 @@
+ 		'o_date_format'				=> "'Y-m-d'",
+ 		'o_check_for_updates'		=> "'$check_for_updates'",
+ 		'o_check_for_versions'		=> "'$check_for_updates'",
+-		'o_timeout_visit'			=> "'1800'",
++		'o_timeout_visit'			=> "'5400'",
+ 		'o_timeout_online'			=> "'300'",
+ 		'o_redirect_delay'			=> "'1'",
+ 		'o_show_version'			=> "'0'",
+@@ -1655,7 +1659,7 @@
+ 		'o_rules'					=> "'0'",
+ 		'o_rules_message'			=> "'".$lang_install['Default rules']."'",
+ 		'o_maintenance'				=> "'0'",
+-		'o_maintenance_message'		=> "'".$lang_install['Default maint message']."'",
++		'o_maintenance_message'		=> "'".$lang_admin_settings['Maintenance message default']."'",
+ 		'o_default_dst'				=> "'0'",
+ 		'p_message_bbcode'			=> "'1'",
+ 		'p_message_img_tag'			=> "'1'",
+@@ -1746,12 +1750,13 @@
+ 
+ 
+ 	$alerts = array();
++
+ 	// Check if the cache directory is writable
+-	if (!is_writable('./cache/'))
++	if (!is_writable(FORUM_ROOT.'cache/'))
+ 		$alerts[] = '<li><span>'.$lang_install['No cache write'].'</span></li>';
+ 
+ 	// Check if default avatar directory is writable
+-	if (!is_writable('./img/avatars/'))
++	if (!is_writable(FORUM_ROOT.'img/avatars/'))
+ 		$alerts[] = '<li><span>'.$lang_install['No avatar write'].'</span></li>';
+ 
+ 	// Check if we disabled uploading avatars because file_uploads was disabled
+@@ -1843,9 +1848,6 @@
+ 	<p><?php echo $lang_install['Success welcome'] ?></p>
+ </div>
+ 
+-<?php
+-?>
+-
+ <div id="brd-main" class="main basic">
+ 
+ 	<div class="main-head">
+@@ -1853,7 +1855,14 @@
+ 	</div>
+ 
+ 	<div class="main-content main-frm">
+-<?php
++<?php if (!empty($alerts)): ?>
++		<div class="ct-box error-box">
++			<p class="warn"><strong><?php echo $lang_install['Warning'] ?></strong></p>
++			<ul>
++				<?php echo implode("\n\t\t\t\t", $alerts)."\n" ?>
++			</ul>
++		</div>
++<?php endif;
+ 
+ if (!$written)
+ {
+@@ -1863,14 +1872,6 @@
+ 			<p class="warn"><?php echo $lang_install['No write info 1'] ?></p>
+ 			<p class="warn"><?php printf($lang_install['No write info 2'], '<a href="'.FORUM_ROOT.'index.php">'.$lang_install['Go to index'].'</a>') ?></p>
+ 		</div>
+-<?php if (!empty($alerts)): ?>
+-		<div class="ct-box error-box">
+-			<p class="warn"><strong><?php echo $lang_install['Warning'] ?></strong></p>
+-			<ul>
+-				<?php echo implode("\n\t\t\t\t", $alerts)."\n" ?>
+-			</ul>
+-		</div>
+-<?php endif; ?>
+ 		<form class="frm-form" method="post" accept-charset="utf-8" action="install.php">
+ 			<div class="hidden">
+ 			<input type="hidden" name="generate_config" value="1" />
+diff -urN punbb-1.3.4/admin/users.php punbb-1.3.5/admin/users.php
+--- punbb-1.3.4/admin/users.php	2009-04-17 12:51:23.000000000 +0000
++++ punbb-1.3.5/admin/users.php	2011-03-18 12:01:21.000000000 +0000
+@@ -812,83 +812,116 @@
+ }
+ 
+ 
+-else if (isset($_POST['find_user']))
++else if (isset($_GET['find_user']))
+ {
+-	$form = $_POST['form'];
+-	$form['username'] = $_POST['username'];
++	$form = isset($_GET['form']) ? $_GET['form'] : array();
++
++	// trim() all elements in $form
++	$form = array_map('forum_trim', $form);
++	$conditions = $query_str = array();
+ 
+ 	//Check up for order_by and direction values
+-	$order_by = isset($_POST['order_by']) ? forum_trim($_POST['order_by']) : null;
+-	$direction = isset($_POST['direction']) ? forum_trim($_POST['direction']) : null;
++	$order_by = isset($_GET['order_by']) ? forum_trim($_GET['order_by']) : null;
++	$direction = isset($_GET['direction']) ? forum_trim($_GET['direction']) : null;
+ 	if ($order_by == null || $direction == null)
+ 		message($lang_common['Bad request']);
++
+ 	if (!in_array($order_by, array('username', 'email', 'num_posts', 'num_posts', 'registered')) || !in_array($direction, array('ASC', 'DESC')))
+ 		message($lang_common['Bad request']);
+ 
+ 	($hook = get_hook('aus_find_user_selected')) ? eval($hook) : null;
+ 
+-	// forum_trim() all elements in $form
+-	$form = array_map('trim', $form);
+-	$conditions = array();
+-
+-	$posts_greater = forum_trim($_POST['posts_greater']);
+-	$posts_less = forum_trim($_POST['posts_less']);
+-	$last_post_after = forum_trim($_POST['last_post_after']);
+-	$last_post_before = forum_trim($_POST['last_post_before']);
+-	$registered_after = forum_trim($_POST['registered_after']);
+-	$registered_before = forum_trim($_POST['registered_before']);
+-	$user_group = $_POST['user_group'];
++	$query_str[] = 'order_by='.$order_by;
++	$query_str[] = 'direction='.$direction;
++
++	$posts_greater = isset($_GET['posts_greater']) ? forum_trim($_GET['posts_greater']) : '';
++	$posts_less = isset($_GET['posts_less']) ? forum_trim($_GET['posts_less']) : '';
++	$last_post_after = isset($_GET['last_post_after']) ? forum_trim($_GET['last_post_after']) : '';
++	$last_post_before = isset($_GET['last_post_before']) ? forum_trim($_GET['last_post_before']) : '';
++	$registered_after = isset($_GET['registered_after']) ? forum_trim($_GET['registered_after']) : '';
++	$registered_before = isset($_GET['registered_before']) ? forum_trim($_GET['registered_before']) : '';
++	$user_group = isset($_GET['user_group']) ? intval($_GET['user_group']) : -1;
++
++	$query_str[] = 'user_group='.$user_group;
+ 
+ 	if ((!empty($posts_greater) || !empty($posts_less)) && !ctype_digit($posts_greater.$posts_less))
+ 		message($lang_admin_users['Non numeric value message']);
+ 
+ 	// Try to convert date/time to timestamps
+ 	if ($last_post_after != '')
+-		$last_post_after = strtotime($last_post_after);
+-	if ($last_post_before != '')
+-		$last_post_before = strtotime($last_post_before);
+-	if ($registered_after != '')
+-		$registered_after = strtotime($registered_after);
+-	if ($registered_before != '')
+-		$registered_before = strtotime($registered_before);
++	{
++		$query_str[] = 'last_post_after='.$last_post_after;
+ 
+-	if ($last_post_after == -1 || $last_post_before == -1 || $registered_after == -1 || $registered_before == -1)
+-		message($lang_admin_users['Invalid date/time message']);
++		$last_post_after = strtotime($last_post_after);
++		if ($last_post_after === false || $last_post_after == -1)
++			message($lang_admin_users['Invalid date/time message']);
+ 
+-	if ($last_post_after != '')
+ 		$conditions[] = 'u.last_post>'.$last_post_after;
++	}
+ 	if ($last_post_before != '')
++	{
++		$query_str[] = 'last_post_before='.$last_post_before;
++
++		$last_post_before = strtotime($last_post_before);
++		if ($last_post_before === false || $last_post_before == -1)
++			message($lang_admin_users['Invalid date/time message']);
++
+ 		$conditions[] = 'u.last_post<'.$last_post_before;
++	}
+ 	if ($registered_after != '')
++	{
++		$query_str[] = 'registered_after='.$registered_after;
++
++		$registered_after = strtotime($registered_after);
++		if ($registered_after === false || $registered_after == -1)
++			message($lang_admin_users['Invalid date/time message']);
++
+ 		$conditions[] = 'u.registered>'.$registered_after;
++	}
+ 	if ($registered_before != '')
++	{
++		$query_str[] = 'registered_before='.$registered_before;
++
++		$registered_before = strtotime($registered_before);
++		if ($registered_before === false || $registered_before == -1)
++			message($lang_admin_users['Invalid date/time message']);
++
+ 		$conditions[] = 'u.registered<'.$registered_before;
++	}
+ 
+ 	$like_command = ($db_type == 'pgsql') ? 'ILIKE' : 'LIKE';
+ 	foreach ($form as $key => $input)
+ 	{
+ 		if ($input != '' && in_array($key, array('username', 'email', 'title', 'realname', 'url', 'jabber', 'icq', 'msn', 'aim', 'yahoo', 'location', 'signature', 'admin_note')))
++		{
+ 			$conditions[] = 'u.'.$forum_db->escape($key).' '.$like_command.' \''.$forum_db->escape(str_replace('*', '%', $input)).'\'';
++			$query_str[] = 'form%5B'.$key.'%5D='.urlencode($input);
++		}
+ 	}
+ 
+ 	if ($posts_greater != '')
++	{
++		$query_str[] = 'posts_greater='.$posts_greater;
+ 		$conditions[] = 'u.num_posts>'.$posts_greater;
++	}
+ 	if ($posts_less != '')
++	{
++		$query_str[] = 'posts_less='.$posts_less;
+ 		$conditions[] = 'u.num_posts<'.$posts_less;
++	}
+ 
+-	if ($user_group != 'all')
++	if ($user_group > -1)
+ 		$conditions[] = 'u.group_id='.intval($user_group);
+ 
+ 	if (empty($conditions))
+ 		message($lang_admin_users['No search terms message']);
+ 
+-
+ 	// Load the misc.php language file
+ 	require FORUM_ROOT.'lang/'.$forum_user['language'].'/misc.php';
+ 
+-	// Find any users matching the conditions
++	// Fetch user count
+ 	$query = array(
+-		'SELECT'	=> 'u.id, u.username, u.email, u.title, u.num_posts, u.admin_note, g.g_id, g.g_user_title',
++		'SELECT'	=> 'COUNT(id)',
+ 		'FROM'		=> 'users AS u',
+ 		'JOINS'		=> array(
+ 			array(
+@@ -896,14 +929,17 @@
+ 				'ON'			=> 'g.g_id=u.group_id'
+ 			)
+ 		),
+-		'WHERE'		=> 'u.id>1 AND '.implode(' AND ', $conditions),
+-		'ORDER BY'	=> $order_by.' '.$direction
++		'WHERE'		=> 'u.id>1 AND '.implode(' AND ', $conditions)
+ 	);
+ 
+-	($hook = get_hook('aus_find_user_qr_find_users')) ? eval($hook) : null;
+-	$result = $forum_db->query_build($query) or error(__FILE__, __LINE__);
+-	$forum_page['num_users'] = $forum_db->num_rows($result);
++	($hook = get_hook('aus_find_user_qr_count_find_users')) ? eval($hook) : null;
+ 
++	$result = $forum_db->query_build($query) or error(__FILE__, __LINE__);
++	$forum_page['num_users'] = $forum_db->result($result);
++	$forum_page['num_pages'] = ceil($forum_page['num_users'] / $forum_user['disp_topics']);
++	$forum_page['page'] = (!isset($_GET['p']) || !is_numeric($_GET['p']) || $_GET['p'] <= 1 || $_GET['p'] > $forum_page['num_pages']) ? 1 : $_GET['p'];
++	$forum_page['start_from'] = $forum_user['disp_topics'] * ($forum_page['page'] - 1);
++	$forum_page['finish_at'] = min(($forum_page['start_from'] + $forum_user['disp_topics']), ($forum_page['num_users']));
+ 
+ 	// Setup breadcrumbs
+ 	$forum_page['crumbs'] = array(
+@@ -915,6 +951,9 @@
+ 	$forum_page['crumbs'][] = array($lang_admin_common['Searches'], forum_link($forum_url['admin_users']));
+ 	$forum_page['crumbs'][] = $lang_admin_users['User search results'];
+ 
++	// Generate paging
++	$forum_page['page_post']['paging'] = '<p class="paging"><span class="pages">'.$lang_common['Pages'].'</span> '.paginate($forum_page['num_pages'], $forum_page['page'], $forum_url['admin_users'].'?find_user=&amp;'.implode('&amp;', $query_str), $lang_common['Paging separator'], null, true).'</p>';
++
+ 	($hook = get_hook('aus_find_user_pre_header_load')) ? eval($hook) : null;
+ 
+ 	define('FORUM_PAGE_SECTION', 'users');
+@@ -961,6 +1000,25 @@
+ 			<tbody>
+ <?php
+ 
++	// Find any users matching the conditions
++	$query = array(
++		'SELECT'	=> 'u.id, u.username, u.email, u.title, u.num_posts, u.admin_note, g.g_id, g.g_user_title',
++		'FROM'		=> 'users AS u',
++		'JOINS'		=> array(
++			array(
++				'LEFT JOIN'		=> 'groups AS g',
++				'ON'			=> 'g.g_id=u.group_id'
++			)
++		),
++		'WHERE'		=> 'u.id>1 AND '.implode(' AND ', $conditions),
++		'ORDER BY'	=> $order_by.' '.$direction,
++		'LIMIT'		=> $forum_page['start_from'].', '.$forum_page['finish_at']
++	);
++
++	($hook = get_hook('aus_find_user_qr_find_users')) ? eval($hook) : null;
++
++	$result = $forum_db->query_build($query) or error(__FILE__, __LINE__);
++
+ 	if ($forum_page['num_users'] > 0)
+ 	{
+ 		$forum_page['item_count'] = 0;
+@@ -1107,7 +1165,7 @@
+ 		<h2 class="hn"><span><?php echo $lang_admin_users['Search head'] ?></span></h2>
+ 	</div>
+ 	<div class="main-content main-frm">
+-		<form class="frm-form" method="post" accept-charset="utf-8" action="<?php echo forum_link($forum_url['admin_users']) ?>?action=find_user">
++		<form class="frm-form" method="get" accept-charset="utf-8" action="<?php echo forum_link($forum_url['admin_users']) ?>">
+ 			<div class="hidden">
+ 				<input type="hidden" name="csrf_token" value="<?php echo generate_form_token(forum_link($forum_url['admin_users']).'?action=find_user') ?>" />
+ 			</div>
+@@ -1121,28 +1179,28 @@
+ 				<div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
+ 					<div class="sf-box text">
+ 						<label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_users['Username label'] ?></span></label><br />
+-						<span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="username" size="25" maxlength="25" /></span>
++						<span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[username]" size="35" maxlength="25" /></span>
+ 					</div>
+ 				</div>
+ <?php ($hook = get_hook('aus_search_form_pre_user_title')) ? eval($hook) : null; ?>
+ 				<div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
+ 					<div class="sf-box text">
+ 						<label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_users['Title label'] ?></span></label><br />
+-						<span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[title]" size="30" maxlength="50" /></span>
++						<span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[title]" size="35" maxlength="50" /></span>
+ 					</div>
+ 				</div>
+ <?php ($hook = get_hook('aus_search_form_pre_realname')) ? eval($hook) : null; ?>
+ 				<div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
+ 					<div class="sf-box text">
+ 						<label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_users['Real name label'] ?></span></label><br />
+-						<span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[realname]" size="30" maxlength="40" /></span>
++						<span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[realname]" size="35" maxlength="40" /></span>
+ 					</div>
+ 				</div>
+ <?php ($hook = get_hook('aus_search_form_pre_location')) ? eval($hook) : null; ?>
+ 				<div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
+ 					<div class="sf-box text">
+ 						<label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_users['Location label'] ?></span></label><br />
+-						<span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[location]" size="30" maxlength="30" /></span>
++						<span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[location]" size="35" maxlength="30" /></span>
+ 					</div>
+ 				</div>
+ <?php ($hook = get_hook('aus_search_form_pre_signature')) ? eval($hook) : null; ?>
+@@ -1156,7 +1214,7 @@
+ 				<div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
+ 					<div class="sf-box text">
+ 						<label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_users['Admin note label'] ?></span></label><br />
+-						<span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[admin_note]" size="30" maxlength="30" /></span>
++						<span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[admin_note]" size="35" maxlength="30" /></span>
+ 					</div>
+ 				</div>
+ <?php ($hook = get_hook('aus_search_form_pre_user_details_fieldset_end')) ? eval($hook) : null; ?>
+@@ -1170,7 +1228,7 @@
+ 				<div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
+ 					<div class="sf-box text">
+ 						<label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_users['E-mail address label'] ?></span></label><br />
+-						<span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[email]" size="30" maxlength="80" /></span>
++						<span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[email]" size="35" maxlength="80" /></span>
+ 					</div>
+ 				</div>
+ <?php ($hook = get_hook('aus_search_form_pre_website')) ? eval($hook) : null; ?>				<div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
+@@ -1182,7 +1240,7 @@
+ <?php ($hook = get_hook('aus_search_form_pre_jabber')) ? eval($hook) : null; ?>				<div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
+ 					<div class="sf-box text">
+ 						<label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_users['Jabber label'] ?></span></label><br />
+-						<span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[jabber]" size="30" maxlength="80" /></span>
++						<span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[jabber]" size="35" maxlength="80" /></span>
+ 					</div>
+ 				</div>
+ <?php ($hook = get_hook('aus_search_form_pre_icq')) ? eval($hook) : null; ?>				<div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
+@@ -1194,7 +1252,7 @@
+ <?php ($hook = get_hook('aus_search_form_pre_msn')) ? eval($hook) : null; ?>				<div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
+ 					<div class="sf-box text">
+ 						<label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_users['MSN Messenger label'] ?></span></label><br />
+-						<span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[msn]" size="30" maxlength="80" /></span>
++						<span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[msn]" size="35" maxlength="80" /></span>
+ 					</div>
+ 				</div>
+ <?php ($hook = get_hook('aus_search_form_pre_aim')) ? eval($hook) : null; ?>				<div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
+@@ -1303,7 +1361,7 @@
+ 					<div class="sf-box select">
+ 						<label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_admin_users['User group label'] ?></span></label><br />
+ 						<span class="fld-input"><select id="fld<?php echo $forum_page['fld_count'] ?>" name="user_group">
+-							<option value="all" selected="selected"><?php echo $lang_admin_users['All groups'] ?></option>
++							<option value="-1" selected="selected"><?php echo $lang_admin_users['All groups'] ?></option>
+ 							<option value="<?php echo FORUM_UNVERIFIED ?>"><?php echo $lang_admin_users['Unverified users'] ?></option>
+ <?php
+ 
+diff -urN punbb-1.3.4/edit.php punbb-1.3.5/edit.php
+--- punbb-1.3.4/edit.php	2009-04-17 12:51:23.000000000 +0000
++++ punbb-1.3.5/edit.php	2011-03-07 20:13:25.000000000 +0000
+@@ -91,7 +91,7 @@
+ 			$errors[] = $lang_post['No subject'];
+ 		else if (utf8_strlen($subject) > 70)
+ 			$errors[] = $lang_post['Too long subject'];
+-		else if ($forum_config['p_subject_all_caps'] == '0' && utf8_strtoupper($subject) == $subject && !$forum_page['is_admmod'])
++		else if ($forum_config['p_subject_all_caps'] == '0' && check_is_all_caps($subject) && !$forum_page['is_admmod'])
+ 			$subject = utf8_ucwords(utf8_strtolower($subject));
+ 	}
+ 
+@@ -100,7 +100,7 @@
+ 
+ 	if (strlen($message) > FORUM_MAX_POSTSIZE_BYTES)
+ 		$errors[] = sprintf($lang_post['Too long message'], forum_number_format(strlen($message)), forum_number_format(FORUM_MAX_POSTSIZE_BYTES));
+-	else if ($forum_config['p_message_all_caps'] == '0' && utf8_strtoupper($message) == $message && !$forum_page['is_admmod'])
++	else if ($forum_config['p_message_all_caps'] == '0' && check_is_all_caps($message) && !$forum_page['is_admmod'])
+ 		$message = utf8_ucwords(utf8_strtolower($message));
+ 
+ 	// Validate BBCode syntax
+diff -urN punbb-1.3.4/extern.php punbb-1.3.5/extern.php
+--- punbb-1.3.4/extern.php	2009-04-17 12:51:23.000000000 +0000
++++ punbb-1.3.5/extern.php	2010-04-29 10:24:47.000000000 +0000
+@@ -128,7 +128,7 @@
+ 		echo "\t\t\t".'<title><![CDATA['.escape_cdata($item['title']).']]></title>'."\n";
+ 		echo "\t\t\t".'<link>'.$item['link'].'</link>'."\n";
+ 		echo "\t\t\t".'<description><![CDATA['.escape_cdata($item['description']).']]></description>'."\n";
+-		echo "\t\t\t".'<author><![CDATA['.(isset($item['author']['email']) ? escape_cdata($item['author']['email']) : 'dummy@example.com').' ('.escape_cdata($item['author']['name']).')]]></author>'."\n";
++		echo "\t\t\t".'<author><![CDATA['.(isset($item['author']['email']) ? escape_cdata($item['author']['email']) : 'null@example.com').' ('.escape_cdata($item['author']['name']).')]]></author>'."\n";
+ 		echo "\t\t\t".'<pubDate>'.gmdate('r', $item['pubdate']).'</pubDate>'."\n";
+ 		echo "\t\t\t".'<guid>'.$item['link'].'</guid>'."\n";
+ 
+@@ -335,16 +335,16 @@
+ 			'JOINS'		=> array(
+ 				array(
+ 					'INNER JOIN'	=> 'users AS u',
+-					'ON'		=> 'u.id = p.poster_id'
++					'ON'			=> 'u.id = p.poster_id'
+ 				)
+ 			),
+ 			'WHERE'		=> 'p.topic_id='.$tid,
+ 			'ORDER BY'	=> 'p.posted DESC',
+ 			'LIMIT'		=> $show
+ 		);
+-
+ 		($hook = get_hook('ex_qr_get_posts')) ? eval($hook) : null;
+ 		$result = $forum_db->query_build($query) or error(__FILE__, __LINE__);
++
+ 		while ($cur_post = $forum_db->fetch_assoc($result))
+ 		{
+ 			if ($forum_config['o_censoring'] == '1')
+@@ -401,22 +401,22 @@
+ 
+ 			if (count($fids) == 1)
+ 			{
+-			// Fetch forum name
+-			$query = array(
+-				'SELECT'	=> 'f.forum_name',
+-				'FROM'		=> 'forums AS f',
+-				'JOINS'		=> array(
+-					array(
+-						'LEFT JOIN'		=> 'forum_perms AS fp',
+-						'ON'			=> '(fp.forum_id=f.id AND fp.group_id='.$forum_user['g_id'].')'
+-					)
+-				),
+-				'WHERE'		=> '(fp.read_forum IS NULL OR fp.read_forum=1) AND f.id='.$fids[0]
+-			);
+-
+-			$result = $forum_db->query_build($query) or error(__FILE__, __LINE__);
+-			if ($forum_db->num_rows($result))
+-				$forum_name = $lang_common['Title separator'].$forum_db->result($result);
++				// Fetch forum name
++				$query = array(
++					'SELECT'	=> 'f.forum_name',
++					'FROM'		=> 'forums AS f',
++					'JOINS'		=> array(
++						array(
++							'LEFT JOIN'		=> 'forum_perms AS fp',
++							'ON'			=> '(fp.forum_id=f.id AND fp.group_id='.$forum_user['g_id'].')'
++						)
++					),
++					'WHERE'		=> '(fp.read_forum IS NULL OR fp.read_forum=1) AND f.id='.$fids[0]
++				);
++
++				$result = $forum_db->query_build($query) or error(__FILE__, __LINE__);
++				if ($forum_db->num_rows($result))
++					$forum_name = $lang_common['Title separator'].$forum_db->result($result);
+ 			}
+ 		}
+ 
+@@ -441,24 +441,24 @@
+ 
+ 		// Fetch $show topics
+ 		$query = array(
+-			'SELECT'	=> 't.id, t.poster, t.subject, t.last_post, t.last_poster, p.message, p.hide_smilies, u.email_setting, u.email, p.poster_id, p.poster_email',
++			'SELECT'	=> 't.id, t.poster, t.posted, t.subject, p.message, p.hide_smilies, u.email_setting, u.email, p.poster_id, p.poster_email',
+ 			'FROM'		=> 'topics AS t',
+ 			'JOINS'		=> array(
+ 				array(
+ 					'INNER JOIN'	=> 'posts AS p',
+-					'ON'			=> 'p.id=t.first_post_id'
++					'ON'			=> 'p.id = t.first_post_id'
+ 				),
+ 				array(
+-					'INNER JOIN'		=> 'users AS u',
++					'INNER JOIN'	=> 'users AS u',
+ 					'ON'			=> 'u.id = p.poster_id'
+ 				),
+ 				array(
+ 					'LEFT JOIN'		=> 'forum_perms AS fp',
+-					'ON'			=> '(fp.forum_id=t.forum_id AND fp.group_id='.$forum_user['g_id'].')'
++					'ON'			=> '(fp.forum_id = t.forum_id AND fp.group_id = '.$forum_user['g_id'].')'
+ 				)
+ 			),
+-			'WHERE'		=> '(fp.read_forum IS NULL OR fp.read_forum=1) AND t.moved_to IS NULL',
+-			'ORDER BY'	=> 't.last_post DESC',
++			'WHERE'		=> '(fp.read_forum IS NULL OR fp.read_forum = 1) AND t.moved_to IS NULL',
++			'ORDER BY'	=> 't.posted DESC',
+ 			'LIMIT'		=> $show
+ 		);
+ 
+@@ -483,9 +483,9 @@
+ 				'link'			=>	forum_link($forum_url['topic_new_posts'], array($cur_topic['id'], sef_friendly($cur_topic['subject']))),
+ 				'description'	=>	$cur_topic['message'],
+ 				'author'		=>	array(
+-					'name'	=> $cur_topic['last_poster']
++					'name'			=> $cur_topic['poster']
+ 				),
+-				'pubdate'		=>	$cur_topic['last_post']
++				'pubdate'		=>	$cur_topic['posted']
+ 			);
+ 
+ 			if ($cur_topic['poster_id'] > 1)
+diff -urN punbb-1.3.4/header.php punbb-1.3.5/header.php
+--- punbb-1.3.4/header.php	2009-04-17 12:51:23.000000000 +0000
++++ punbb-1.3.5/header.php	2010-04-27 11:37:49.000000000 +0000
+@@ -76,7 +76,7 @@
+ if (!defined('FORUM_ALLOW_INDEX'))
+ 	$forum_head['robots'] = '<meta name="ROBOTS" content="NOINDEX, FOLLOW" />';
+ else
+-	$forum_head['descriptions'] = '<meta name="description" content="'.generate_crumbs(true).' '.$lang_common['Title separator'].' '.forum_htmlencode($forum_config['o_board_desc']).'" />';
++	$forum_head['descriptions'] = '<meta name="description" content="'.generate_crumbs(true).$lang_common['Title separator'].forum_htmlencode($forum_config['o_board_desc']).'" />';
+ 
+ // Should we output a MicroID? http://microid.org/
+ if (strpos(FORUM_PAGE, 'profile') === 0)
+diff -urN punbb-1.3.4/include/cache.php punbb-1.3.5/include/cache.php
+--- punbb-1.3.4/include/cache.php	2009-04-17 12:51:23.000000000 +0000
++++ punbb-1.3.5/include/cache.php	2009-12-24 13:07:16.000000000 +0000
+@@ -297,7 +297,7 @@
+ 	$output = array();
+ 	while ($cur_hook = $forum_db->fetch_assoc($result))
+ 	{
+-		$load_ext_info = '$ext_info_stack[] = array('."\n".
++		$load_ext_info = '$GLOBALS[\'ext_info_stack\'][] = array('."\n".
+ 			'\'id\'				=> \''.$cur_hook['extension_id'].'\','."\n".
+ 			'\'path\'			=> FORUM_ROOT.\'extensions/'.$cur_hook['extension_id'].'\','."\n".
+ 			'\'url\'			=> $GLOBALS[\'base_url\'].\'/extensions/'.$cur_hook['extension_id'].'\','."\n".
+@@ -316,8 +316,8 @@
+ 				'\'url\'			=> $GLOBALS[\'base_url\'].\'/extensions/'.$cur_dependency.'\'),'."\n";
+ 		}
+ 
+-		$load_ext_info .= ')'."\n".');'."\n".'$ext_info = $ext_info_stack[count($ext_info_stack) - 1];';
+-		$unload_ext_info = 'array_pop($ext_info_stack);'."\n".'$ext_info = empty($ext_info_stack) ? array() : $ext_info_stack[count($ext_info_stack) - 1];';
++		$load_ext_info .= ')'."\n".');'."\n".'$ext_info = $GLOBALS[\'ext_info_stack\'][count($GLOBALS[\'ext_info_stack\']) - 1];';
++		$unload_ext_info = 'array_pop($GLOBALS[\'ext_info_stack\']);'."\n".'$ext_info = empty($GLOBALS[\'ext_info_stack\']) ? array() : $GLOBALS[\'ext_info_stack\'][count($GLOBALS[\'ext_info_stack\']) - 1];';
+ 
+ 		$output[$cur_hook['id']][] = $load_ext_info."\n\n".$cur_hook['code']."\n\n".$unload_ext_info."\n";
+ 	}
+diff -urN punbb-1.3.4/include/common.php punbb-1.3.5/include/common.php
+--- punbb-1.3.4/include/common.php	2009-04-17 12:51:23.000000000 +0000
++++ punbb-1.3.5/include/common.php	2011-03-20 12:49:26.000000000 +0000
+@@ -16,7 +16,7 @@
+ 
+ // Turn off magic_quotes_runtime
+ if (get_magic_quotes_runtime())
+-	set_magic_quotes_runtime(0);
++	@ini_set('magic_quotes_runtime', false);
+ 
+ // Strip slashes from GET/POST/COOKIE (if magic_quotes_gpc is enabled)
+ if (get_magic_quotes_gpc())
+diff -urN punbb-1.3.4/include/dblayer/sqlite.php punbb-1.3.5/include/dblayer/sqlite.php
+--- punbb-1.3.4/include/dblayer/sqlite.php	2009-04-17 12:51:23.000000000 +0000
++++ punbb-1.3.5/include/dblayer/sqlite.php	2010-03-01 11:05:28.000000000 +0000
+@@ -579,7 +579,8 @@
+ 		if (!empty($table['indices']))
+ 		{
+ 			foreach ($table['indices'] as $cur_index)
+-				$this->query($cur_index) or error(__FILE__, __LINE__);
++				if (!preg_match('#\(.*'.$field_name.'.*\)#', $cur_index))
++					$this->query($cur_index) or error(__FILE__, __LINE__);
+ 		}
+ 
+ 		//Copy content back
+diff -urN punbb-1.3.4/include/essentials.php punbb-1.3.5/include/essentials.php
+--- punbb-1.3.4/include/essentials.php	2009-05-20 09:20:51.000000000 +0000
++++ punbb-1.3.5/include/essentials.php	2011-03-16 18:05:10.000000000 +0000
+@@ -15,9 +15,13 @@
+ 	exit('The constant FORUM_ROOT must be defined and point to a valid PunBB installation root directory.');
+ 
+ // Define the version and database revision that this code was written for
+-define('FORUM_VERSION', '1.3.4');
++define('FORUM_VERSION', '1.3.5');
+ define('FORUM_DB_REVISION', 4);
+ 
++// Record the start time (will be used to calculate the generation time for the page)
++list($usec, $sec) = explode(' ', microtime());
++$forum_start = ((float)$usec + (float)$sec);
++
+ // Load the functions script
+ require FORUM_ROOT.'include/functions.php';
+ 
+@@ -58,10 +62,6 @@
+ 	exit;
+ }
+ 
+-// Record the start time (will be used to calculate the generation time for the page)
+-list($usec, $sec) = explode(' ', microtime());
+-$forum_start = ((float)$usec + (float)$sec);
+-
+ // Make sure PHP reports all errors except E_NOTICE. PunBB supports E_ALL, but a lot of scripts it may interact with, do not.
+ if (defined('FORUM_DEBUG'))
+ 	error_reporting(E_ALL);
+@@ -111,6 +111,11 @@
+ if (defined('PUN') || !isset($forum_config['o_database_revision']) || $forum_config['o_database_revision'] < FORUM_DB_REVISION || version_compare($forum_config['o_cur_version'], FORUM_VERSION, '<'))
+ 	error('Your PunBB database is out-of-date and must be upgraded in order to continue. Please run <a href="'.$base_url.'/admin/db_update.php">db_update.php</a> in order to complete the upgrade process.');
+ 
++// For sqlite "show dot" options always disabled
++if ($db_type == 'sqlite')
++{
++	$forum_config['o_show_dot'] = '0';
++}
+ 
+ // Load hooks
+ if (file_exists(FORUM_CACHE_DIR.'cache_hooks.php'))
+diff -urN punbb-1.3.4/include/functions.php punbb-1.3.5/include/functions.php
+--- punbb-1.3.4/include/functions.php	2009-04-17 12:51:23.000000000 +0000
++++ punbb-1.3.5/include/functions.php	2011-03-18 12:02:43.000000000 +0000
+@@ -404,6 +404,8 @@
+ 	if ($type == FORUM_FT_DATETIME || $type == FORUM_FT_TIME)
+ 		$formatted_time .= gmdate($time_format, $timestamp);
+ 
++	($hook = get_hook('fn_format_time_end')) ? eval($hook) : null;
++
+ 	return $formatted_time;
+ }
+ 
+@@ -555,10 +557,18 @@
+ 
+ 
+ // Generate a string with numbered links (for multipage scripts)
+-function paginate($num_pages, $cur_page, $link, $separator, $args = null)
++function paginate($num_pages, $cur_page, $link, $separator, $args = null, $is_default_scheme = null)
+ {
+ 	global $forum_url, $lang_common;
+ 
++	if ($is_default_scheme == null)
++		$forum_url_page = $forum_url['page'];
++	else
++	{
++		$forum_url_page = '&amp;p=$1';
++		unset($forum_url['insertion_find']);
++	}
++
+ 	$pages = array();
+ 	$link_to_all = false;
+ 
+@@ -574,16 +584,16 @@
+ 	}
+ 
+ 	if ($num_pages <= 1)
+-		$pages = array('<strong class="first-item">1</strong>');
++		$pages = array('<strong class="first-item">'.forum_number_format(1).'</strong>');
+ 	else
+ 	{
+ 		// Add a previous page link
+ 		if ($num_pages > 1 && $cur_page > 1)
+-			$pages[] = '<a'.(empty($pages) ? ' class="first-item"' : '').' href="'.forum_sublink($link, $forum_url['page'], ($cur_page - 1), $args).'">'.$lang_common['Previous'].'</a>';
++			$pages[] = '<a'.(empty($pages) ? ' class="first-item"' : '').' href="'.forum_sublink($link, $forum_url_page, ($cur_page - 1), $args).'">'.$lang_common['Previous'].'</a>';
+ 
+ 		if ($cur_page > 3)
+ 		{
+-			$pages[] = '<a'.(empty($pages) ? ' class="first-item"' : '').' href="'.forum_sublink($link, $forum_url['page'], 1, $args).'">1</a>';
++			$pages[] = '<a'.(empty($pages) ? ' class="first-item"' : '').' href="'.forum_sublink($link, $forum_url_page, 1, $args).'">'.forum_number_format(1).'</a>';
+ 
+ 			if ($cur_page > 5)
+ 				$pages[] = '<span>'.$lang_common['Spacer'].'</span>';
+@@ -594,7 +604,7 @@
+ 			if ($current < 1 || $current > $num_pages)
+ 				continue;
+ 			else if ($current != $cur_page || $link_to_all)
+-				$pages[] = '<a'.(empty($pages) ? ' class="first-item" ' : '').' href="'.forum_sublink($link, $forum_url['page'], $current, $args).'">'.forum_number_format($current).'</a>';
++				$pages[] = '<a'.(empty($pages) ? ' class="first-item" ' : '').' href="'.forum_sublink($link, $forum_url_page, $current, $args).'">'.forum_number_format($current).'</a>';
+ 			else
+ 				$pages[] = '<strong'.(empty($pages) ? ' class="first-item"' : '').'>'.forum_number_format($current).'</strong>';
+ 
+@@ -603,12 +613,12 @@
+ 			if ($cur_page != ($num_pages-3) && $cur_page != ($num_pages-4))
+ 				$pages[] = '<span>'.$lang_common['Spacer'].'</span>';
+ 
+-			$pages[] = '<a'.(empty($pages) ? ' class="first-item" ' : '').' href="'.forum_sublink($link, $forum_url['page'], $num_pages, $args).'">'.forum_number_format($num_pages).'</a>';
++			$pages[] = '<a'.(empty($pages) ? ' class="first-item" ' : '').' href="'.forum_sublink($link, $forum_url_page, $num_pages, $args).'">'.forum_number_format($num_pages).'</a>';
+ 		}
+ 
+ 		// Add a next page link
+ 		if ($num_pages > 1 && !$link_to_all && $cur_page < $num_pages)
+-			$pages[] = '<a'.(empty($pages) ? ' class="first-item" ' : '').' href="'.forum_sublink($link, $forum_url['page'], ($cur_page + 1), $args).'">'.$lang_common['Next'].'</a>';
++			$pages[] = '<a'.(empty($pages) ? ' class="first-item" ' : '').' href="'.forum_sublink($link, $forum_url_page, ($cur_page + 1), $args).'">'.$lang_common['Next'].'</a>';
+ 	}
+ 
+ 	($hook = get_hook('fn_paginate_end')) ? eval($hook) : null;
+@@ -749,7 +759,7 @@
+ 	global $forum_config, $forum_user;
+ 	static $lang_url_replace, $forum_reserved_strings;
+ 
+-	if (!isset($lang_replace))
++	if (!isset($lang_url_replace))
+ 		require FORUM_ROOT.'lang/'.$forum_user['language'].'/url_replace.php';
+ 
+ 	if (!isset($forum_reserved_strings))
+@@ -772,6 +782,8 @@
+ 	foreach ($forum_reserved_strings as $match => $replace)
+ 		if ($str == $match)
+ 			return $replace;
++		else if ($match != '')
++			$str = str_replace($match, $replace, $str);
+ 
+ 	return $str;
+ }
+@@ -937,7 +949,7 @@
+ function get_scheme_packs()
+ {
+   	$schemes = array();
+-	
++
+ 	if($handle = opendir(FORUM_ROOT.'include/url'))
+ 	{
+ 		while (false !== ($dirname = readdir($handle)))
+@@ -959,7 +971,7 @@
+ function get_style_packs()
+ {
+ 	$styles = array();
+-	
++
+ 	if($handle = opendir(FORUM_ROOT.'style'))
+ 	{
+ 		while (false !== ($dirname = readdir($handle)))
+@@ -1457,6 +1469,9 @@
+ 		if ($cur_ban['username'] != '' && utf8_strtolower($forum_user['username']) == utf8_strtolower($cur_ban['username']))
+ 			$is_banned = true;
+ 
++		if ($cur_ban['email'] != '' && $forum_user['email'] == $cur_ban['email'])
++			$is_banned = true;
++
+ 		if ($cur_ban['ip'] != '')
+ 		{
+ 			$cur_ban_ips = explode(' ', $cur_ban['ip']);
+@@ -1539,7 +1554,7 @@
+ 		else
+ 		{
+ 			// If the entry is older than "o_timeout_visit", update last_visit for the user in question, then delete him/her from the online list
+-			if ($cur_user['idle'] != '0')
++			if ($cur_user['logged'] < ($now - $forum_config['o_timeout_visit']))
+ 			{
+ 				$query = array(
+ 					'UPDATE'	=> 'users',
+@@ -2777,15 +2792,10 @@
+ 
+ 
+ 	// START SUBST - <!-- forum_head -->
++
+ 	ob_start();
+ 
+-?>
+-<title><?php echo $lang_common['Maintenance'].$lang_common['Title separator'].forum_htmlencode($forum_config['o_board_title']) ?></title>
+-<link rel="stylesheet" type="text/css" media="screen" href="<?php echo $base_url ?>/style/<?php echo $forum_user['style'] ?>/<?php echo $forum_user['style'].'.css' ?>" />
+-<link rel="stylesheet" type="text/css" media="screen" href="<?php echo $base_url ?>/style/<?php echo $forum_user['style'] ?>/<?php echo $forum_user['style'].'_cs.css' ?>" />
+-<!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="<?php echo $base_url ?>/style/<?php echo $forum_user['style'] ?>/<?php echo $forum_user['style'].'_fix.css' ?>" /><![endif]-->
+-<!--[if IE 7]><link rel="stylesheet" type="text/css" href="<?php echo $base_url ?>/style/<?php echo $forum_user['style'] ?>/<?php echo $forum_user['style'].'_fix7.css' ?>" /><![endif]-->
+-<?php
++	require FORUM_ROOT.'style/'.$forum_user['style'].'/'.$forum_user['style'].'.php';
+ 
+ 	$tpl_temp = forum_trim(ob_get_contents());
+ 	$tpl_maint = str_replace('<!-- forum_head -->', $tpl_temp, $tpl_maint);
+@@ -2797,8 +2807,6 @@
+ 	ob_start();
+ 
+ ?>
+-<div id="brd-maint" class="main basic">
+-
+ 	<div class="main-head">
+ 		<h1 class="hn"><span><?php echo $lang_common['Maintenance mode'] ?></span></h1>
+ 	</div>
+@@ -2807,8 +2815,6 @@
+ 			<?php echo $message."\n" ?>
+ 		</div>
+ 	</div>
+-
+-</div>
+ <?php
+ 
+ 	$tpl_temp = "\t".forum_trim(ob_get_contents());
+@@ -3064,3 +3070,9 @@
+ 
+ 	exit;
+ }
++
++// Check the text is CAPSED
++function check_is_all_caps($text)
++{
++	return (bool)/**/(utf8_strtoupper($text) == $text && utf8_strtolower($text) != $text);
++}
+\ No newline at end of file
+diff -urN punbb-1.3.4/include/parser.php punbb-1.3.5/include/parser.php
+--- punbb-1.3.4/include/parser.php	2009-04-17 12:51:23.000000000 +0000
++++ punbb-1.3.5/include/parser.php	2010-04-02 10:28:23.000000000 +0000
+@@ -44,11 +44,11 @@
+ 		if (strpos($text, '[code]') !== false && strpos($text, '[/code]') !== false)
+ 		{
+ 			list($inside, $outside) = split_text($text, '[code]', '[/code]', $errors);
+-			$text = implode("\0", $outside);
++			$text = implode("\xc1", $outside);
+ 		}
+ 
+ 		// Tidy up lists
+-		$pattern = array('/\[list(?:=([1a\*]))?\]((?>(?:(?!\[list(?:=(?:[1a\*]))\]|\[\/list\]).+?)|(?R))*)\[\/list\]/ems');
++		$pattern = array('%\[list(?:=([1a*]))?+\]((?:(?>.*?(?=\[list(?:=[1a*])?+\]|\[/list\]))|(?R))*)\[/list\]%ise');
+ 		$replace = array('preparse_list_tag(\'$2\', \'$1\', $errors)');
+ 		$text = preg_replace($pattern, $replace, $text);
+ 
+@@ -60,7 +60,7 @@
+ 		// If we split up the message before we have to concatenate it together again (code tags)
+ 		if (isset($inside))
+ 		{
+-			$outside = explode("\0", $text);
++			$outside = explode("\xc1", $text);
+ 			$text = '';
+ 
+ 			$num_tokens = count($outside);
+@@ -520,7 +520,7 @@
+ 
+ 	if (strpos($content,'[list') !== false)
+ 	{
+-		$pattern = array('/\[list(?:=([1a\*]))?\]((?>(?:(?!\[list(?:=(?:[1a\*]))\]|\[\/list\]).+?)|(?R))*)\[\/list\]/ems');
++		$pattern = array('%\[list(?:=([1a*]))?+\]((?:(?>.*?(?=\[list(?:=[1a*])?+\]|\[/list\]))|(?R))*)\[/list\]%ise');
+ 		$replace = array('preparse_list_tag(\'$2\', \'$1\', $errors)');
+ 		$content = preg_replace($pattern, $replace, $content);
+ 	}
+@@ -592,7 +592,7 @@
+ 
+ 	// Ok, not very pretty :-)
+ 	if (!$bbcode)
+-		$link = ($link == '' || $link == $url) ? ((utf8_strlen($url) > 55) ? utf8_substr($url, 0 , 39).' &#133; '.utf8_substr($url, -10) : $url) : stripslashes($link);
++		$link = ($link == '' || $link == $url) ? ((utf8_strlen($url) > 55) ? utf8_substr($url, 0 , 39).' … '.utf8_substr($url, -10) : $url) : stripslashes($link);
+ 
+ 	$return = ($hook = get_hook('ps_handle_url_tag_end')) ? eval($hook) : null;
+ 	if ($return != null)
+@@ -649,7 +649,7 @@
+ 
+ 	if (strpos($content,'[list') !== false)
+ 	{
+-		$pattern = array('/\[list(?:=([1a\*]))?\]((?>(?:(?!\[list(?:=(?:[1a\*]))\]|\[\/list\]).+?)|(?R))*)\[\/list\]/ems');
++		$pattern = array('%\[list(?:=([1a*]))?+\]((?:(?>.*?(?=\[list(?:=[1a*])?+\]|\[/list\]))|(?R))*)\[/list\]%ise');
+ 		$replace = array('handle_list_tag(\'$2\', \'$1\')');
+ 		$content = preg_replace($pattern, $replace, $content);
+ 	}
+@@ -688,7 +688,7 @@
+ 
+ 	if (!$is_signature)
+ 	{
+-		$pattern[] = '/\[list(?:=([1a\*]))?\]((?>(?:(?!\[list(?:=(?:[1a\*]))\]|\[\/list\]).+?)|(?R))*)\[\/list\]/ems';
++		$pattern[] = '%\[list(?:=([1a*]))?+\]((?:(?>.*?(?=\[list(?:=[1a*])?+\]|\[/list\]))|(?R))*)\[/list\]%ise';
+ 		$replace[] = 'handle_list_tag(\'$2\', \'$1\')';
+ 	}
+ 
+@@ -752,7 +752,7 @@
+ {
+ 	$text = ' '.$text;
+ 
+-	$text = preg_replace('#(?<=[\s\]\)])(<)?(\[)?(\()?([\'"]?)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^\s\[]*[^\s.,?!\[;:-]?)?)\4(?(3)(\)))(?(2)(\]))(?(1)(>))(?![^\s]*\[/(?:url|img)\])#ie', 'stripslashes(\'$1$2$3$4\').handle_url_tag(\'$5://$6\', \'$5://$6\', true).stripslashes(\'$4$10$11$12\')', $text);
++	$text = preg_replace('#(?<=[\s\]\)])(<)?(\[)?(\()?([\'"]?)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^\s\[]*[^\s.,?!\[;:-])?)\4(?(3)(\)))(?(2)(\]))(?(1)(>))(?![^\s]*\[/(?:url|img)\])#ie', 'stripslashes(\'$1$2$3$4\').handle_url_tag(\'$5://$6\', \'$5://$6\', true).stripslashes(\'$4$10$11$12\')', $text);
+ 	$text = preg_replace('#(?<=[\s\]\)])(<)?(\[)?(\()?([\'"]?)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^\s\[]*[^\s.,?!\[;:-])?)\4(?(3)(\)))(?(2)(\]))(?(1)(>))(?![^\s]*\[/(?:url|img)\])#ie', 'stripslashes(\'$1$2$3$4\').handle_url_tag(\'$5.$6\', \'$5.$6\', true).stripslashes(\'$4$10$11$12\')', $text);
+ 
+ 	return substr($text, 1);
+@@ -813,7 +813,7 @@
+ 	if (strpos($text, '[code]') !== false && strpos($text, '[/code]') !== false)
+ 	{
+ 		list($inside, $outside) = split_text($text, '[code]', '[/code]', $errors);
+-		$text = implode("\0", $outside);
++		$text = implode("\xc1", $outside);
+ 	}
+ 
+ 	$return = ($hook = get_hook('ps_parse_message_post_split')) ? eval($hook) : null;
+@@ -842,7 +842,7 @@
+ 	// If we split up the message before we have to concatenate it together again (code tags)
+ 	if (isset($inside))
+ 	{
+-		$outside = explode("\0", $text);
++		$outside = explode("\xc1", $text);
+ 		$text = '';
+ 
+ 		$num_tokens = count($outside);
+diff -urN punbb-1.3.4/include/url/Default/forum_urls.php punbb-1.3.5/include/url/Default/forum_urls.php
+--- punbb-1.3.4/include/url/Default/forum_urls.php	2009-04-17 12:51:23.000000000 +0000
++++ punbb-1.3.5/include/url/Default/forum_urls.php	2011-03-15 15:15:48.000000000 +0000
+@@ -79,7 +79,7 @@
+ 	'unstick'						=>	'moderate.php?fid=$1&amp;unstick=$2&amp;csrf_token=$3',
+ 	'moderate_topic'				=>	'moderate.php?fid=$1&amp;tid=$2',
+ 	'admin_index'					=>	'admin/index.php',
+-	'admin_bans'					=>	'admin/bans.php',
++	'admin_bans'					=>	'admin/bans.php?sort_by=1',
+ 	'admin_categories'				=>	'admin/categories.php',
+ 	'admin_censoring'				=>	'admin/censoring.php',
+ 	'admin_extensions_manage'		=>	'admin/extensions.php?section=manage',
+diff -urN punbb-1.3.4/include/url/File_based/forum_urls.php punbb-1.3.5/include/url/File_based/forum_urls.php
+--- punbb-1.3.4/include/url/File_based/forum_urls.php	2009-04-17 12:51:23.000000000 +0000
++++ punbb-1.3.5/include/url/File_based/forum_urls.php	2011-03-15 15:15:48.000000000 +0000
+@@ -81,7 +81,7 @@
+ 	'unstick'						=>	'unstick$1-$2-$3.html',
+ 	'moderate_topic'				=>	'moderate$1-$2.html',
+ 	'admin_index'					=>	'admin/index.php',
+-	'admin_bans'					=>	'admin/bans.php',
++	'admin_bans'					=>	'admin/bans.php?sort_by=1',
+ 	'admin_categories'				=>	'admin/categories.php',
+ 	'admin_censoring'				=>	'admin/censoring.php',
+ 	'admin_extensions_manage'		=>	'admin/extensions.php?section=manage',
+diff -urN punbb-1.3.4/include/url/File_based_(fancy)/forum_urls.php punbb-1.3.5/include/url/File_based_(fancy)/forum_urls.php
+--- punbb-1.3.4/include/url/File_based_(fancy)/forum_urls.php	2009-04-17 12:51:23.000000000 +0000
++++ punbb-1.3.5/include/url/File_based_(fancy)/forum_urls.php	2011-03-15 15:15:48.000000000 +0000
+@@ -82,7 +82,7 @@
+ 	'unstick'						=>	'unstick$1-$2-$3.html',
+ 	'moderate_topic'				=>	'moderate$1-$2.html',
+ 	'admin_index'					=>	'admin/index.php',
+-	'admin_bans'					=>	'admin/bans.php',
++	'admin_bans'					=>	'admin/bans.php?sort_by=1',
+ 	'admin_categories'				=>	'admin/categories.php',
+ 	'admin_censoring'				=>	'admin/censoring.php',
+ 	'admin_extensions_manage'		=>	'admin/extensions.php?section=manage',
+diff -urN punbb-1.3.4/include/url/Folder_based/forum_urls.php punbb-1.3.5/include/url/Folder_based/forum_urls.php
+--- punbb-1.3.4/include/url/Folder_based/forum_urls.php	2009-04-17 12:51:23.000000000 +0000
++++ punbb-1.3.5/include/url/Folder_based/forum_urls.php	2011-03-15 15:15:48.000000000 +0000
+@@ -79,7 +79,7 @@
+ 	'unstick'						=>	'unstick/$1/$2/$3/',
+ 	'moderate_topic'				=>	'moderate/$1/$2/',
+ 	'admin_index'					=>	'admin/index.php',
+-	'admin_bans'					=>	'admin/bans.php',
++	'admin_bans'					=>	'admin/bans.php?sort_by=1',
+ 	'admin_categories'				=>	'admin/categories.php',
+ 	'admin_censoring'				=>	'admin/censoring.php',
+ 	'admin_extensions_manage'		=>	'admin/extensions.php?section=manage',
+diff -urN punbb-1.3.4/include/url/Folder_based_(fancy)/forum_urls.php punbb-1.3.5/include/url/Folder_based_(fancy)/forum_urls.php
+--- punbb-1.3.4/include/url/Folder_based_(fancy)/forum_urls.php	2009-04-17 12:51:23.000000000 +0000
++++ punbb-1.3.5/include/url/Folder_based_(fancy)/forum_urls.php	2011-03-15 15:15:48.000000000 +0000
+@@ -80,7 +80,7 @@
+ 	'unstick'						=>	'unstick/$1/$2/$3/',
+ 	'moderate_topic'				=>	'moderate/$1/$2/',
+ 	'admin_index'					=>	'admin/index.php',
+-	'admin_bans'					=>	'admin/bans.php',
++	'admin_bans'					=>	'admin/bans.php?sort_by=1',
+ 	'admin_categories'				=>	'admin/categories.php',
+ 	'admin_censoring'				=>	'admin/censoring.php',
+ 	'admin_extensions_manage'		=>	'admin/extensions.php?section=manage',
+diff -urN punbb-1.3.4/index.php punbb-1.3.5/index.php
+--- punbb-1.3.4/index.php	2009-04-17 12:51:23.000000000 +0000
++++ punbb-1.3.5/index.php	2010-04-26 13:16:57.000000000 +0000
+@@ -347,7 +347,8 @@
+ ?>
+ <div id="brd-online" class="gen-content">
+ 	<h3 class="hn"><span><?php printf($lang_index['Currently online'], implode($lang_index['Online stats separator'], $forum_page['online_info'])) ?></span></h3>
+-<?php if (!empty($users)): ?>	<p><?php echo implode($lang_index['Online list separator'], $users) ?></p>
++<?php if (!empty($users)): ?>
++	<p><?php echo implode($lang_index['Online list separator'], $users) ?></p>
+ <?php endif; ($hook = get_hook('in_new_online_data')) ? eval($hook) : null; ?>
+ </div>
+ <?php
+diff -urN punbb-1.3.4/lang/English/admin_index.php punbb-1.3.5/lang/English/admin_index.php
+--- punbb-1.3.4/lang/English/admin_index.php	2009-04-17 12:51:23.000000000 +0000
++++ punbb-1.3.5/lang/English/admin_index.php	2011-03-07 17:48:15.000000000 +0000
+@@ -7,7 +7,7 @@
+ 'Alerts'						=>	'Administrator Alerts',
+ 'Check for updates enabled'		=>	'This board is setup to automatically check for updates and hotfixes against the punbb.informer.com updates service.',
+ 'Check for updates manual'		=>	'Check for updates',	// Link text
+-'Copyright message'				=>	'&copy; 2008-2009 <a href="http://punbb.informer.com/">PunBB</a>, partially based on code &copy; 2008-2009 <a href="http://fluxbb.org/">FluxBB</a>',
++'Copyright message'				=>	'&copy; 2008-2011 <a href="http://punbb.informer.com/">PunBB</a>, partially based on code &copy; 2008-2009 <a href="http://fluxbb.org/">FluxBB</a>',
+ 'PunBB version'					=>	'PunBB version',
+ 'Not available'					=>	'Not available',
+ 'Not applicable'				=>	'N/A',
+diff -urN punbb-1.3.4/lang/English/admin_reindex.php punbb-1.3.5/lang/English/admin_reindex.php
+--- punbb-1.3.4/lang/English/admin_reindex.php	2009-04-02 13:49:40.000000000 +0000
++++ punbb-1.3.5/lang/English/admin_reindex.php	2009-09-11 12:54:44.000000000 +0000
+@@ -14,8 +14,8 @@
+ 'Starting post info'		=>	'The post ID to start rebuilding at. The default value is the first available ID in the database. Normally you would not want to change this.',
+ 'Empty index'				=>	'Empty index',
+ 'Empty index info'			=>	'Empty search index before rebuilding (see below).',
+-'Rebuilding index title'	=>	'Rebuilding search index &#8230;',
+-'Rebuilding index'			=>	'Rebuilding index &#8230; This might be a good time to put on some coffee :-)',
++'Rebuilding index title'	=>	'Rebuilding search index…',
++'Rebuilding index'			=>	'Rebuilding index… This might be a good time to put on some coffee :-)',
+ 'Processing post'			=>	'Processing post <strong>%s</strong> in topic <strong>%s</strong>.',
+ 'Javascript redirect'		=>	'JavaScript redirect unsuccessful.',
+ 'Click to continue'			=>	'Click here to continue',
+diff -urN punbb-1.3.4/lang/English/admin_settings.php punbb-1.3.5/lang/English/admin_settings.php
+--- punbb-1.3.4/lang/English/admin_settings.php	2009-03-19 13:05:44.000000000 +0000
++++ punbb-1.3.5/lang/English/admin_settings.php	2011-03-08 14:18:36.000000000 +0000
+@@ -24,7 +24,7 @@
+ 'Setup timeouts'				=>	'Default timeouts and redirect delay',
+ 'Setup timeouts legend'			=>	'Timeout defaults',
+ 'Visit timeout label'			=>	'Visit timeout',
+-'Visit timeout help'			=>	'Seconds idle before last visit data is updated',
++'Visit timeout help'			=>	'Seconds idle before user is logged out',
+ 'Online timeout label'			=>	'Online timeout',
+ 'Online timeout help'			=>	'Seconds idle before being removed from the online users list',
+ 'Redirect time label'			=>	'Redirect wait',
+@@ -51,7 +51,7 @@
+ 'Setup links legend'			=>	'Menu items',
+ 'Enter links label'				=>	'Enter your links',
+ 'Error no board title'			=>	'You must enter a board title.',
+-'Error timeout value'			=>	'The value of "Timeout online" must be smaller than the value of "Timeout visit".',
++'Error timeout value'			=>	'The value of "Online timeout" must be smaller than the value of "Visit timeout".',
+ 
+ 
+ // Features section
+@@ -78,7 +78,7 @@
+ 'Guest posting'					=>	'Guest posting',
+ 'Guest posting label'			=>	'Guests must supply e-mail addresses when posting.',
+ 'User has posted'				=>	'User has posted',
+-'User has posted label'			=>	'Display a dot in front of topics to indicate to a user that they have posted in that topic earlier. Disable if you are experiencing high server load.',
++'User has posted label'			=>	'Display a dot in front of topics to indicate to a user that they have posted in that topic earlier. Disable if you are experiencing high server load. Ignore for SQLite.',
+ 'Topic views'					=>	'Topic views',
+ 'Topic views label'				=>	'Keep track of the number of views a topic has. Disable if you are experiencing high server load in a busy forum.',
+ 'User post count'				=>	'User post count',
+@@ -164,7 +164,7 @@
+ 'Allow form e-mail label'		=>	'Hide e-mail address but allow e-mail via the forum.',
+ 'Disallow form e-mail label'	=>	'Hide e-mail address and disallow e-mail via the forum.',
+ 'Registration rules'			=>	'Forum rules (enable and compose forum rules)',
+-'Registration rules info'		=>	'You may require new users to agree to a set of rules when registering. The rules will always be available through a link in the navigation table at the top of every page. You may enable the use of rules and then compose your rules below.',
++'Registration rules info'		=>	'You may require new users to agree to a set of rules when registering. The rules will always be available through a link in the navigation menu at the top of every page. You may enable the use of rules and then compose your rules below.',
+ 'Registration rules legend'		=>	'Forum rules',
+ 'Require rules'					=>	'Use rules',
+ 'Require rules label'			=>	'Users must agree to forum rules before registering.',
+@@ -196,7 +196,7 @@
+ 
+ // Maintenance section
+ 'Maintenance head'				=>	'Setup maintenance message and activate maintenance mode',
+-'Maintenance mode info'			=>	'<strong>IMPORTANT!</strong> Putting the board into maintenance mode means it will only be available to administrators. This should be used if the board needs to taken down temporarily for maintenance.',
++'Maintenance mode info'			=>	'<strong>IMPORTANT!</strong> Putting the board into maintenance mode means it will only be available to administrators. This should be used if the board needs to be taken down temporarily for maintenance.',
+ 'Maintenance mode warn'			=>	'<strong>WARNING!</strong> DO NOT LOGOUT when the board is in maintenance mode. You will not be able to login again.',
+ 'Maintenance legend'			=>	'Maintenance',
+ 'Maintenance mode'				=>	'Maintenance mode',
+diff -urN punbb-1.3.4/lang/English/admin_users.php punbb-1.3.5/lang/English/admin_users.php
+--- punbb-1.3.4/lang/English/admin_users.php	2008-11-09 17:45:53.000000000 +0000
++++ punbb-1.3.5/lang/English/admin_users.php	2011-03-18 16:36:40.000000000 +0000
+@@ -76,6 +76,7 @@
+ 'Ban admin message'				=>	'One of the selected users is an administrator and can\'t be banned. If you want to ban an administrator, you must first move him/her to any other user group.',
+ 'Users banned'					=>	'Users banned.',
+ 'Mass ban info'					=>	'You may set a message to be displayed to the banned users and set the date their bans are to expire.',
++'Ban settings legend'			=> 	'Ban users',
+ 'Change group head'				=>	'Move the selected users to a new group',
+ 'User groups updated'			=>	'User groups updated.',
+ 'Move users legend'				=>	'Move users',
+diff -urN punbb-1.3.4/lang/English/common.php punbb-1.3.5/lang/English/common.php
+--- punbb-1.3.4/lang/English/common.php	2009-05-20 09:09:23.000000000 +0000
++++ punbb-1.3.5/lang/English/common.php	2011-03-16 08:43:12.000000000 +0000
+@@ -50,7 +50,7 @@
+ 'Unanswered topics title'	=>	'Find topics which have not been replied to.',
+ 'Username'					=>	'Username',
+ 'Registered'				=>	'Registered',
+-'Write message'				=>	'Write message:',
++'Write message'				=>	'Write message',
+ 'Forum'						=>	'Forum',
+ 'Posts'						=>	'Posts',
+ 'Pages'						=>	'Pages',
+@@ -87,6 +87,8 @@
+ 'Info separator'			=>	' ', // e.g. 1 Page | 10 Topics
+ 'Powered by'				=>	'Powered by <strong>%s</strong>, supported by <strong>%s</strong>.',
+ 'Maintenance'				=>	'Maintenance',
++'Installed extension'		=>	'The %s official extension is installed. Copyright &copy; 2003&ndash;2011 <a href="http://punbb.informer.com/">PunBB</a>.',
++'Installed extensions'		=>	'Currently installed <span id="extensions-used" title="%s">%s official extensions</span>. Copyright &copy; 2003&ndash;2011 <a href="http://punbb.informer.com/">PunBB</a>.',
+ 
+ // CSRF confirmation form
+ 'Confirm'					=>	'Confirm',	// Button
+diff -urN punbb-1.3.4/lang/English/install.php punbb-1.3.5/lang/English/install.php
+--- punbb-1.3.4/lang/English/install.php	2009-04-16 09:17:55.000000000 +0000
++++ punbb-1.3.5/lang/English/install.php	2009-06-22 07:25:43.000000000 +0000
+@@ -84,7 +84,6 @@
+ 'Default language help'		=>	'(If you remove a language pack you must update this setting)',
+ 'Default announce heading'	=>	'Sample announcement',
+ 'Default announce message'	=>	'<p>Enter your announcement here.</p>',
+-'Default maint message'		=>	"The forums are temporarily down for maintenance. Please try again in a few minutes.<br />\\n<br />\\n/Administrator",
+ 'Default rules'				=>	'Enter your rules here.',
+ 'Default category name'		=>	'Test category',
+ 'Default forum name'		=>	'Test forum',
+diff -urN punbb-1.3.4/lang/English/mail_templates/welcome.tpl punbb-1.3.5/lang/English/mail_templates/welcome.tpl
+--- punbb-1.3.4/lang/English/mail_templates/welcome.tpl	2008-10-23 07:49:10.000000000 +0000
++++ punbb-1.3.5/lang/English/mail_templates/welcome.tpl	2011-03-10 08:17:54.000000000 +0000
+@@ -1,10 +1,12 @@
+ Subject: Welcome to <board_title>!
+ 
+-Thank you for registering in the forums at <base_url>. Your username on the forums is <username>, as you requested. To complete your registration, you need to set a password for your account.
++Thank you for registering in the forums at <base_url>. Your username on the forums is <username>, as you requested.
++
++To complete your registration, you need to set a password for your account. It must be done in 72 hours, or else your account will be deleted.
+ 
+ To set your password, please visit the following page:
+ <activation_url>
+ 
+--- 
++--
+ <board_mailer>
+-(Do not reply to this message)
+\ No newline at end of file
++(Do not reply to this message)
+diff -urN punbb-1.3.4/lang/English/misc.php punbb-1.3.5/lang/English/misc.php
+--- punbb-1.3.4/lang/English/misc.php	2008-11-26 12:46:21.000000000 +0000
++++ punbb-1.3.5/lang/English/misc.php	2011-03-06 19:42:33.000000000 +0000
+@@ -27,6 +27,8 @@
+ 'Report post'				=>	'Report post',
+ 'Reason'					=>	'Reason',
+ 'Reason help'				=>	'Enter a short reason why you are reporting this post.',
++'Too long reason'			=>	'Your report length is %s bytes. This exceeds the %s bytes limit.',
++'Report errors'				=>	'<strong>Warning!</strong> The following errors must be corrected before your report can be sending:',
+ 
+ // Subscriptions
+ 'Already subscribed'		=>	'You are already subscribed to this topic.',
+diff -urN punbb-1.3.4/lang/English/profile.php punbb-1.3.5/lang/English/profile.php
+--- punbb-1.3.4/lang/English/profile.php	2009-04-09 09:06:21.000000000 +0000
++++ punbb-1.3.5/lang/English/profile.php	2011-03-10 08:17:54.000000000 +0000
+@@ -216,7 +216,7 @@
+ 'Reg complete'				=>	'Registration complete. Logging in and redirecting…',
+ 'Register errors'			=>	'<strong>Warning!</strong> The following errors must be corrected before you can register:',
+ 'E-mail info'				=>	'<strong>Important!</strong> An e-mail will be sent to your new address with an activation link. You must click the link in the e-mail you receive to activate the new address. You must therefore ensure that you enter a valid and current e-mail address.',
+-'Reg e-mail info'			=>	'<strong>Important!</strong> An e-mail with an activation link will be sent to the address you provide. You must click the link in the e-mail in order to activate your new account. You must therefore ensure that you enter a valid and current e-mail address.',
++'Reg e-mail info'			=>	'<strong>Important!</strong> An e-mail with an activation link will be sent to the address you provide. You must click the link in the e-mail in order to activate your new account. It must be done in 72 hours after registration, or else your account will be deleted.',
+ 'Register at'				=>	'Register at %s',
+ 'Register intro'			=>	'Registration enables you to use features not available when browsing the board as a guest. The fields below only make up a small part of all the settings you can alter in your profile. If you have any questions regarding this forum you should ask an administrator. Please complete the form below in order to register.',
+ 'Username'					=>	'Username',
+@@ -253,5 +253,6 @@
+ 'Username too short'		=>	'Usernames must be at least 2 characters long. Please choose another (longer) username.',
+ 'Signature quote/code'		=>	'The quote and code BBCodes are not allowed in signatures.',
+ 'Invalid e-mail'			=>	'The e-mail address you entered is invalid.',
++'Signature quote/code/list'	=>	'Signature may not contain of the text formatting tags (BBCode) [quote], [code] or [list]. Please choose another tags or delete it.',
+ 
+ );
+diff -urN punbb-1.3.4/login.php punbb-1.3.5/login.php
+--- punbb-1.3.4/login.php	2009-04-17 12:51:23.000000000 +0000
++++ punbb-1.3.5/login.php	2011-03-04 16:41:48.000000000 +0000
+@@ -433,7 +433,7 @@
+ <?php ($hook = get_hook('li_login_pre_remember_me_checkbox')) ? eval($hook) : null; ?>
+ 				<div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
+ 					<div class="sf-box checkbox">
+-						<span class="fld-input"><input type="checkbox" id="fld<?php echo ++$forum_page['fld_count'] ?>" name="save_pass" value="1" /></span>
++						<span class="fld-input"><input type="checkbox" id="fld<?php echo ++$forum_page['fld_count'] ?>" name="save_pass" value="1" <?php echo isset($_POST['save_pass']) ? 'checked="checked" ' : '' ?>/></span>
+ 						<label for="fld<?php echo $forum_page['fld_count'] ?>"><span><?php echo $lang_login['Remember me'] ?></span> <?php echo $lang_login['Persistent login'] ?></label>
+ 					</div>
+ 				</div>
+diff -urN punbb-1.3.4/misc.php punbb-1.3.5/misc.php
+--- punbb-1.3.4/misc.php	2009-04-17 12:51:23.000000000 +0000
++++ punbb-1.3.5/misc.php	2011-03-15 15:15:48.000000000 +0000
+@@ -154,6 +154,7 @@
+ 		message($lang_common['No permission']);
+ 
+ 	$recipient_id = intval($_GET['email']);
++	
+ 	if ($recipient_id < 2)
+ 		message($lang_common['Bad request']);
+ 
+@@ -170,7 +171,9 @@
+ 	);
+ 
+ 	($hook = get_hook('mi_email_qr_get_form_email_data')) ? eval($hook) : null;
++
+ 	$result = $forum_db->query_build($query) or error(__FILE__, __LINE__);
++	
+ 	if (!$forum_db->num_rows($result))
+ 		message($lang_common['Bad request']);
+ 
+@@ -179,6 +182,8 @@
+ 	if ($email_setting == 2 && !$forum_user['is_admmod'])
+ 		message($lang_misc['Form e-mail disabled']);
+ 
++	if ($recipient_email == '')
++		message($lang_common['Bad request']);
+ 
+ 	if (isset($_POST['form_sent']))
+ 	{
+@@ -367,6 +372,9 @@
+ 	{
+ 		($hook = get_hook('mi_report_form_submitted')) ? eval($hook) : null;
+ 
++		// Start with a clean slate
++		$errors = array();
++
+ 		// Flood protection
+ 		if ($forum_user['last_email_sent'] != '' && (time() - $forum_user['last_email_sent']) < $forum_user['g_email_flood'] && (time() - $forum_user['last_email_sent']) >= 0)
+ 			message(sprintf($lang_misc['Report flood'], $forum_user['g_email_flood']));
+@@ -376,72 +384,79 @@
+ 		if ($reason == '')
+ 			message($lang_misc['No reason']);
+ 
+-		// Get some info about the topic we're reporting
+-		$query = array(
+-			'SELECT'	=> 't.id, t.subject, t.forum_id',
+-			'FROM'		=> 'posts AS p',
+-			'JOINS'		=> array(
+-				array(
+-					'INNER JOIN'	=> 'topics AS t',
+-					'ON'			=> 't.id=p.topic_id'
+-				)
+-			),
+-			'WHERE'		=> 'p.id='.$post_id
+-		);
+-
+-		($hook = get_hook('mi_report_qr_get_topic_data')) ? eval($hook) : null;
+-		$result = $forum_db->query_build($query) or error(__FILE__, __LINE__);
+-		if (!$forum_db->num_rows($result))
+-			message($lang_common['Bad request']);
+-
+-		list($topic_id, $subject, $forum_id) = $forum_db->fetch_row($result);
+-
+-		($hook = get_hook('mi_report_pre_reports_sent')) ? eval($hook) : null;
+-
+-		// Should we use the internal report handling?
+-		if ($forum_config['o_report_method'] == 0 || $forum_config['o_report_method'] == 2)
++		if (strlen($reason) > FORUM_MAX_POSTSIZE_BYTES)
+ 		{
++			$errors[] = sprintf($lang_misc['Too long reason'], forum_number_format(strlen($reason)), forum_number_format(FORUM_MAX_POSTSIZE_BYTES));
++		}
++
++		if (empty($errors)) {
++			// Get some info about the topic we're reporting
+ 			$query = array(
+-				'INSERT'	=> 'post_id, topic_id, forum_id, reported_by, created, message',
+-				'INTO'		=> 'reports',
+-				'VALUES'	=> $post_id.', '.$topic_id.', '.$forum_id.', '.$forum_user['id'].', '.time().', \''.$forum_db->escape($reason).'\''
++				'SELECT'	=> 't.id, t.subject, t.forum_id',
++				'FROM'		=> 'posts AS p',
++				'JOINS'		=> array(
++					array(
++						'INNER JOIN'	=> 'topics AS t',
++						'ON'			=> 't.id=p.topic_id'
++					)
++				),
++				'WHERE'		=> 'p.id='.$post_id
+ 			);
+ 
+-			($hook = get_hook('mi_report_add_report')) ? eval($hook) : null;
+-			$forum_db->query_build($query) or error(__FILE__, __LINE__);
+-		}
++			($hook = get_hook('mi_report_qr_get_topic_data')) ? eval($hook) : null;
++			$result = $forum_db->query_build($query) or error(__FILE__, __LINE__);
++			if (!$forum_db->num_rows($result))
++				message($lang_common['Bad request']);
+ 
+-		// Should we e-mail the report?
+-		if ($forum_config['o_report_method'] == 1 || $forum_config['o_report_method'] == 2)
+-		{
+-			// We send it to the complete mailing-list in one swoop
+-			if ($forum_config['o_mailing_list'] != '')
++			list($topic_id, $subject, $forum_id) = $forum_db->fetch_row($result);
++
++			($hook = get_hook('mi_report_pre_reports_sent')) ? eval($hook) : null;
++
++			// Should we use the internal report handling?
++			if ($forum_config['o_report_method'] == 0 || $forum_config['o_report_method'] == 2)
+ 			{
+-				$mail_subject = 'Report('.$forum_id.') - \''.$subject.'\'';
+-				$mail_message = 'User \''.$forum_user['username'].'\' has reported the following message:'."\n".forum_link($forum_url['post'], $post_id)."\n\n".'Reason:'."\n".$reason;
++				$query = array(
++					'INSERT'	=> 'post_id, topic_id, forum_id, reported_by, created, message',
++					'INTO'		=> 'reports',
++					'VALUES'	=> $post_id.', '.$topic_id.', '.$forum_id.', '.$forum_user['id'].', '.time().', \''.$forum_db->escape($reason).'\''
++				);
+ 
+-				if (!defined('FORUM_EMAIL_FUNCTIONS_LOADED'))
+-					require FORUM_ROOT.'include/email.php';
++				($hook = get_hook('mi_report_add_report')) ? eval($hook) : null;
++				$forum_db->query_build($query) or error(__FILE__, __LINE__);
++			}
+ 
+-				($hook = get_hook('mi_report_modify_message')) ? eval($hook) : null;
++			// Should we e-mail the report?
++			if ($forum_config['o_report_method'] == 1 || $forum_config['o_report_method'] == 2)
++			{
++				// We send it to the complete mailing-list in one swoop
++				if ($forum_config['o_mailing_list'] != '')
++				{
++					$mail_subject = 'Report('.$forum_id.') - \''.$subject.'\'';
++					$mail_message = 'User \''.$forum_user['username'].'\' has reported the following message:'."\n".forum_link($forum_url['post'], $post_id)."\n\n".'Reason:'."\n".$reason;
++
++					if (!defined('FORUM_EMAIL_FUNCTIONS_LOADED'))
++						require FORUM_ROOT.'include/email.php';
+ 
+-				forum_mail($forum_config['o_mailing_list'], $mail_subject, $mail_message);
++					($hook = get_hook('mi_report_modify_message')) ? eval($hook) : null;
++
++					forum_mail($forum_config['o_mailing_list'], $mail_subject, $mail_message);
++				}
+ 			}
+-		}
+ 
+-		// Set last_email_sent time to prevent flooding
+-		$query = array(
+-			'UPDATE'	=> 'users',
+-			'SET'		=> 'last_email_sent='.time(),
+-			'WHERE'		=> 'id='.$forum_user['id']
+-		);
++			// Set last_email_sent time to prevent flooding
++			$query = array(
++				'UPDATE'	=> 'users',
++				'SET'		=> 'last_email_sent='.time(),
++				'WHERE'		=> 'id='.$forum_user['id']
++			);
+ 
+-		($hook = get_hook('mi_report_qr_update_last_email_sent')) ? eval($hook) : null;
+-		$forum_db->query_build($query) or error(__FILE__, __LINE__);
++			($hook = get_hook('mi_report_qr_update_last_email_sent')) ? eval($hook) : null;
++			$forum_db->query_build($query) or error(__FILE__, __LINE__);
+ 
+-		($hook = get_hook('mi_report_pre_redirect')) ? eval($hook) : null;
++			($hook = get_hook('mi_report_pre_redirect')) ? eval($hook) : null;
+ 
+-		redirect(forum_link($forum_url['post'], $post_id), $lang_misc['Report redirect']);
++			redirect(forum_link($forum_url['post'], $post_id), $lang_misc['Report redirect']);
++		}
+ 	}
+ 
+ 	// Setup form
+@@ -480,6 +495,25 @@
+ 		<div id="req-msg" class="req-warn ct-box error-box">
+ 			<p class="important"><?php printf($lang_common['Required warn'], '<em>'.$lang_common['Required'].'</em>') ?></p>
+ 		</div>
++<?php
++		// If there were any errors, show them
++		if (!empty($errors)) {
++			$forum_page['errors'] = array();
++			foreach ($errors as $cur_error) {
++				$forum_page['errors'][] = '<li class="warn"><span>'.$cur_error.'</span></li>';
++			}
++
++			($hook = get_hook('mi_pre_report_errors')) ? eval($hook) : null;
++?>
++		<div class="ct-box error-box">
++			<h2 class="warn hn"><?php echo $lang_misc['Report errors'] ?></h2>
++			<ul class="error-list">
++				<?php echo implode("\n\t\t\t\t", $forum_page['errors'])."\n" ?>
++			</ul>
++		</div>
++<?php
++		}
++?>
+ 		<form id="afocus" class="frm-form" method="post" accept-charset="utf-8" action="<?php echo $forum_page['form_action'] ?>">
+ 			<div class="hidden">
+ 				<?php echo implode("\n\t\t\t\t", $forum_page['hidden_fields'])."\n" ?>
+diff -urN punbb-1.3.4/moderate.php punbb-1.3.5/moderate.php
+--- punbb-1.3.4/moderate.php	2009-04-17 12:51:23.000000000 +0000
++++ punbb-1.3.5/moderate.php	2009-11-11 10:55:40.000000000 +0000
+@@ -63,7 +63,7 @@
+ 
+ // Get some info about the forum we're moderating
+ $query = array(
+-	'SELECT'	=> 'f.forum_name, f.redirect_url, f.num_topics, f.moderators',
++	'SELECT'	=> 'f.forum_name, f.redirect_url, f.num_topics, f.moderators, f.sort_by',
+ 	'FROM'		=> 'forums AS f',
+ 	'JOINS'		=> array(
+ 		array(
+@@ -1433,7 +1433,7 @@
+ 	'SELECT'	=> 't.id, t.poster, t.subject, t.posted, t.last_post, t.last_post_id, t.last_poster, t.num_views, t.num_replies, t.closed, t.sticky, t.moved_to',
+ 	'FROM'		=> 'topics AS t',
+ 	'WHERE'		=> 'forum_id='.$fid,
+-	'ORDER BY'	=> 't.sticky DESC, last_post DESC',
++	'ORDER BY'	=> 't.sticky DESC, '.(($cur_forum['sort_by'] == '1') ? 't.posted' : 't.last_post').' DESC',
+ 	'LIMIT'		=>	$forum_page['start_from'].', '.$forum_user['disp_topics']
+ );
+ 
+diff -urN punbb-1.3.4/post.php punbb-1.3.5/post.php
+--- punbb-1.3.4/post.php	2009-05-15 11:25:04.000000000 +0000
++++ punbb-1.3.5/post.php	2011-03-07 20:13:25.000000000 +0000
+@@ -124,7 +124,7 @@
+ 			$errors[] = $lang_post['No subject'];
+ 		else if (utf8_strlen($subject) > 70)
+ 			$errors[] = $lang_post['Too long subject'];
+-		else if ($forum_config['p_subject_all_caps'] == '0' && utf8_strtoupper($subject) == $subject && !$forum_page['is_admmod'])
++		else if ($forum_config['p_subject_all_caps'] == '0' && check_is_all_caps($subject) && !$forum_page['is_admmod'])
+ 			$errors[] = $lang_post['All caps subject'];
+ 	}
+ 
+@@ -168,7 +168,7 @@
+ 
+ 	if (strlen($message) > FORUM_MAX_POSTSIZE_BYTES)
+ 		$errors[] = sprintf($lang_post['Too long message'], forum_number_format(strlen($message)), forum_number_format(FORUM_MAX_POSTSIZE_BYTES));
+-	else if ($forum_config['p_message_all_caps'] == '0' && utf8_strtoupper($message) == $message && !$forum_page['is_admmod'])
++	else if ($forum_config['p_message_all_caps'] == '0' && check_is_all_caps($message) && !$forum_page['is_admmod'])
+ 		$errors[] = $lang_post['All caps message'];
+ 
+ 	// Validate BBCode syntax
+diff -urN punbb-1.3.4/profile.php punbb-1.3.5/profile.php
+--- punbb-1.3.4/profile.php	2009-05-20 09:08:28.000000000 +0000
++++ punbb-1.3.5/profile.php	2011-03-11 18:46:44.000000000 +0000
+@@ -336,7 +336,7 @@
+ 			<fieldset class="frm-group group<?php echo ++$forum_page['group_count'] ?>">
+ 				<legend class="group-legend"><strong><?php echo $lang_common['Required information'] ?></strong></legend>
+ <?php ($hook = get_hook('pf_change_pass_normal_pre_old_password')) ? eval($hook) : null; ?>
+-<?php if (!$forum_user['is_admmod']): ?>
++<?php if (!$forum_user['is_admmod'] || $forum_user['id'] == $id): ?>
+ 				<div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
+ 					<div class="sf-box text required">
+ 						<label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_profile['Old password'] ?> <em><?php echo $lang_common['Required'] ?></em></span> <small><?php echo $lang_profile['Old password help'] ?></small></label><br />
+@@ -957,9 +957,15 @@
+ 			$form['dst'] = (isset($form['dst'])) ? 1 : 0;
+ 			$form['time_format'] = (isset($form['time_format'])) ? intval($form['time_format']) : 0;
+ 			$form['date_format'] = (isset($form['date_format'])) ? intval($form['date_format']) : 0;
++			$form['timezone'] = (isset($form['timezone'])) ? floatval($form['timezone']) : $forum_config['o_default_timezone'];
++
++			// Validate timezone
++			if (($form['timezone'] > 14.0) || ($form['timezone'] < -12.0)) {
++				message($lang_common['Bad request']);
++			}
+ 
+ 			$form['email_setting'] = intval($form['email_setting']);
+-			if ($form['email_setting'] < 0 && $form['email_setting'] > 2) $form['email_setting'] = 1;
++			if ($form['email_setting'] < 0 || $form['email_setting'] > 2) $form['email_setting'] = 1;
+ 
+ 			if ($forum_config['o_subscriptions'] == '1')
+ 			{
+@@ -1012,7 +1018,7 @@
+ 			if (substr_count($form['signature'], "\n") > ($forum_config['p_sig_lines'] - 1))
+ 				$errors[] = sprintf($lang_profile['Sig too many lines'], forum_number_format($forum_config['p_sig_lines']));
+ 
+-			if ($form['signature'] != '' && $forum_config['p_sig_all_caps'] == '0' && utf8_strtoupper($form['signature']) == $form['signature'] && !$forum_user['is_admmod'])
++			if ($form['signature'] != '' && $forum_config['p_sig_all_caps'] == '0' && check_is_all_caps($form['signature']) && !$forum_user['is_admmod'])
+ 				$form['signature'] = utf8_ucwords(utf8_strtolower($form['signature']));
+ 
+ 			// Validate BBCode syntax
+@@ -1828,14 +1834,14 @@
+ 				<div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
+ 					<div class="sf-box text">
+ 						<label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_profile['Website'] ?></span></label><br />
+-						<span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[url]" value="<?php echo(isset($form['url']) ? forum_htmlencode($form['url']) : forum_htmlencode($user['url'])) ?>" size="50" maxlength="80" /></span>
++						<span class="fld-input"><input type="text" id="fld<?php echo $forum_page['fld_count'] ?>" name="form[url]" value="<?php echo(isset($form['url']) ? forum_htmlencode($form['url']) : forum_htmlencode($user['url'])) ?>" size="35" maxlength="80" /></span>
+ 					</div>
+ 				</div>
+ <?php ($hook = get_hook('pf_change_details_identity_pre_jabber')) ? eval($hook) : null; ?>
+ 				<div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
+ 					<div class="sf-box text">
+ 						<label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_profile['Jabber'] ?></span></label><br />
+-						<span class="fld-input"><input id="fld<?php echo $forum_page['fld_count'] ?>" type="text" name="form[jabber]" value="<?php echo(isset($form['jabber']) ? forum_htmlencode($form['jabber']) : forum_htmlencode($user['jabber'])) ?>" size="40" maxlength="80" /></span>
++						<span class="fld-input"><input id="fld<?php echo $forum_page['fld_count'] ?>" type="text" name="form[jabber]" value="<?php echo(isset($form['jabber']) ? forum_htmlencode($form['jabber']) : forum_htmlencode($user['jabber'])) ?>" size="35" maxlength="80" /></span>
+ 					</div>
+ 				</div>
+ <?php ($hook = get_hook('pf_change_details_identity_pre_icq')) ? eval($hook) : null; ?>
+@@ -1849,7 +1855,7 @@
+ 				<div class="sf-set set<?php echo ++$forum_page['item_count'] ?>">
+ 					<div class="sf-box text">
+ 						<label for="fld<?php echo ++$forum_page['fld_count'] ?>"><span><?php echo $lang_profile['MSN'] ?></span></label><br />
+-						<span class="fld-input"><input id="fld<?php echo $forum_page['fld_count'] ?>" type="text" name="form[msn]" value="<?php echo(isset($form['msn']) ? forum_htmlencode($form['msn']) : forum_htmlencode($user['msn'])) ?>" size="40" maxlength="80" /></span>
++						<span class="fld-input"><input id="fld<?php echo $forum_page['fld_count'] ?>" type="text" name="form[msn]" value="<?php echo(isset($form['msn']) ? forum_htmlencode($form['msn']) : forum_htmlencode($user['msn'])) ?>" size="35" maxlength="80" /></span>
+ 					</div>
+ 				</div>
+ <?php ($hook = get_hook('pf_change_details_identity_pre_aim')) ? eval($hook) : null; ?>
+@@ -2256,7 +2262,7 @@
+ 		$forum_page['crumbs'] = array(
+ 			array($forum_config['o_board_title'], forum_link($forum_url['index'])),
+ 			array(sprintf($lang_profile['Users profile'], $user['username']), forum_link($forum_url['user'], $id)),
+-			array($lang_profile['Section signature'],forum_link($forum_url['profile_signature'], $id))
++			array($lang_profile['Section signature'], forum_link($forum_url['profile_signature'], $id))
+ 		);
+ 
+ 		// Setup the form
+diff -urN punbb-1.3.4/register.php punbb-1.3.5/register.php
+--- punbb-1.3.4/register.php	2009-04-17 12:51:23.000000000 +0000
++++ punbb-1.3.5/register.php	2011-03-10 07:44:00.000000000 +0000
+@@ -163,6 +163,14 @@
+ 		if ($banned_email && $forum_config['p_allow_banned_email'] == '0')
+ 			$errors[] = $lang_profile['Banned e-mail'];
+ 
++		// Clean old unverified registrators - delete older than 72 hours
++		$query = array(
++			'DELETE'	=> 'users',
++			'WHERE'		=> 'group_id='.FORUM_UNVERIFIED.' AND activate_key IS NOT NULL AND registered < '.(time() - 259200)
++		);
++		($hook = get_hook('rg_register_qr_delete_unverified')) ? eval($hook) : null;
++		$forum_db->query_build($query) or error(__FILE__, __LINE__);
++
+ 		// Check if someone else already has registered with that e-mail address
+ 		$dupe_list = array();
+ 
+diff -urN punbb-1.3.4/search.php punbb-1.3.5/search.php
+--- punbb-1.3.4/search.php	2009-04-17 12:51:23.000000000 +0000
++++ punbb-1.3.5/search.php	2009-11-05 08:46:18.000000000 +0000
+@@ -533,25 +533,29 @@
+ ($hook = get_hook('se_qr_get_cats_and_forums')) ? eval($hook) : null;
+ $result = $forum_db->query_build($query) or error(__FILE__, __LINE__);
+ 
+-$cur_category = 0;
+-while ($cur_forum = $forum_db->fetch_assoc($result))
++if ($forum_db->num_rows($result) > 0)
+ {
+-	($hook = get_hook('se_forum_loop_start')) ? eval($hook) : null;
+-
+-	if ($cur_forum['cid'] != $cur_category)	// A new category since last iteration?
++	$cur_category = 0;
++	while ($cur_forum = $forum_db->fetch_assoc($result))
+ 	{
+-		if ($cur_category)
+-			echo "\t\t\t\t\t\t\t".'</fieldset>'."\n";
++		($hook = get_hook('se_forum_loop_start')) ? eval($hook) : null;
++
++		if ($cur_forum['cid'] != $cur_category)	// A new category since last iteration?
++		{
++			if ($cur_category)
++				echo "\t\t\t\t\t\t\t".'</fieldset>'."\n";
++
++			echo "\t\t\t\t\t\t\t".'<fieldset>'."\n\t\t\t\t\t\t\t\t".'<legend><span>'.forum_htmlencode($cur_forum['cat_name']).':</span></legend>'."\n";
++			$cur_category = $cur_forum['cid'];
++		}
+ 
+-		echo "\t\t\t\t\t\t\t".'<fieldset>'."\n\t\t\t\t\t\t\t\t".'<legend><span>'.forum_htmlencode($cur_forum['cat_name']).':</span></legend>'."\n";
+-		$cur_category = $cur_forum['cid'];
++		echo "\t\t\t\t\t\t\t\t".'<div class="checklist-item"><span class="fld-input"><input type="checkbox" id="fld'.(++$forum_page['fld_count']).'"  name="forum[]" value="'.$cur_forum['fid'].'" /></span> <label for="fld'.$forum_page['fld_count'].'">'.forum_htmlencode($cur_forum['forum_name']).'</label></div>'."\n";
+ 	}
+ 
+-	echo "\t\t\t\t\t\t\t\t".'<div class="checklist-item"><span class="fld-input"><input type="checkbox" id="fld'.(++$forum_page['fld_count']).'"  name="forum[]" value="'.$cur_forum['fid'].'" /></span> <label for="fld'.$forum_page['fld_count'].'">'.forum_htmlencode($cur_forum['forum_name']).'</label></div>'."\n";
++	echo "\t\t\t\t\t\t\t".'</fieldset>'."\n";
+ }
+ 
+ ?>
+-							</fieldset>
+ 						</div>
+ 					</div>
+ <?php ($hook = get_hook('se_pre_forum_fieldset_end')) ? eval($hook) : null; ?>
+diff -urN punbb-1.3.4/style/Oxygen/Oxygen.css punbb-1.3.5/style/Oxygen/Oxygen.css
+--- punbb-1.3.4/style/Oxygen/Oxygen.css	2009-04-17 12:23:47.000000000 +0000
++++ punbb-1.3.5/style/Oxygen/Oxygen.css	2011-03-15 15:15:48.000000000 +0000
+@@ -597,6 +597,9 @@
+ 	border-bottom: none;
+ 	}
+ 
++#brd-admin-bans #brd-pagepost-end {
++	margin-top: -1em;
++	}
+ .brd .paging {
+ 	float: left;
+ 	}
+@@ -638,7 +641,7 @@
+ 	font-weight: normal;
+ 	}
+ 
+-.brd .crumbs span, .brd crumbs span * {
++.brd .crumbs span, .brd .crumbs span * {
+ 	white-space: nowrap;
+ 	}
+ 
+@@ -716,14 +719,14 @@
+ 
+ #extensions-used {
+ 	border-bottom: 1px dotted;
+-}
++	}
+ 
+ /* Main and Content Options
+ -------------------------------------------------------------*/
+ 
+ .brd p.options {
+ 	border-top: none;
+-	float:right;
++	float: right;
+ 	}
+ 
+ .brd .main-modoptions .options {
+@@ -845,11 +848,11 @@
+ 	}
+ 
+ .brd .main-content .main-item .hn .item-status {
+-	font-weight:normal;
++	font-weight: normal;
+ 	}
+ 
+ .brd .main-content .main-item .hn .item-status em {
+-	font-style:normal;
++	font-style: normal;
+ 	}
+ 
+ .brd .main-content .main-item .item-subject,
+@@ -1207,7 +1210,7 @@
+ 	}
+ 
+ .brd .mf-set .mf-yesno .mf-item {
+-	width: 10em;
++	width: 11em;
+ 	float: left;
+ 	}
+ 
+@@ -1278,6 +1281,12 @@
+ 	text-align:left;
+ 	}
+ 
++.brd .checklist legend span {
++	width: auto;
++	max-width: 25em;
++	}
++
++
+ .brd .checklist .checklist-item {
+ 	position: relative;
+ 	height: auto;
+@@ -1288,7 +1297,6 @@
+ 	padding: 0 0 0 2.25em;
+ 	float: none;
+ 	height: 100%;
+-	background-color: #fff;
+ 	}
+ 
+ .brd .checklist .checklist-item .fld-input {
+@@ -1329,7 +1337,7 @@
+ 	text-align: left;
+ 	position: relative;
+ 	margin: 0 1em 0 -1px;
+-	padding: 2px 1em;
++	padding: 2px 1.25em;
+ 	font-size: 0.917em;
+ 	z-index: 100;
+ 	}
+@@ -1367,11 +1375,11 @@
+ 	width: 100%;
+ 	position: relative;
+ 	}
+-
+-.brd .txt-set .required label span em {
+-	margin-bottom: -1.2em;
++	
++.brd .txt-set .required label span em { 
++	margin-bottom: -1.2em; 
+ 	}
+-
++	 
+ .brd .req-error {
+ 	display: block;
+ 	}
+diff -urN punbb-1.3.4/style/Oxygen/Oxygen.php punbb-1.3.5/style/Oxygen/Oxygen.php
+--- punbb-1.3.4/style/Oxygen/Oxygen.php	2008-10-25 15:27:40.000000000 +0000
++++ punbb-1.3.5/style/Oxygen/Oxygen.php	2011-03-16 08:31:13.000000000 +0000
+@@ -1,4 +1,5 @@
+ <link rel="stylesheet" type="text/css" media="screen" href="<?php echo $base_url.'/style/'.$forum_user['style'] ?>/Oxygen.css" />
+ <link rel="stylesheet" type="text/css" media="screen" href="<?php echo $base_url.'/style/'.$forum_user['style'] ?>/Oxygen_cs.css" />
+ <!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="<?php echo $base_url.'/style/'.$forum_user['style'] ?>/Oxygen_ie6.css" /><![endif]-->
+-<!--[if IE 7]><link rel="stylesheet" type="text/css" href="<?php echo $base_url.'/style/'.$forum_user['style'] ?>/Oxygen_ie7.css" /><![endif]-->
+\ No newline at end of file
++<!--[if IE 7]><link rel="stylesheet" type="text/css" href="<?php echo $base_url.'/style/'.$forum_user['style'] ?>/Oxygen_ie7.css" /><![endif]-->
++<!--[if IE 8]><link rel="stylesheet" type="text/css" href="<?php echo $base_url.'/style/'.$forum_user['style'] ?>/Oxygen_ie8.css" /><![endif]-->
+\ No newline at end of file
+diff -urN punbb-1.3.4/style/Oxygen/Oxygen_cs.css punbb-1.3.5/style/Oxygen/Oxygen_cs.css
+--- punbb-1.3.4/style/Oxygen/Oxygen_cs.css	2009-04-17 12:23:47.000000000 +0000
++++ punbb-1.3.5/style/Oxygen/Oxygen_cs.css	2010-04-26 13:16:57.000000000 +0000
+@@ -182,6 +182,10 @@
+ 	background: #f4f4f4;
+ 	}
+ 
++.brd .help-box .hn {
++	color: #294F6E
++	}
++
+ .brd .frm-buttons, .brd .extension .options, .brd .hotfix .options {
+ 	border-color: #DBE0E4;
+ 	}
+@@ -356,7 +360,7 @@
+ 
+ #extensions-used {
+ 	border-bottom-color: #999;
+-}
++	}
+ 
+ 
+ /* Status indicators
+@@ -378,7 +382,7 @@
+ 	border-color: #ACACAC #979797 #898989 #7A7A7A;
+ 	}
+ 
+-.brd .main-content .sticky .closed .icon {
++.brd .main-content .sticky.closed .icon {
+ 	border-color: #D7E5F3 #C3CFDC #898989 #7A7A7A;
+ 	}
+ 
+@@ -390,6 +394,10 @@
+ /* Multi Checkbox Widget
+ -------------------------------------------------------------*/
+ 
++.brd .checklist .checklist-item label {
++	background: #fff;
++	}
++
+ .brd .checklist .checklist-item label:hover {
+ 	background: #EDF1F5;
+ 	}
+diff -urN punbb-1.3.4/style/Oxygen/Oxygen_ie6.css punbb-1.3.5/style/Oxygen/Oxygen_ie6.css
+--- punbb-1.3.4/style/Oxygen/Oxygen_ie6.css	2009-04-17 12:23:47.000000000 +0000
++++ punbb-1.3.5/style/Oxygen/Oxygen_ie6.css	2009-09-16 10:05:48.000000000 +0000
+@@ -85,10 +85,6 @@
+ /* Fix for index.php: no backgroud for the first main-head. */
+ .brd #brd-index .main-head { position: relative; }
+ 
+-.brd .main-content .main-item .hn .posted-mark {
+-	left: 0.2em;
+-	}
+-
+ /* Footer
+ -------------------------------------------------------------*/
+ 
+diff -urN punbb-1.3.4/style/Oxygen/Oxygen_ie8.css punbb-1.3.5/style/Oxygen/Oxygen_ie8.css
+--- punbb-1.3.4/style/Oxygen/Oxygen_ie8.css	1970-01-01 00:00:00.000000000 +0000
++++ punbb-1.3.5/style/Oxygen/Oxygen_ie8.css	2011-03-16 08:31:13.000000000 +0000
+@@ -0,0 +1,8 @@
++/*************************************************************
++IE8 - FIXES
++**************************************************************/
++/* Forms
++-------------------------------------------------------------*/
++.brd .txt-set .required label span em {
++	margin-bottom: 0;
++	}
+diff -urN punbb-1.3.4/viewforum.php punbb-1.3.5/viewforum.php
+--- punbb-1.3.4/viewforum.php	2009-04-17 12:51:23.000000000 +0000
++++ punbb-1.3.5/viewforum.php	2010-04-27 11:37:49.000000000 +0000
+@@ -220,10 +220,11 @@
+ 
+ 			($hook = get_hook('vf_topic_loop_moved_topic_pre_item_subject_merge')) ? eval($hook) : null;
+ 
++			$forum_page['item_body']['info']['replies'] = '<li class="info-replies"><span class="label">'.$lang_forum['No replies info'].'</span></li>';
++
+ 			if ($forum_config['o_topic_views'] == '1')
+ 				$forum_page['item_body']['info']['views'] = '<li class="info-views"><span class="label">'.$lang_forum['No views info'].'</span></li>';
+ 
+-			$forum_page['item_body']['info']['replies'] = '<li class="info-replies"><span class="label">'.$lang_forum['No replies info'].'</span></li>';
+ 			$forum_page['item_body']['info']['lastpost'] = '<li class="info-lastpost"><span class="label">'.$lang_forum['No lastpost info'].'</span></li>';
+ 		}
+ 		else
+diff -urN punbb-1.3.4/viewtopic.php punbb-1.3.5/viewtopic.php
+--- punbb-1.3.4/viewtopic.php	2009-04-17 12:51:23.000000000 +0000
++++ punbb-1.3.5/viewtopic.php	2011-03-15 16:47:47.000000000 +0000
+@@ -259,7 +259,7 @@
+ <?php
+ 
+ 	if (!empty($forum_page['main_head_options']))
+-		echo "\n\t\t".'<p class="options">'.implode(' ', $forum_page['main_head_options']).'</p>';
++		echo "\t\t".'<p class="options">'.implode(' ', $forum_page['main_head_options']).'</p>'."\n";
+ 
+ ?>
+ 		<h2 class="hn"><span><?php echo $forum_page['items_info'] ?></span></h2>
+@@ -408,7 +408,7 @@
+ 			}
+ 			else
+ 			{
+-				if ($cur_post['poster_email'] != '' && !$forum_user['is_guest'] && $forum_user['g_send_email'] == '1')
++				if ($cur_post['poster_email'] != '' && $forum_user['is_admmod'] && $forum_user['g_send_email'] == '1')
+ 					$forum_page['post_contacts']['email'] = '<span class="user-email'.(empty($forum_page['post_contacts']) ? ' first-item' : '').'"><a href="mailto:'.forum_htmlencode($cur_post['poster_email']).'">'.$lang_topic['E-mail'].'<span>&#160;'.forum_htmlencode($cur_post['username']).'</span></a></span>';
+ 			}
+ 		}

@@ -1,0 +1,24 @@
+/* Styles for pun_spoiler_bbcode extension */
+div#spoiler-container{
+	border: 1px dotted gray;
+	padding: 4px;
+	color: #333333;
+}
+span#spoiler-button{
+	background-color: #4a566e;
+	border-left: 1px solid #79859d;
+	border-top: 1px solid #79859d;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+	color: white;
+	padding: 2px;
+	font-size: 0.8em;
+	cursor: pointer;
+}
+div#spoiler-hidebox{
+	margin-top: 4px;
+	border-top: 1px dotted gray;
+	font: 90%;
+	color: #333333;
+	display: none;
+}
