@@ -1,0 +1,85 @@
+/* DEFAULT CSS */
+a{ color:#de2501; }
+a:hover{ color:#FFF; }
+#header{border-top:8px solid #de2501;}
+#top_menu ul li a:hover{color:#de2501;}
+#footer{border-bottom:8px solid #de2501;}
+#footer .gotop{background:#de2501 url(gotop.png) no-repeat 50% 50%;}
+.readmore{ background:#de2501; color:#FFF; font-weight:bold;}
+.blog_entry h4{
+	border-color:#de2501;
+}
+.underlined_title{
+	border:1px solid; border-width:0 0 1px 0;
+	border-color:#de2501;
+	padding:0 0 8px 0; margin:0 0 8px 0;
+	text-transform:uppercase;
+}
+a.selected  { /*--Makes sure that the active tab does not listen to the hover properties--*/
+	background: #de2501 !important;
+	color:#FFF !important;
+	border-bottom: 1px solid #181818;
+}
+
+ul.tabs li a:hover {
+	background: #de2501;
+	color:#FFF !important;
+	border-bottom: 1px solid #181818;
+}
+
+    
+.accordion .over {
+    background: #de2501;
+	color:#FFF;
+    }
+	.accordion .on {
+    background: #de2501;
+	color:#FFF;
+    }
+
+	#comments{
+		background:#181818; border-top:5px solid #de2501;
+	}
+	
+	.authcomment {
+		border:1px solid #de2501;
+	}
+	
+.paging a.active {
+	background: #de2501;
+	color:#FFF;
+}
+
+.filter_list li a:hover{ background:#de2501; color:#FFF !important;}
+.filter_list li a.current{ background:#de2501; color:#FFF !important;}
+a.zoom{
+	background:#de2501 url(zoom.png) no-repeat 50% 50%;
+}
+a.zooming{
+	background:#de2501 url(zoom.png) no-repeat 50% 50%;
+}
+
+	div.pagination a {
+		background:#222;
+		color:#FFF;
+	}
+	div.pagination a:hover,active {
+		background:#de2501;
+		color:#FFF;
+	}
+	#paginator_folio div.pagination a {
+		background:#222;
+		color:#FFF;
+	}
+	#paginator_folio div.pagination a:hover,active {
+		background:#222;
+		color:#de2501;
+	}
+	div.pagination span.desactive {
+		background:#222;
+		color: #444;
+	}
+	div.pagination span.courante {
+		background:#de2501;
+		color:#FFF;
+	}
